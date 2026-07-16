@@ -70,11 +70,55 @@ function toggleCategory(category) {
 // --- FILTRE UNIQUE POUR LES TRANSPORTS ---
 function toggleTransport() {
     const checkBox = document.getElementById("chk-transport");
+    const selectFiltre = document.getElementById("select-type-transport");
+
     if (checkBox.checked) {
-        map.addLayer(rtcLinesGroup);
+        // 1. Réactiver le menu déroulant visuellement
+        selectFiltre.disabled = false;
+        
+        // 2. Relancer le filtre pour afficher ce qui est sélectionné dans le menu
+        filtrerLesLignes(selectFiltre.value);
     } else {
-        map.removeLayer(rtcLinesGroup);
+        // 1. Désactiver le menu déroulant (il devient gris et inutilisable)
+        selectFiltre.disabled = true;
+        
+        // 2. Effacer absolument toutes les lignes de la carte
+        rtcLinesGroup.clearLayers();
     }
+}
+
+// Fonction unique qui s'occupe de filtrer et dessiner
+function filtrerLesLignes(choix) {
+    if (!rtcData) return; // Sécurité si le fichier n'est pas encore chargé
+
+    if (choix === 'tous') {
+        mettreAJourCarte(rtcData.features);
+        return;
+    }
+
+    const featuresFiltrees = rtcData.features.filter(feature => {
+        const parcours = String(feature.properties.Parcours);
+        const type = String(feature.properties.Type).toLowerCase();
+
+        if (choix === 'metrobus') {
+            return parcours.startsWith('80');
+        } else if (choix === 'express') {
+            return parcours.startsWith('50') || type.includes('express');
+        } else if (choix === 'regulier') {
+            return !parcours.startsWith('80') && !parcours.startsWith('50') && !type.includes('express');
+        }
+        return true;
+    });
+
+    mettreAJourCarte(featuresFiltrees);
+}
+
+// Écouteur sur le menu déroulant
+const selectFiltre = document.getElementById('select-type-transport');
+if (selectFiltre) {
+    selectFiltre.addEventListener('change', function(e) {
+        filtrerLesLignes(e.target.value);
+    });
 }
 
 // --- INITIALISATION DE LA CARTE ---
@@ -115,23 +159,18 @@ function initMap() {
 
     // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) ---
     // 1. Charger le fichier GeoJSON
-    // On crée un groupe global pour stocker nos lignes de bus
     const rtcLinesGroup = L.featureGroup().addTo(map);
-    let rtcData = null; // Contiendra nos données brutes pour pouvoir filtrer à la volée
+    let rtcData = null; // Contiendra nos données en mémoire
 
-    // 1. Charger le fichier GeoJSON
+    // Charger le fichier GeoJSON
     fetch('data/rtc-lignes.geojson')
         .then(response => response.json())
         .then(data => {
-            rtcData = data; // On garde les données en mémoire globale
+            rtcData = data; // On stocke les données en mémoire globale
             
-            // Initialiser la carte en affichant toutes les lignes au départ
-            mettreAJourCarte(rtcData.features);
-            
-            // Ajuster automatiquement le zoom sur les lignes
-            if (rtcLinesGroup.getBounds().isValid()) {
-                map.fitBounds(rtcLinesGroup.getBounds());
-            }
+            // ⚠️ IMPORTANT : On NE lance PLUS "mettreAJourCarte()" ici !
+            // Les données sont prêtes en arrière-plan, mais rien ne s'affiche tant qu'on ne coche pas la case.
+            console.log("Données RTC prêtes et chargées en mémoire !");
         })
         .catch(error => console.error("Erreur de chargement :", error));
 
