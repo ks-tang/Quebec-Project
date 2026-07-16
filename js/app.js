@@ -4,9 +4,14 @@ var mapInitialized = false;
 
 // --- FONCTION DE NAVIGATION (Changement de page) ---
 function switchPage(pageId) {
-    // 1. Mettre à jour visuellement le menu
+    // 1. Mettre à jour visuellement le menu (si un lien actif existe)
     document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-    document.getElementById('link-' + pageId).classList.add('active');
+    
+    // On n'active la classe que si le lien cliqué est dans la navbar (comme 'carte')
+    var activeLink = document.getElementById('link-' + pageId);
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
 
     // 2. Afficher/Masquer les sections
     if (pageId === 'accueil') {

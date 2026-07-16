@@ -21,9 +21,6 @@ header {
     background-color: var(--primary-color);
     color: white;
     padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     top: 0;
@@ -32,16 +29,29 @@ header {
     z-index: 2000;
 }
 
+/* Conteneur pour aligner le logo et le menu à gauche */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espace entre le logo et le premier lien du menu */
+}
+
 header .logo {
     font-size: 1.3rem;
     font-weight: bold;
     letter-spacing: 1px;
+    cursor: pointer; /* Indique clairement que le logo est cliquable */
+    user-select: none; /* Évite de sélectionner le texte par erreur en double-cliquant */
+    transition: opacity 0.2s ease;
+}
+
+header .logo:hover {
+    opacity: 0.9; /* Léger effet au survol du logo */
 }
 
 nav a {
     color: #bdc3c7;
     text-decoration: none;
-    margin-left: 20px;
     font-weight: 500;
     transition: color 0.3s ease;
     cursor: pointer;

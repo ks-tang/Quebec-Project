@@ -17,11 +17,14 @@
 
     <!-- Barre de navigation / Menu -->
     <header>
-        <div class="logo">🍁 Québec Project</div>
-        <nav>
-            <a id="link-accueil" class="active" onclick="switchPage('accueil')">Accueil</a>
-            <a id="link-carte" onclick="switchPage('carte')">Carte Interactive</a>
-        </nav>
+        <div class="nav-left">
+            <!-- Le logo redirige vers l'accueil -->
+            <div class="logo" onclick="switchPage('accueil')">🍁 Quebec Project</div>
+            <nav>
+                <!-- Uniquement le bouton vers la carte interactive à gauche -->
+                <a id="link-carte" onclick="switchPage('carte')">Carte Interactive</a>
+            </nav>
+        </div>
     </header>
 
     <!-- ZONE DE CONTENU -->
@@ -50,7 +53,7 @@
                     <li><em>À venir :</em> Utiliser des modèles de scoring basés sur l'Open Data pour identifier les quartiers répondant le mieux à mes critères de vie !</li>
                 </ul>
                 <p>
-                    N'hésitez pas à vous rendre sur l'onglet <strong>Carte Interactive</strong> pour voir le projet en action !
+                    N'hésitez pas à cliquer sur <strong>Carte Interactive</strong> pour voir le projet en action !
                 </p>
             </div>
         </section>
