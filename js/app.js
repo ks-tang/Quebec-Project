@@ -118,36 +118,59 @@ function initMap() {
     // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) ---
     // 1. Charger le fichier GeoJSON
     fetch('data/rtc-lignes.geojson')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erreur de chargement du fichier GeoJSON");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Données GeoJSON chargées avec succès :", data); // Permet de valider dans la console
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur de chargement du fichier GeoJSON");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Données chargées avec les bonnes propriétés !");
 
-            // 2. Ajouter les lignes à la carte avec un style
-            L.geoJSON(data, {
-                style: function(feature) {
-                    // On essaie de lire la couleur personnalisée, sinon on met du bleu par défaut
-                    return {
-                        color: feature.properties.color || '#2980b9', 
-                        weight: 3,
-                        opacity: 0.8
-                    };
-                },
-                onEachFeature: function(feature, layer) {
-                    // Ajout d'un popup au clic sur la ligne
-                    if (feature.properties && feature.properties.route_name) {
-                        layer.bindPopup(`<b>${feature.properties.route_name}</b><br>${feature.properties.description || ''}`);
-                    }
-                }
-            }).addTo(map);
-        })
-        .catch(error => {
-            console.error("Erreur Leaflet :", error);
-        });
+        // Fonction pour attribuer une couleur selon le Type ou le numéro de Parcours
+        function obtenirCouleur(properties) {
+            const numParcours = String(properties.Parcours);
+            const type = properties.Type || '';
+
+            if (numParcours.startsWith('80')) {
+                return '#e67e22'; // Orange pour les Métrobus (800, 801, etc.)
+            } else if (type.toLowerCase().includes('express') || numParcours.startsWith('50')) {
+                return '#2980b9'; // Bleu pour les Express
+            }
+            return '#7f8c8d'; // Gris/Ardoise par défaut pour les lignes régulières
+        }
+
+        // Ajouter les lignes à la carte
+        const rtcLinesLayer = L.geoJSON(data, {
+            style: function(feature) {
+                return {
+                    color: obtenirCouleur(feature.properties),
+                    weight: 3.5, // Une épaisseur moyenne pour bien voir les tracés
+                    opacity: 0.85
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                // Création d'un popup propre basé sur tes vraies propriétés : Nom et Type
+                const nomLigne = feature.properties.Nom || feature.properties.Parcours || 'Inconnu';
+                const typeLigne = feature.properties.Type || 'Régulier';
+
+                layer.bindPopup(`
+                    <div style="font-family: Arial, sans-serif;">
+                        <strong style="font-size: 14px; color: #2c3e50;">Ligne ${nomLigne}</strong><br/>
+                        <span style="color: #7f8c8d; font-size: 12px;">Type : ${typeLigne}</span>
+                    </div>
+                `);
+            }
+        }).addTo(map);
+
+        // Ajuster automatiquement la vue de la carte sur les tracés du RTC
+        if (rtcLinesLayer.getBounds().isValid()) {
+            map.fitBounds(rtcLinesLayer.getBounds());
+        }
+    })
+    .catch(error => {
+        console.error("Erreur d'affichage des lignes :", error);
+    });
 
     // --- 3. CHARGEMENT DES POINTS D'INTÉRÊT (POIs) ---
     fetch('data/pois.json')
