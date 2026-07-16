@@ -2,7 +2,7 @@
 var map;
 var mapInitialized = false;
 
-// 1. Définir nos groupes de calques Leaflet pour chaque catégorie
+// 1. Groupes de calques pour les POIs
 var categoryGroups = {
     administration: L.layerGroup(),
     tourisme: L.layerGroup(),
@@ -11,7 +11,10 @@ var categoryGroups = {
     logement: L.layerGroup()
 };
 
-// --- FONCTION DE NAVIGATION (Changement de page) ---
+// 2. Groupe de calque séparé pour les lignes de transport
+var transportGroup = L.layerGroup();
+
+// --- FONCTION DE NAVIGATION ---
 function switchPage(pageId) {
     document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
     
@@ -52,7 +55,7 @@ function createCustomMarker(color) {
     });
 }
 
-// --- FONCTION POUR FILTRER LES CATÉGORIES ---
+// --- FILTRES DES CATÉGORIES (POIs) ---
 function toggleCategory(category) {
     var checkbox = document.getElementById('chk-' + category);
     if (!map) return;
@@ -61,6 +64,18 @@ function toggleCategory(category) {
         map.addLayer(categoryGroups[category]);
     } else {
         map.removeLayer(categoryGroups[category]);
+    }
+}
+
+// --- FILTRE UNIQUE POUR LES TRANSPORTS ---
+function toggleTransport() {
+    var checkbox = document.getElementById('chk-transport');
+    if (!map) return;
+
+    if (checkbox.checked) {
+        map.addLayer(transportGroup);
+    } else {
+        map.removeLayer(transportGroup);
     }
 }
 
@@ -74,7 +89,7 @@ function initMap() {
         maxZoom: 20
     }).addTo(map);
 
-    // --- CHARGEMENT DU GEOJSON DES QUARTIERS ---
+    // --- 1. CHARGEMENT DU GEOJSON DES QUARTIERS ---
     fetch('data/vdq-quartier.geojson')
         .then(response => {
             if (!response.ok) throw new Error("Erreur de chargement du GeoJSON");
@@ -100,7 +115,55 @@ function initMap() {
         })
         .catch(error => console.warn("Impossible d'afficher les quartiers :", error));
 
-    // --- CHARGEMENT DES POINTS D'INTÉRÊT (POIs) ---
+    // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) ---
+    fetch('data/rtc-lignes.geojson')
+        .then(response => {
+            if (!response.ok) throw new Error("Erreur de chargement des lignes RTC");
+            return response.json();
+        })
+        .then(geojsonData => {
+            var geojsonLayer = L.geoJSON(geojsonData, {
+                style: function (feature) {
+                    return {
+                        color: feature.properties.color || "#e67e22", // Couleur définie dans le JSON ou orange par défaut
+                        weight: 4,                                    // Épaisseur de la ligne
+                        opacity: 0.8
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    if (feature.properties && feature.properties.route_name) {
+                        layer.bindPopup(`
+                            <div style="font-family: Arial, sans-serif;">
+                                <strong style="color: ${feature.properties.color}; font-size: 1rem;">
+                                    🚍 ${feature.properties.route_name}
+                                </strong>
+                                <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #555;">
+                                    ${feature.properties.description}
+                                </p>
+                            </div>
+                        `);
+                    }
+                    
+                    // Effet de surbrillance au survol de la ligne de bus
+                    layer.on({
+                        mouseover: function (e) {
+                            var l = e.target;
+                            l.setStyle({ weight: 7, opacity: 1 });
+                        },
+                        mouseout: function (e) {
+                            geojsonLayer.resetStyle(e.target);
+                        }
+                    });
+                }
+            });
+
+            // Ajouter le calque GeoJSON créé dans notre groupe de transport, puis l'afficher sur la carte
+            transportGroup.addLayer(geojsonLayer);
+            transportGroup.addTo(map);
+        })
+        .catch(error => console.warn("Impossible d'afficher les lignes RTC :", error));
+
+    // --- 3. CHARGEMENT DES POINTS D'INTÉRÊT (POIs) ---
     fetch('data/pois.json')
         .then(response => {
             if (!response.ok) throw new Error("Erreur de chargement des POIs");
@@ -118,7 +181,6 @@ function initMap() {
                     </div>
                 `);
 
-                // Ranger le marqueur dans sa catégorie correspondante
                 if (categoryGroups[poi.category]) {
                     categoryGroups[poi.category].addLayer(marker);
                 } else {
@@ -126,7 +188,7 @@ function initMap() {
                 }
             });
 
-            // Ajouter tous nos groupes à la carte par défaut lors du premier chargement
+            // Ajouter tous les groupes de POI à la carte au démarrage
             for (var category in categoryGroups) {
                 categoryGroups[category].addTo(map);
             }
