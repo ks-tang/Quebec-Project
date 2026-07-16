@@ -156,6 +156,30 @@
     "description": "Supermarché asiatique",
     "category": "shopping"
   },
+  {
+    "name": "Village des Valeurs",
+    "lat": 46.764556612188194, 
+    "lng": -71.31557446563518 ,
+    "color": "#446644",
+    "description": "Magasin de produits d'occasion",
+    "category": "shopping"
+  },
+  {
+    "name": "Village des Valeurs",
+    "lat": 46.84176788263016, 
+    "lng": -71.27498392661275 ,
+    "color": "#446644",
+    "description": "Magasin de produits d'occasion",
+    "category": "shopping"
+  },
+  {
+    "name": "Village des Valeurs Beauport",
+    "lat": 46.84268746618644, 
+    "lng": -71.21475272794967 ,
+    "color": "#446644",
+    "description": "Magasin de produits d'occasion",
+    "category": "shopping"
+  },
 
 
   {
