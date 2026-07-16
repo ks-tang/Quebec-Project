@@ -16,12 +16,12 @@ var categoryGroups = {
     logement: L.layerGroup()
 };
 
-// Groupe de calque pour les lignes de transport RTC (Déclaré globalement)
+// Groupe de calque pour les lignes de transport RTC
 var rtcLinesGroup = L.featureGroup();
 
 
 // =========================================================================
-// 2. FONCTIONS DE NAVIGATION ET D'INITIALISATION
+// 2. FONCTION DE NAVIGATION (TOUJOURS EN PREMIER)
 // =========================================================================
 function switchPage(pageId) {
     document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
@@ -44,6 +44,11 @@ function switchPage(pageId) {
     }
 }
 
+
+// =========================================================================
+// 3. GÉNÉRATEURS ET STYLES VISUELS
+// =========================================================================
+
 // Générateur de pin carte en SVG
 function createCustomMarker(color) {
     const svgTemplate = `
@@ -63,9 +68,27 @@ function createCustomMarker(color) {
     });
 }
 
+// Attribue une couleur unique ou par catégorie pour chaque tracé
+function obtenirCouleurLigne(properties) {
+    const parcours = String(properties.Parcours);
+    const type = properties.Type || '';
+
+    if (parcours.startsWith('80')) {
+        return '#e67e22'; // Orange pour les Métrobus (800, 801, 802...)
+    } else if (parcours.startsWith('50') || type.toLowerCase().includes('express')) {
+        return '#2980b9'; // Bleu pour les Express
+    } else if (parcours.startsWith('20') || parcours.startsWith('30')) {
+        return '#27ae60'; // Vert pour certaines lignes spécifiques / eBus
+    } else {
+        // Génère une couleur semi-aléatoire mais stable
+        const hash = parcours.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
+        return `hsl(${Math.abs(hash) % 360}, 75%, 50%)`;
+    }
+}
+
 
 // =========================================================================
-// 3. FILTRES ET GESTION DES COUCHES (VISIBILITÉ)
+// 4. FILTRES ET GESTION DES COUCHES (VISIBILITÉ)
 // =========================================================================
 
 // Filtre des catégories (POIs)
@@ -88,47 +111,19 @@ function toggleTransport() {
     if (!map || !checkBox || !selectFiltre) return;
 
     if (checkBox.checked) {
-        // 1. Réactiver le menu déroulant
         selectFiltre.disabled = false;
-        
-        // 2. Ajouter le groupe de lignes à la carte
         rtcLinesGroup.addTo(map);
-        
-        // 3. Charger et dessiner les données selon le filtre sélectionné
         filtrerLesLignes(selectFiltre.value);
     } else {
-        // 1. Désactiver le menu déroulant
         selectFiltre.disabled = true;
-        
-        // 2. Retirer proprement le groupe de lignes de la carte
         map.removeLayer(rtcLinesGroup);
-    }
-}
-
-// Attribue une couleur unique ou par catégorie pour chaque tracé
-function obtenirCouleurLigne(properties) {
-    const parcours = String(properties.Parcours);
-    const type = properties.Type || '';
-
-    if (parcours.startsWith('80')) {
-        return '#e67e22'; // Orange pour les Métrobus (800, 801, 802...)
-    } else if (parcours.startsWith('50') || type.toLowerCase().includes('express')) {
-        return '#2980b9'; // Bleu pour les Express
-    } else if (parcours.startsWith('20') || parcours.startsWith('30')) {
-        return '#27ae60'; // Vert pour certaines lignes spécifiques / eBus
-    } else {
-        // Génère une couleur semi-aléatoire mais stable
-        const hash = parcours.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
-        return `hsl(${Math.abs(hash) % 360}, 75%, 50%)`;
     }
 }
 
 // Dessine uniquement les entités filtrées dans le groupe rtcLinesGroup
 function mettreAJourCarte(featuresFiltrees) {
-    // Étape cruciale : on vide d'abord le groupe avant de ré-ajouter les nouveaux tracés
     rtcLinesGroup.clearLayers();
 
-    // Crée la nouvelle couche GeoJSON
     const tempLayer = L.geoJSON({
         type: "FeatureCollection",
         features: featuresFiltrees
@@ -152,13 +147,12 @@ function mettreAJourCarte(featuresFiltrees) {
         }
     });
 
-    // Ajoute la couche filtrée dans le groupe global
     tempLayer.addTo(rtcLinesGroup);
 }
 
 // Applique le filtre en fonction du choix du menu déroulant
 function filtrerLesLignes(choix) {
-    if (!rtcData) return; // Sécurité si le GeoJSON n'est pas encore prêt
+    if (!rtcData) return;
 
     if (choix === 'tous') {
         mettreAJourCarte(rtcData.features);
@@ -184,7 +178,7 @@ function filtrerLesLignes(choix) {
 
 
 // =========================================================================
-// 4. INITIALISATION DE LA CARTE LEAFLET
+// 5. INITIALISATION DE LA CARTE LEAFLET
 // =========================================================================
 function initMap() {
     map = L.map('map').setView([46.8139, -71.2080], 12);
@@ -221,15 +215,12 @@ function initMap() {
         })
         .catch(error => console.warn("Impossible d'afficher les quartiers :", error));
 
-    // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) EN MÉMOIRE ---
+    // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) ---
     fetch('data/rtc-lignes.geojson')
         .then(response => response.json())
         .then(data => {
-            rtcData = data; // Stockage en mémoire globale
+            rtcData = data;
             console.log("✨ Données RTC prêtes et chargées en mémoire !");
-            
-            // Note : Comme la case "Transport" est décochée par défaut dans ton HTML,
-            // rtcLinesGroup reste vide et n'est pas ajouté à la carte pour l'instant.
         })
         .catch(error => console.error("Erreur de chargement des lignes :", error));
 
@@ -258,7 +249,6 @@ function initMap() {
                 }
             });
 
-            // Ajouter tous les groupes de POI à la carte au démarrage
             for (var category in categoryGroups) {
                 categoryGroups[category].addTo(map);
             }
@@ -271,17 +261,16 @@ function initMap() {
 
 
 // =========================================================================
-// 5. ENREGISTREMENT DES ÉCOUTEURS D'ÉVÉNEMENTS GLOBAUX
+// 6. ENREGISTREMENT DES ÉCOUTEURS D'ÉVÉNEMENTS SECURISÉS
 // =========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-    const selectFiltre = document.getElementById('select-type-transport');
-    if (selectFiltre) {
-        selectFiltre.addEventListener('change', function(e) {
-            // Uniquement si le transport est affiché sur la carte
+    // Écouteur global sécurisé pour le changement du menu déroulant
+    document.addEventListener('change', function(e) {
+        if (e.target && e.target.id === 'select-type-transport') {
             const checkBox = document.getElementById("chk-transport");
             if (checkBox && checkBox.checked) {
                 filtrerLesLignes(e.target.value);
             }
-        });
-    }
+        }
+    });
 });
