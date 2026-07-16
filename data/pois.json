@@ -1,36 +1,36 @@
 [
   {
     "name": "Consulat Général de France",
-    "lat": 46.80526225013921, 
-    "lng": -71.21922051659179,
+    "lat": 46.80523007714469, 
+    "lng": -71.21929141440904,
     "color": "#00007A",
     "description": "Pour refaire le passeport français"
   },
   {
     "name": "Centre Service Canada",
-    "lat": 46.84603818937798,  
-    "lng": -71.20290157472633,
+    "lat": 46.84176819324674, 
+    "lng": -71.21342903196759,
     "color": "#00007A",
     "description": "Démarches administratives indispensables (NAS, permis, etc.)."
   },
   {
     "name": "Centre Service Canada",
-    "lat": 46.767686602952004,
-    "lng": -71.30900636737307,
+    "lat": 46.76705579888662, 
+    "lng": -71.3100401575092,
     "color": "#00007A",
     "description": "Démarches administratives indispensables (NAS, permis, etc.)."
   },
   {
     "name": "Centre Service Canada",
-    "lat": 46.79778545185828, 
-    "lng": -71.14919672103669,
+    "lat": 46.79357502275033, 
+    "lng": -71.17680791661226 ,
     "color": "#00007A",
     "description": "Démarches administratives indispensables (NAS, permis, etc.)."
   },
   {
     "name": "Aéroport international Jean-Lesage de Québec (YQB)",
-    "lat": 46.79638712858416, 
-    "lng": -71.3735255058286,
+    "lat": 46.79087481189469, 
+    "lng": -71.38859382653179, 
     "color": "#00007A",
     "description": "Aéroport"
   },
@@ -39,15 +39,15 @@
 
   {
     "name": "Fairmont Le Château Frontenac",
-    "lat": 46.81245658655039, 
-    "lng": -71.20456545556023,
+    "lat": 46.812013064736966, 
+    "lng": -71.20521840906478 ,
     "color": "#0099FF",
     "description": "Château de la ville"
   },
   {
     "name": "Glissade de la Terrasse Dufferin Terrace Toboggan Slide",
-    "lat": 46.809630450880675, 
-    "lng": -71.20388742123698,
+    "lat": 46.80957049021764, 
+    "lng": -71.20425857595953,
     "color": "#0099FF",
     "description": "Piste de luge (à faire en hiver)"
   },
@@ -55,29 +55,29 @@
 
   {
     "name": "Uniqlo Place Ste Foy",
-    "lat": 46.775490734707596, 
-    "lng": -71.27061041036568,
+    "lat": 46.77296242201724, 
+    "lng": -71.28041386855493 ,
     "color": "#446644",
     "description": "Magasin de vêtements"
   },
   {
     "name": "Uniqlo Galeries de la Capitale",
-    "lat": 46.831055135036216, 
-    "lng": -71.29952928338618,
+    "lat": 46.83063469861718, 
+    "lng": -71.30079810942723, 
     "color": "#446644",
     "description": "Magasin de vêtements"
   },
   {
     "name": "Decathlon PEPS Université Laval",
-    "lat": 46.786496430400526, 
-    "lng": -71.26941986780774,
+    "lat": 46.78459320238817, 
+    "lng": -71.27694366855455,
     "color": "#446644",
     "description": "Magasin de sports"
   },
   {
     "name": "Decathlon Sainte-Foy",
-    "lat": 46.780549222586586, 
-    "lng": -71.33192795921153,
+    "lat": 46.778857268537976, 
+    "lng": -71.3465662556826,
     "color": "#446644",
     "description": "Magasin de sports"
   },
@@ -85,15 +85,15 @@
 
   {
     "name": "Poutineville Vieux Québec",
-    "lat": 46.811945451601034, 
-    "lng": -71.21498331295281,
+    "lat": 46.81172490892407, 
+    "lng": -71.21570656968328,
     "color": "#8A0000",
     "description": "Restaurants de poutine"
   },
   {
     "name": "Poutineville Saint-Roch",
-    "lat": 46.81579925155205, 
-    "lng": -71.21917031086659,
+    "lat": 46.8156264179888, 
+    "lng": -71.21985823078998,
     "color": "#8A0000",
     "description": "Magasin de vêtements"
   },
