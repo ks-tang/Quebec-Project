@@ -116,52 +116,38 @@ function initMap() {
         .catch(error => console.warn("Impossible d'afficher les quartiers :", error));
 
     // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) ---
+    // 1. Charger le fichier GeoJSON
     fetch('data/rtc-lignes.geojson')
         .then(response => {
-            if (!response.ok) throw new Error("Erreur de chargement des lignes RTC");
+            if (!response.ok) {
+                throw new Error("Erreur de chargement du fichier GeoJSON");
+            }
             return response.json();
         })
-        .then(geojsonData => {
-            var geojsonLayer = L.geoJSON(geojsonData, {
-                style: function (feature) {
+        .then(data => {
+            console.log("Données GeoJSON chargées avec succès :", data); // Permet de valider dans la console
+
+            // 2. Ajouter les lignes à la carte avec un style
+            L.geoJSON(data, {
+                style: function(feature) {
+                    // On essaie de lire la couleur personnalisée, sinon on met du bleu par défaut
                     return {
-                        color: feature.properties.color || "#e67e22", // Couleur définie dans le JSON ou orange par défaut
-                        weight: 4,                                    // Épaisseur de la ligne
+                        color: feature.properties.color || '#2980b9', 
+                        weight: 3,
                         opacity: 0.8
                     };
                 },
-                onEachFeature: function (feature, layer) {
+                onEachFeature: function(feature, layer) {
+                    // Ajout d'un popup au clic sur la ligne
                     if (feature.properties && feature.properties.route_name) {
-                        layer.bindPopup(`
-                            <div style="font-family: Arial, sans-serif;">
-                                <strong style="color: ${feature.properties.color}; font-size: 1rem;">
-                                    🚍 ${feature.properties.route_name}
-                                </strong>
-                                <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #555;">
-                                    ${feature.properties.description}
-                                </p>
-                            </div>
-                        `);
+                        layer.bindPopup(`<b>${feature.properties.route_name}</b><br>${feature.properties.description || ''}`);
                     }
-                    
-                    // Effet de surbrillance au survol de la ligne de bus
-                    layer.on({
-                        mouseover: function (e) {
-                            var l = e.target;
-                            l.setStyle({ weight: 7, opacity: 1 });
-                        },
-                        mouseout: function (e) {
-                            geojsonLayer.resetStyle(e.target);
-                        }
-                    });
                 }
-            });
-
-            // Ajouter le calque GeoJSON créé dans notre groupe de transport, puis l'afficher sur la carte
-            transportGroup.addLayer(geojsonLayer);
-            transportGroup.addTo(map);
+            }).addTo(map);
         })
-        .catch(error => console.warn("Impossible d'afficher les lignes RTC :", error));
+        .catch(error => {
+            console.error("Erreur Leaflet :", error);
+        });
 
     // --- 3. CHARGEMENT DES POINTS D'INTÉRÊT (POIs) ---
     fetch('data/pois.json')
