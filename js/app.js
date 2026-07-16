@@ -121,6 +121,7 @@ function toggleTransport() {
 }
 
 // Dessine uniquement les entités filtrées dans le groupe rtcLinesGroup
+// Dessine uniquement les entités filtrées dans le groupe rtcLinesGroup
 function mettreAJourCarte(featuresFiltrees) {
     rtcLinesGroup.clearLayers();
 
@@ -138,12 +139,35 @@ function mettreAJourCarte(featuresFiltrees) {
         onEachFeature: function(feature, layer) {
             const nom = feature.properties.Nom || feature.properties.Parcours;
             const type = feature.properties.Type || 'Régulier';
+            
+            // 1. Ajout du Popup classique
             layer.bindPopup(`
                 <div style="font-family: sans-serif;">
                     <strong>Ligne ${nom}</strong><br>
                     <span style="color: #666;">Type : ${type}</span>
                 </div>
             `);
+
+            // 2. Gestion des événements de survol (Hover)
+            layer.on({
+                mouseover: function(e) {
+                    const l = e.target;
+                    l.setStyle({
+                        weight: 7,          // On épaissit la ligne
+                        color: '#f1c40f',    // Jaune fluo / Or pour l'effet brillant
+                        opacity: 1.0         // Opacité maximale
+                    });
+                    
+                    // Optionnel : amène la ligne survolée au premier plan
+                    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                        l.bringToFront();
+                    }
+                },
+                mouseout: function(e) {
+                    // Quand la souris part, on réapplique le style par défaut de cette entité
+                    tempLayer.resetStyle(e.target);
+                }
+            });
         }
     });
 
@@ -242,6 +266,15 @@ function initMap() {
                     </div>
                 `);
 
+                // 🌟 NOUVEAU : Zoom et centrage fluide au clic sur le marqueur
+                marker.on('click', function(e) {
+                    // map.setView([latitude, longitude], niveau_de_zoom, { options_de_transition })
+                    map.setView([poi.lat, poi.lng], 16, {
+                        animate: true,
+                        duration: 1.0 // Durée de l'animation en secondes (glissement fluide)
+                    });
+                });
+
                 if (categoryGroups[poi.category]) {
                     categoryGroups[poi.category].addLayer(marker);
                 } else {
@@ -254,9 +287,6 @@ function initMap() {
             }
         })
         .catch(error => console.error("Erreur points d'intérêt :", error));
-
-    mapInitialized = true;
-    setTimeout(function(){ map.invalidateSize(); }, 100);
 }
 
 
