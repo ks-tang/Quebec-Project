@@ -117,60 +117,107 @@ function initMap() {
 
     // --- 2. CHARGEMENT DES LIGNES DE TRANSPORT (RTC) ---
     // 1. Charger le fichier GeoJSON
+    // On crée un groupe global pour stocker nos lignes de bus
+    const rtcLinesGroup = L.featureGroup().addTo(map);
+    let rtcData = null; // Contiendra nos données brutes pour pouvoir filtrer à la volée
+
+    // 1. Charger le fichier GeoJSON
     fetch('data/rtc-lignes.geojson')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Erreur de chargement du fichier GeoJSON");
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("Données chargées avec les bonnes propriétés !");
-
-        // Fonction pour attribuer une couleur selon le Type ou le numéro de Parcours
-        function obtenirCouleur(properties) {
-            const numParcours = String(properties.Parcours);
-            const type = properties.Type || '';
-
-            if (numParcours.startsWith('80')) {
-                return '#e67e22'; // Orange pour les Métrobus (800, 801, etc.)
-            } else if (type.toLowerCase().includes('express') || numParcours.startsWith('50')) {
-                return '#2980b9'; // Bleu pour les Express
+        .then(response => response.json())
+        .then(data => {
+            rtcData = data; // On garde les données en mémoire globale
+            
+            // Initialiser la carte en affichant toutes les lignes au départ
+            mettreAJourCarte(rtcData.features);
+            
+            // Ajuster automatiquement le zoom sur les lignes
+            if (rtcLinesGroup.getBounds().isValid()) {
+                map.fitBounds(rtcLinesGroup.getBounds());
             }
-            return '#7f8c8d'; // Gris/Ardoise par défaut pour les lignes régulières
-        }
+        })
+        .catch(error => console.error("Erreur de chargement :", error));
 
-        // Ajouter les lignes à la carte
-        const rtcLinesLayer = L.geoJSON(data, {
+    // 2. Fonction magique pour attribuer une couleur unique ou par catégorie
+    function obtenirCouleurLigne(properties) {
+        const parcours = String(properties.Parcours);
+        const type = properties.Type || '';
+
+        if (parcours.startsWith('80')) {
+            return '#e67e22'; // Orange pour les Métrobus (800, 801, 802...)
+        } else if (parcours.startsWith('50') || type.toLowerCase().includes('express')) {
+            return '#2980b9'; // Bleu pour les Express
+        } else if (parcours.startsWith('20') || parcours.startsWith('30')) {
+            return '#27ae60'; // Vert pour certaines lignes spécifiques / eBus
+        } else {
+            // Génère une couleur semi-aléatoire mais stable basée sur le numéro de parcours
+            // pour que chaque ligne régulière ait sa propre couleur distinctive
+            const hash = parcours.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
+            return `hsl(${Math.abs(hash) % 360}, 75%, 50%)`;
+        }
+    }
+
+    // 3. Fonction pour dessiner les lignes filtrées sur la carte
+    function mettreAJourCarte(featuresFiltrees) {
+        // Étape cruciale : on vide d'abord les anciennes lignes de la carte !
+        rtcLinesGroup.clearLayers();
+
+        // On recrée la couche GeoJSON avec uniquement les lignes filtrées
+        const tempLayer = L.geoJSON({
+            type: "FeatureCollection",
+            features: featuresFiltrees
+        }, {
             style: function(feature) {
                 return {
-                    color: obtenirCouleur(feature.properties),
-                    weight: 3.5, // Une épaisseur moyenne pour bien voir les tracés
+                    color: obtenirCouleurLigne(feature.properties),
+                    weight: 4,
                     opacity: 0.85
                 };
             },
             onEachFeature: function(feature, layer) {
-                // Création d'un popup propre basé sur tes vraies propriétés : Nom et Type
-                const nomLigne = feature.properties.Nom || feature.properties.Parcours || 'Inconnu';
-                const typeLigne = feature.properties.Type || 'Régulier';
-
+                const nom = feature.properties.Nom || feature.properties.Parcours;
+                const type = feature.properties.Type || 'Régulier';
                 layer.bindPopup(`
-                    <div style="font-family: Arial, sans-serif;">
-                        <strong style="font-size: 14px; color: #2c3e50;">Ligne ${nomLigne}</strong><br/>
-                        <span style="color: #7f8c8d; font-size: 12px;">Type : ${typeLigne}</span>
+                    <div style="font-family: sans-serif;">
+                        <strong>Ligne ${nom}</strong><br>
+                        <span style="color: #666;">Type : ${type}</span>
                     </div>
                 `);
             }
-        }).addTo(map);
+        });
 
-        // Ajuster automatiquement la vue de la carte sur les tracés du RTC
-        if (rtcLinesLayer.getBounds().isValid()) {
-            map.fitBounds(rtcLinesLayer.getBounds());
-        }
-    })
-    .catch(error => {
-        console.error("Erreur d'affichage des lignes :", error);
-    });
+        // On ajoute les nouvelles lignes filtrées au groupe sur la carte
+        tempLayer.addTo(rtcLinesGroup);
+    }
+
+    // 4. Ton écouteur d'événement sur la barre de recherche ou le filtre (HTML)
+    // Remplace 'mon-input-filtre' par l'ID réel de ton champ de saisie <input> ou <select>
+    const champFiltre = document.getElementById('mon-input-filtre'); 
+
+    if (champFiltre) {
+        champFiltre.addEventListener('input', function(e) {
+            const valeurRecherche = e.target.value.trim().toLowerCase();
+
+            if (!valeurRecherche) {
+                // Si le champ est vide, on réaffiche tout
+                mettreAJourCarte(rtcData.features);
+                return;
+            }
+
+            // On filtre les données du GeoJSON selon le numéro ou le type de parcours
+            const featuresFiltrees = rtcData.features.filter(feature => {
+                const parcours = String(feature.properties.Parcours).toLowerCase();
+                const nom = String(feature.properties.Nom).toLowerCase();
+                const type = String(feature.properties.Type).toLowerCase();
+
+                return parcours.includes(valeurRecherche) || 
+                    nom.includes(valeurRecherche) || 
+                    type.includes(valeurRecherche);
+            });
+
+            // On redessine la carte avec notre sélection
+            mettreAJourCarte(featuresFiltrees);
+        });
+    }
 
     // --- 3. CHARGEMENT DES POINTS D'INTÉRÊT (POIs) ---
     fetch('data/pois.json')
