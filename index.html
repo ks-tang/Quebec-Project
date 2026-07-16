@@ -85,6 +85,14 @@
                     <input type="checkbox" id="chk-transport" checked onchange="toggleTransport()">
                     <span class="legend-color" style="background-color: #e67e22; border-radius: 2px; width: 15px; height: 3px;"></span> Transport (RTC)
                 </label>
+                <div class="filter-item" style="margin-top: 8px;">
+                    <select id="select-type-transport" style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                        <option value="tous">Toutes les lignes</option>
+                        <option value="metrobus">Métrobus (800+)</option>
+                        <option value="express">Express</option>
+                        <option value="regulier">Lignes régulières</option>
+                    </select>
+                </div>
             </div>
             
             <div id="map"></div>

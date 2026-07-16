@@ -69,13 +69,11 @@ function toggleCategory(category) {
 
 // --- FILTRE UNIQUE POUR LES TRANSPORTS ---
 function toggleTransport() {
-    var checkbox = document.getElementById('chk-transport');
-    if (!map) return;
-
-    if (checkbox.checked) {
-        map.addLayer(transportGroup);
+    const checkBox = document.getElementById("chk-transport");
+    if (checkBox.checked) {
+        map.addLayer(rtcLinesGroup);
     } else {
-        map.removeLayer(transportGroup);
+        map.removeLayer(rtcLinesGroup);
     }
 }
 
@@ -100,7 +98,7 @@ function initMap() {
                 style: function () {
                     return {
                         color: "#2c3e50",
-                        weight: 1.5,
+                        weight: 1,
                         opacity: 0.4,
                         fillColor: "#34495e",  
                         fillOpacity: 0.03
@@ -191,30 +189,32 @@ function initMap() {
 
     // 4. Ton écouteur d'événement sur la barre de recherche ou le filtre (HTML)
     // Remplace 'mon-input-filtre' par l'ID réel de ton champ de saisie <input> ou <select>
-    const champFiltre = document.getElementById('mon-input-filtre'); 
+    const selectFiltre = document.getElementById('select-type-transport');
 
-    if (champFiltre) {
-        champFiltre.addEventListener('input', function(e) {
-            const valeurRecherche = e.target.value.trim().toLowerCase();
+    if (selectFiltre) {
+        selectFiltre.addEventListener('change', function(e) {
+            const choix = e.target.value;
 
-            if (!valeurRecherche) {
-                // Si le champ est vide, on réaffiche tout
+            if (choix === 'tous') {
                 mettreAJourCarte(rtcData.features);
                 return;
             }
 
-            // On filtre les données du GeoJSON selon le numéro ou le type de parcours
             const featuresFiltrees = rtcData.features.filter(feature => {
-                const parcours = String(feature.properties.Parcours).toLowerCase();
-                const nom = String(feature.properties.Nom).toLowerCase();
+                const parcours = String(feature.properties.Parcours);
                 const type = String(feature.properties.Type).toLowerCase();
 
-                return parcours.includes(valeurRecherche) || 
-                    nom.includes(valeurRecherche) || 
-                    type.includes(valeurRecherche);
+                if (choix === 'metrobus') {
+                    return parcours.startsWith('80');
+                } else if (choix === 'express') {
+                    return parcours.startsWith('50') || type.includes('express');
+                } else if (choix === 'regulier') {
+                    // Pas un Métrobus ni un Express
+                    return !parcours.startsWith('80') && !parcours.startsWith('50') && !type.includes('express');
+                }
+                return true;
             });
 
-            // On redessine la carte avec notre sélection
             mettreAJourCarte(featuresFiltrees);
         });
     }
