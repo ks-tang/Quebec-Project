@@ -96,6 +96,29 @@
     "lng": -71.21917031086659,
     "color": "#8A0000",
     "description": "Magasin de vêtements"
+  },
+
+
+  {
+    "name": "Auberge Internationale de Québec",
+    "lat": 46.81235403915732, 
+    "lng": -71.21134670168269,
+    "color": "#D6FF00",
+    "description": "Auberge de jeunesse"
+  },
+  {
+    "name": "Auberge Jeunesse québec central",
+    "lat": 46.81562773073626, 
+    "lng": -71.22105020068939 ,
+    "color": "#D6FF00",
+    "description": "Auberge de jeunesse"
+  },
+  {
+    "name": "Résidences - Université Laval",
+    "lat": 46.78056638232142, 
+    "lng": -71.26720703318522 ,
+    "color": "#D6FF00",
+    "description": "Résidence universitaire"
   }
 
 ]
