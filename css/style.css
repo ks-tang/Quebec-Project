@@ -1,0 +1,129 @@
+/* Variables de couleurs pour un style moderne et cohérent */
+:root {
+    --primary-color: #2c3e50; /* Bleu foncé ardoise */
+    --accent-color: #e74c3c;  /* Rouge vif (clin d'oeil au Canada) */
+    --background-light: #f8f9fa;
+    --text-color: #333333;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+/* --- BARRE DE NAVIGATION --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2000;
+}
+
+header .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #bdc3c7;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+    color: white;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+/* --- STRUCTURE DES PAGES --- */
+.page-content {
+    margin-top: 70px; /* Espace pour pas être caché sous la navbar fixe */
+    height: calc(100vh - 70px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cacher les pages inactives */
+.hidden {
+    display: none !important;
+}
+
+/* --- PAGE ACCUEIL --- */
+#page-accueil {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.profile-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.profile-container h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.badge-pvt {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* --- PAGE CARTE --- */
+#page-carte {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

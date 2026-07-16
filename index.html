@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon PVT à Québec - Guide & Portfolio</title>
+    
+    <!-- CSS de Leaflet (Carte) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+
+    <!-- Notre CSS personnalisé -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Barre de navigation / Menu -->
+    <header>
+        <div class="logo">🍁 Québec PVT Explorer</div>
+        <nav>
+            <a id="link-accueil" class="active" onclick="switchPage('accueil')">Accueil</a>
+            <a id="link-carte" onclick="switchPage('carte')">Carte Interactive</a>
+        </nav>
+    </header>
+
+    <!-- ZONE DE CONTENU -->
+    <div class="page-content">
+
+        <!-- SECTION 1 : ACCUEIL -->
+        <section id="page-accueil">
+            <div class="hero-section">
+                <h1>Bonjour et bienvenue ! 👋</h1>
+                <p>Découvrez mon projet de préparation et d'exploration de la ville de Québec.</p>
+            </div>
+
+            <div class="profile-container">
+                <span class="badge-pvt">Projet PVTiste & Data Science</span>
+                <h2>À propos de moi & de ce projet</h2>
+                <p>
+                    Je m'appelle <strong>[Ton Prénom]</strong> et je suis <strong>Data Scientist</strong>. Dans le cadre de mon PVT (Permis Vacances-Travail) au Canada, j'ai choisi de m'installer dans la magnifique et historique <strong>ville de Québec</strong>.
+                </p>
+                <p>
+                    Plutôt que d'utiliser des outils classiques de planification de voyage, j'ai choisi de concevoir mon propre compagnon de route interactif. Ce site me permet de :
+                </p>
+                <ul>
+                    <li>Explorer visuellement la ville de Québec et ses différents quartiers.</li>
+                    <li>Planifier mes déplacements en transport en commun.</li>
+                    <li>Centraliser mes adresses préférées (restaurants, parcs, événements) et y associer mes notes au fil de mes découvertes.</li>
+                    <li><em>À venir :</em> Utiliser des modèles de scoring basés sur l'Open Data pour identifier les quartiers répondant le mieux à mes critères de vie !</li>
+                </ul>
+                <p>
+                    N'hésitez pas à vous rendre sur l'onglet <strong>Carte Interactive</strong> pour voir le projet en action !
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : CARTE -->
+        <section id="page-carte" class="hidden">
+            <div id="map"></div>
+        </section>
+
+    </div>
+
+    <!-- JS de Leaflet (Carte) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+
+    <!-- Notre logique JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
