@@ -7,7 +7,6 @@ function switchPage(pageId) {
     // 1. Mettre à jour visuellement le menu (si un lien actif existe)
     document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
     
-    // On n'active la classe que si le lien cliqué est dans la navbar (comme 'carte')
     var activeLink = document.getElementById('link-' + pageId);
     if (activeLink) {
         activeLink.classList.add('active');
@@ -28,6 +27,28 @@ function switchPage(pageId) {
     }
 }
 
+// --- GÉNÉRATEUR DE PIN CARTE EN SVG (Couleur personnalisable) ---
+function createCustomMarker(color) {
+    // Design moderne d'une épingle de carte (Pin) en SVG
+    const svgTemplate = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+            <!-- Ombre du marqueur -->
+            <ellipse cx="12" cy="22" rx="4" ry="1.5" fill="rgba(0, 0, 0, 0.2)" />
+            <!-- Forme du Pin avec couleur dynamique -->
+            <path fill="${color}" stroke="#ffffff" stroke-width="1.5" 
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+    `;
+
+    return L.divIcon({
+        html: svgTemplate,
+        className: 'custom-svg-marker', // Classe CSS vide pour éviter les styles par défaut de Leaflet
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],      // Pointe de l'épingle
+        popupAnchor: [0, -32]      // Position du popup au-dessus du pin
+    });
+}
+
 // --- INITIALISATION DE LA CARTE ---
 function initMap() {
     // Initialisation centrée sur Québec
@@ -40,46 +61,59 @@ function initMap() {
         maxZoom: 20
     }).addTo(map);
 
-    // Marqueur : Consulat Général de France
-    var consulat = L.marker([46.81230, -71.20611]).addTo(map);
-    consulat.bindPopup("<b>Consulat Général de France</b><br>Démarches administratives indispensables !");
-
     // --- CHARGEMENT DU GEOJSON DES QUARTIERS ---
-    // On utilise fetch() pour charger le fichier localisé dans ton dossier /data/
     fetch('data/vdq-quartier.geojson')
         .then(response => {
-            if (!response.ok) {
-                throw new Error("Erreur lors du chargement du fichier GeoJSON");
-            }
+            if (!response.ok) throw new Error("Erreur de chargement du GeoJSON");
             return response.json();
         })
         .then(geojsonData => {
-            // Ajouter les contours géographiques des quartiers à la carte
             L.geoJSON(geojsonData, {
                 style: function (feature) {
                     return {
-                        color: "#2c3e50",      // Couleur des bordures (Bleu ardoise)
-                        weight: 2,             // Épaisseur de la ligne
-                        opacity: 0.7,          // Transparence de la bordure
-                        fillColor: "#34495e",  // Couleur de remplissage des quartiers
-                        fillOpacity: 0.1       // Très transparent par défaut pour lire la carte dessous
+                        color: "#2c3e50",      // Couleur des bordures des quartiers
+                        weight: 1.5,
+                        opacity: 0.6,
+                        fillColor: "#34495e",  
+                        fillOpacity: 0.05      // Presque transparent pour bien voir les rues
                     };
                 },
-                // Associer une action quand on clique sur un quartier
                 onEachFeature: function (feature, layer) {
                     if (feature.properties && feature.properties.NOM) {
-                        // Exemple de popup avec le nom officiel du quartier
                         layer.bindPopup("<b>Quartier :</b> " + feature.properties.NOM);
                     }
                 }
             }).addTo(map);
         })
-        .catch(error => {
-            console.error("Impossible d'afficher les quartiers :", error);
-        });
+        .catch(error => console.error("Erreur quartiers :", error));
+
+    // --- CHARGEMENT DES POINTS D'INTÉRÊT (POIs) ---
+    fetch('data/pois.json')
+        .then(response => {
+            if (!response.ok) throw new Error("Erreur de chargement des POIs");
+            return response.json();
+        })
+        .then(poisData => {
+            // Parcourir chaque point dans le JSON et l'ajouter sur la carte
+            poisData.forEach(poi => {
+                // Utiliser notre générateur SVG avec la couleur du JSON
+                var customIcon = createCustomMarker(poi.color);
+
+                var marker = L.marker([poi.lat, poi.lng], { icon: customIcon }).addTo(map);
+                
+                // Popup au clic sur le marqueur
+                marker.bindPopup(`
+                    <div style="font-family: Arial, sans-serif; max-width: 200px;">
+                        <h3 style="margin: 0 0 5px 0; color: ${poi.color}; font-size: 1.1rem;">${poi.name}</h3>
+                        <p style="margin: 0; font-size: 0.9rem; color: #555;">${poi.description}</p>
+                    </div>
+                `);
+            });
+        })
+        .catch(error => console.error("Erreur points d'intérêt :", error));
 
     mapInitialized = true;
 
-    // Forcer le recalcul de la taille de la carte pour éviter les bugs d'affichage
+    // Forcer le recalcul de l'affichage
     setTimeout(function(){ map.invalidateSize(); }, 100);
 }
