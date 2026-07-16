@@ -4,7 +4,7 @@ var mapInitialized = false;
 
 // 1. Définir nos groupes de calques Leaflet pour chaque catégorie
 var categoryGroups = {
-    administratif: L.layerGroup(),
+    administration: L.layerGroup(),
     tourisme: L.layerGroup(),
     shopping: L.layerGroup(),
     restaurant: L.layerGroup(),
