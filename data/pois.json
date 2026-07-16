@@ -4,35 +4,40 @@
     "lat": 46.80523007714469, 
     "lng": -71.21929141440904,
     "color": "#00007A",
-    "description": "Pour refaire le passeport français"
+    "description": "Pour refaire le passeport français",
+    "category": "administration"
   },
   {
     "name": "Centre Service Canada",
     "lat": 46.84176819324674, 
     "lng": -71.21342903196759,
     "color": "#00007A",
-    "description": "Démarches administratives indispensables (NAS, permis, etc.)."
+    "description": "Démarches administratives indispensables (NAS, permis, etc.).",
+    "category": "administration"
   },
   {
     "name": "Centre Service Canada",
     "lat": 46.76705579888662, 
     "lng": -71.3100401575092,
     "color": "#00007A",
-    "description": "Démarches administratives indispensables (NAS, permis, etc.)."
+    "description": "Démarches administratives indispensables (NAS, permis, etc.).",
+    "category": "administration"
   },
   {
     "name": "Centre Service Canada",
     "lat": 46.79357502275033, 
     "lng": -71.17680791661226 ,
     "color": "#00007A",
-    "description": "Démarches administratives indispensables (NAS, permis, etc.)."
+    "description": "Démarches administratives indispensables (NAS, permis, etc.).",
+    "category": "administration"
   },
   {
     "name": "Aéroport international Jean-Lesage de Québec (YQB)",
     "lat": 46.79087481189469, 
     "lng": -71.38859382653179, 
     "color": "#00007A",
-    "description": "Aéroport"
+    "description": "Aéroport",
+    "category": "administration"
   },
 
 
@@ -42,14 +47,16 @@
     "lat": 46.812013064736966, 
     "lng": -71.20521840906478 ,
     "color": "#0099FF",
-    "description": "Château de la ville"
+    "description": "Château de la ville",
+    "category": "tourisme"
   },
   {
     "name": "Glissade de la Terrasse Dufferin Terrace Toboggan Slide",
     "lat": 46.80957049021764, 
     "lng": -71.20425857595953,
     "color": "#0099FF",
-    "description": "Piste de luge (à faire en hiver)"
+    "description": "Piste de luge (à faire en hiver)",
+    "category": "tourisme"
   },
 
 
@@ -58,44 +65,114 @@
     "lat": 46.77296242201724, 
     "lng": -71.28041386855493 ,
     "color": "#446644",
-    "description": "Magasin de vêtements"
+    "description": "Magasin de vêtements",
+    "category": "shopping"
   },
   {
     "name": "Uniqlo Galeries de la Capitale",
     "lat": 46.83063469861718, 
     "lng": -71.30079810942723, 
     "color": "#446644",
-    "description": "Magasin de vêtements"
+    "description": "Magasin de vêtements",
+    "category": "shopping"
   },
   {
     "name": "Decathlon PEPS Université Laval",
     "lat": 46.78459320238817, 
     "lng": -71.27694366855455,
     "color": "#446644",
-    "description": "Magasin de sports"
+    "description": "Magasin de sports",
+    "category": "shopping"
   },
   {
     "name": "Decathlon Sainte-Foy",
     "lat": 46.778857268537976, 
     "lng": -71.3465662556826,
     "color": "#446644",
-    "description": "Magasin de sports"
+    "description": "Magasin de sports",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart",
+    "lat": 46.82430243004832, 
+    "lng": -71.25290708986672,
+    "color": "#446644",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart",
+    "lat": 46.77068084686462, 
+    "lng": -71.28494486544038 ,
+    "color": "#446644",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart",
+    "lat": 46.782226369891504, 
+    "lng": -71.34869079135008,
+    "color": "#446644",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart Lebourgneuf",
+    "lat": 46.83305907974895, 
+    "lng": -71.30477576161243, 
+    "color": "#446644",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart Lévis",
+    "lat": 46.79640983838153, 
+    "lng": -71.17173969601734, 
+    "color": "#446644",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart",
+    "lat": 46.8724121697256, 
+    "lng": -71.20478690879169, 
+    "color": "#446644",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Supermarché Xinya",
+    "lat": 46.8119339667011, 
+    "lng": -71.29971190383677 ,
+    "color": "#446644",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Chanhda épicerie asiatique",
+    "lat": 46.80911512417601, 
+    "lng": -71.2396754196452 ,
+    "color": "#446644",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
   },
 
 
   {
     "name": "Poutineville Vieux Québec",
-    "lat": 46.81172490892407, 
-    "lng": -71.21570656968328,
+    "lat": 46.811728177265984, 
+    "lng": -71.21570702596709,
     "color": "#8A0000",
-    "description": "Restaurants de poutine"
+    "description": "Restaurants de poutine",
+    "category": "restaurant"
   },
   {
     "name": "Poutineville Saint-Roch",
     "lat": 46.8156264179888, 
     "lng": -71.21985823078998,
     "color": "#8A0000",
-    "description": "Magasin de vêtements"
+    "description": "Magasin de vêtements",
+    "category": "restaurant"
   },
 
 
@@ -104,21 +181,24 @@
     "lat": 46.81235403915732, 
     "lng": -71.21134670168269,
     "color": "#D6FF00",
-    "description": "Auberge de jeunesse"
+    "description": "Auberge de jeunesse",
+    "category": "logement"
   },
   {
     "name": "Auberge Jeunesse québec central",
     "lat": 46.81562773073626, 
     "lng": -71.22105020068939 ,
     "color": "#D6FF00",
-    "description": "Auberge de jeunesse"
+    "description": "Auberge de jeunesse",
+    "category": "logement"
   },
   {
     "name": "Résidences - Université Laval",
     "lat": 46.78056638232142, 
     "lng": -71.26720703318522 ,
     "color": "#D6FF00",
-    "description": "Résidence universitaire"
+    "description": "Résidence universitaire",
+    "category": "logement"
   }
 
 ]

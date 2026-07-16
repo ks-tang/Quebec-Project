@@ -137,3 +137,70 @@ nav a:hover, nav a.active {
     width: 100%;
     height: 100%;
 }
+
+/* --- FILTRES FLOTTANTS SUR LA CARTE --- */
+.filter-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Doit passer par-dessus la carte Leaflet */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: 200px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filter-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    user-select: none;
+    transition: opacity 0.2s ease;
+}
+
+.filter-item:hover {
+    opacity: 0.8;
+}
+
+.filter-item input {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    accent-color: var(--primary-color);
+}
+
+/* La pastille de couleur à côté du nom de la catégorie */
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* --- FIXS POUR LEAFLET (CRUCIAL) --- */
+/* Empêche Leaflet d'appliquer des carrés blancs et des bordures par défaut sur nos icônes SVG */
+.custom-svg-marker {
+    background: transparent !important;
+    border: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

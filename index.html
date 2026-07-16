@@ -18,10 +18,8 @@
     <!-- Barre de navigation / Menu -->
     <header>
         <div class="nav-left">
-            <!-- Le logo redirige vers l'accueil -->
             <div class="logo" onclick="switchPage('accueil')">🍁 Quebec Project</div>
             <nav>
-                <!-- Uniquement le bouton vers la carte interactive à gauche -->
                 <a id="link-carte" onclick="switchPage('carte')">Carte Interactive</a>
             </nav>
         </div>
@@ -60,6 +58,31 @@
 
         <!-- SECTION 2 : CARTE -->
         <section id="page-carte" class="hidden">
+            <!-- Boîte de filtres flottante au-dessus de la carte -->
+            <div class="filter-box">
+                <h3>Filtrer la carte</h3>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-administratif" checked onchange="toggleCategory('administratif')">
+                    <span class="legend-color" style="background-color: #00007A;"></span> Administratif
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-tourisme" checked onchange="toggleCategory('tourisme')">
+                    <span class="legend-color" style="background-color: #0099FF;"></span> Tourisme
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-shopping" checked onchange="toggleCategory('shopping')">
+                    <span class="legend-color" style="background-color: #446644;"></span> Shopping / Magasins
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-restaurant" checked onchange="toggleCategory('restaurant')">
+                    <span class="legend-color" style="background-color: #8A0000;"></span> Restaurants
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-logement" checked onchange="toggleCategory('logement')">
+                    <span class="legend-color" style="background-color: #b2db00;"></span> Logement / Hébergement
+                </label>
+            </div>
+            
             <div id="map"></div>
         </section>
 
