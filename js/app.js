@@ -443,7 +443,18 @@ function buildChart(data) {
             onClick: (e, activeElements) => {
                 if (activeElements.length > 0) {
                     var index = activeElements[0].index;
-                    afficherDetailsZone(data[index]);
+                    var zoneSelectionnee = data[index]; // Ex: { zone: "Haute-Saint-Charles", ... }
+                    
+                    // 🔎 On cherche cette zone dans notre fichier logements.json chargé globalement
+                    var zoneComplete = donneesLogements.find(item => item.zone === zoneSelectionnee.zone);
+                    
+                    if (zoneComplete) {
+                        // Si on trouve la zone avec ses quartiers, on l'affiche !
+                        afficherDetailsZone(zoneComplete);
+                    } else {
+                        // Si logements.json n'est pas encore chargé, on affiche au moins les infos de base
+                        afficherDetailsZone(zoneSelectionnee);
+                    }
                 }
             }
         }
