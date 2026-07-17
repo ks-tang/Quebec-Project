@@ -18,6 +18,9 @@ var categoryGroups = {
 // Groupe de calque pour les lignes de transport RTC
 var rtcLinesGroup = L.featureGroup();
 
+// Contiendra le contenu de logements.json
+var donneesLogements = []; 
+
 
 // =========================================================================
 // 2. FONCTION DE NAVIGATION (TOUJOURS EN PREMIER)
@@ -371,6 +374,20 @@ function initMapStats() {
     // 2. Lancement direct du graphique et de la carte avec les données locales
     buildChart(donneesLoyersStatic);
     setupMapInteractions(donneesLoyersStatic);
+
+    // 2. 🔗 LIAISON DU FICHIER JSON
+    fetch('data/logements.json')
+        .then(response => {
+            if (!response.ok) throw new Error("Impossible de charger logements.json");
+            return response.json();
+        })
+        .then(data => {
+            donneesLogements = data; // On stocke les données officielles globalement
+            
+            // Une fois les données prêtes, on configure les interactions sur la carte
+            setupMapInteractions(); 
+        })
+        .catch(error => console.error("Erreur de liaison du fichier logements :", error));
 }
 
 function getColorByLoyer(loyer) {
@@ -437,13 +454,29 @@ function buildChart(data) {
 
 function afficherDetailsZone(zoneData) {
     document.getElementById('details-zone-titre').innerHTML = `📍 ${zoneData.zone}`;
-    var tauxVacance = zoneData.taux_inoccupation_2025 !== null ? `${zoneData.taux_inoccupation_2025} %` : 'Donnée non disponible';
     
+    // Génération du HTML pour chaque sous-quartier officiel
+    let htmlQuartiers = "";
+    
+    if(zoneData.quartiers && zoneData.quartiers.length > 0) {
+        zoneData.quartiers.forEach(q => {
+            htmlQuartiers += `
+                <div style="margin-bottom: 12px; padding: 8px; background: #fff; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                    <strong style="color: #2c3e50;">🏘️ ${q.nom}</strong> (${q.logements_totaux_2021.toLocaleString()} log.)<br>
+                    <small>• Maisons : <b>${q.part_maisons_individuelles}%</b> | Apparts : <b>${q.part_appartements_moins_5_etages}%</b></small><br>
+                    <small>• Taille : Petit (<5 p.) : <b>${q.taille_logement.moins_de_5_pieces_pct}%</b> | Grand (>7 p.) : <b>${q.taille_logement.plus_de_7_pieces_pct}%</b></small>
+                </div>
+            `;
+        });
+    } else {
+        htmlQuartiers = "<em>Aucun sous-quartier enregistré pour cette zone.</em>";
+    }
+
     document.getElementById('details-zone-texte').innerHTML = `
-        <strong>Loyer moyen 2025 :</strong> ${zoneData.loyer_2025} $ / mois<br>
-        <strong>Loyer moyen 2024 :</strong> ${zoneData.loyer_2024} $<br>
-        <strong>Taux d'inoccupation :</strong> ${tauxVacance}<br>
-        <strong>Profil du secteur :</strong> ${zoneData.description}
+        <div style="font-size: 0.95rem; line-height: 1.4;">
+            <p><strong>Données officielles Ville de Québec (Recensement 2021) :</strong></p>
+            ${htmlQuartiers}
+        </div>
     `;
 }
 
@@ -476,4 +509,38 @@ function setupMapInteractions(data) {
             });
         }
     });
+}
+
+function setupMapInteractions() {
+    // Boucle à travers tes coordonnées de zones déjà existantes
+    for (var zoneName in coordsZones) {
+        var coords = coordsZones[zoneName];
+
+        // Création d'un marqueur pour chaque grande zone
+        var marker = L.circleMarker(coords, {
+            radius: 12,
+            fillColor: "#3498db",
+            color: "#fff",
+            weight: 2,
+            fillOpacity: 0.8
+        }).addTo(mapStats);
+
+        // On attache dynamiquement le nom de la zone au marqueur
+        marker.options.nomZone = zoneName;
+
+        // Événement au clic
+        marker.on('click', function(e) {
+            var nomDeLaZoneCliquee = e.target.options.nomZone;
+            
+            // 🔎 On cherche dans notre fichier JSON lié la zone correspondante
+            var zoneTrouvee = donneesLogements.find(item => item.zone === nomDeLaZoneCliquee);
+            
+            if (zoneTrouvee) {
+                // On envoie les données du JSON à la fonction d'affichage
+                afficherDetailsZone(zoneTrouvee); 
+            } else {
+                console.warn("Aucune donnée trouvée dans le JSON pour :", nomDeLaZoneCliquee);
+            }
+        });
+    }
 }

@@ -1,0 +1,297 @@
+[
+  {
+    "zone": "Haute-Ville",
+    "quartiers": [
+      {
+        "nom": "Montcalm",
+        "logements_totaux_2021": 8080,
+        "part_maisons_individuelles": 2.0,
+        "part_appartements_moins_5_etages": 60.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 57.1, "plus_de_7_pieces_pct": 8.8 }
+      },
+      {
+        "nom": "Saint-Jean-Baptiste",
+        "logements_totaux_2021": 5575,
+        "part_maisons_individuelles": 0.5,
+        "part_appartements_moins_5_etages": 70.9,
+        "taille_logement": { "moins_de_5_pieces_pct": 71.2, "plus_de_7_pieces_pct": 3.2 }
+      },
+      {
+        "nom": "Vieux-Québec–Cap-Blanc–Colline Parlementaire",
+        "logements_totaux_2021": 3900,
+        "part_maisons_individuelles": 1.9,
+        "part_appartements_moins_5_etages": 62.1,
+        "taille_logement": { "moins_de_5_pieces_pct": 76.2, "plus_de_7_pieces_pct": 5.3 }
+      }
+    ]
+  },
+  {
+    "zone": "Basse-Ville",
+    "quartiers": [
+      {
+        "nom": "Lairet",
+        "logements_totaux_2021": 9130,
+        "part_maisons_individuelles": 9.1,
+        "part_appartements_moins_5_etages": 76.0,
+        "taille_logement": { "moins_de_5_pieces_pct": 70.0, "plus_de_7_pieces_pct": 7.3 }
+      },
+      {
+        "nom": "Maizerets",
+        "logements_totaux_2021": 8300,
+        "part_maisons_individuelles": 5.7,
+        "part_appartements_moins_5_etages": 65.7,
+        "taille_logement": { "moins_de_5_pieces_pct": 66.2, "plus_de_7_pieces_pct": 4.4 }
+      },
+      {
+        "nom": "Saint-Roch",
+        "logements_totaux_2021": 5310,
+        "part_maisons_individuelles": 0.6,
+        "part_appartements_moins_5_etages": 70.8,
+        "taille_logement": { "moins_de_5_pieces_pct": 75.8, "plus_de_7_pieces_pct": 1.7 }
+      },
+      {
+        "nom": "Saint-Sacrement",
+        "logements_totaux_2021": 5790,
+        "part_maisons_individuelles": 7.3,
+        "part_appartements_moins_5_etages": 55.4,
+        "taille_logement": { "moins_de_5_pieces_pct": 60.8, "plus_de_7_pieces_pct": 10.7 }
+      },
+      {
+        "nom": "Saint-Sauveur",
+        "logements_totaux_2021": 9405,
+        "part_maisons_individuelles": 4.4,
+        "part_appartements_moins_5_etages": 72.0,
+        "taille_logement": { "moins_de_5_pieces_pct": 67.8, "plus_de_7_pieces_pct": 3.1 }
+      },
+      {
+        "nom": "Vieux-Limoilou",
+        "logements_totaux_2021": 8210,
+        "part_maisons_individuelles": 1.6,
+        "part_appartements_moins_5_etages": 81.6,
+        "repartition_statut": { "proprietaires_pct": 23.7, "locataires_pct": 76.3 },
+        "taille_logement": { "moins_de_5_pieces_pct": 62.5, "plus_de_7_pieces_pct": 3.8 }
+      }
+    ]
+  },
+  {
+    "zone": "Sainte-Foy / Sillery",
+    "quartiers": [
+      {
+        "nom": "Cité-Universitaire",
+        "logements_totaux_2021": 10325,
+        "part_maisons_individuelles": 11.0,
+        "part_appartements_moins_5_etages": 55.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 67.2, "plus_de_7_pieces_pct": 9.7 }
+      },
+      {
+        "nom": "Plateau",
+        "logements_totaux_2021": 7420,
+        "part_maisons_individuelles": 25.5,
+        "part_appartements_moins_5_etages": 62.3,
+        "taille_logement": { "moins_de_5_pieces_pct": 55.6, "plus_de_7_pieces_pct": 17.8 }
+      },
+      {
+        "nom": "Pointe-de-Sainte-Foy",
+        "logements_totaux_2021": 7585,
+        "part_maisons_individuelles": 12.9,
+        "part_appartements_moins_5_etages": 43.8,
+        "taille_logement": { "moins_de_5_pieces_pct": 54.0, "plus_de_7_pieces_pct": 13.8 }
+      },
+      {
+        "nom": "Saint-Louis",
+        "logements_totaux_2021": 7985,
+        "part_maisons_individuelles": 31.4,
+        "part_appartements_moins_5_etages": 44.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 48.9, "plus_de_7_pieces_pct": 25.3 }
+      },
+      {
+        "nom": "Sillery",
+        "logements_totaux_2021": 6035,
+        "part_maisons_individuelles": 49.9,
+        "part_appartements_moins_5_etages": 21.2,
+        "taille_logement": { "moins_de_5_pieces_pct": 24.9, "plus_de_7_pieces_pct": 45.8 }
+      }
+    ]
+  },
+  {
+    "zone": "Les Rivières",
+    "quartiers": [
+      {
+        "nom": "Duberger-Les Saules",
+        "logements_totaux_2021": 12835,
+        "part_maisons_individuelles": 25.8,
+        "part_appartements_moins_5_etages": 50.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 46.6, "plus_de_7_pieces_pct": 17.9 }
+      },
+      {
+        "nom": "Neufchâtel Est–Lebourgneuf",
+        "logements_totaux_2021": 18130,
+        "part_maisons_individuelles": 29.4,
+        "part_appartements_moins_5_etages": 50.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 47.3, "plus_de_7_pieces_pct": 20.4 }
+      },
+      {
+        "nom": "Vanier",
+        "logements_totaux_2021": 6865,
+        "part_maisons_individuelles": 6.2,
+        "part_appartements_moins_5_etages": 70.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 67.7, "plus_de_7_pieces_pct": 4.6 }
+      }
+    ]
+  },
+  {
+    "zone": "Beauport",
+    "quartiers": [
+      {
+        "nom": "Chutes-Montmorency",
+        "logements_totaux_2021": 7690,
+        "part_maisons_individuelles": 36.5,
+        "part_appartements_moins_5_etages": 41.0,
+        "taille_logement": { "moins_de_5_pieces_pct": 40.5, "plus_de_7_pieces_pct": 20.3 }
+      },
+      {
+        "nom": "Saint-Michel (5-2)",
+        "logements_totaux_2021": 7385,
+        "part_maisons_individuelles": 60.1,
+        "part_appartements_moins_5_etages": 23.3,
+        "taille_logement": { "moins_de_5_pieces_pct": 24.1, "plus_de_7_pieces_pct": 32.7 }
+      },
+      {
+        "nom": "Sainte-Thérèse-de-Lisieux",
+        "logements_totaux_2021": 6785,
+        "part_maisons_individuelles": 72.3,
+        "part_appartements_moins_5_etages": 5.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 15.7, "plus_de_7_pieces_pct": 33.0 }
+      },
+      {
+        "nom": "Vieux-Bourg",
+        "logements_totaux_2021": 7505,
+        "part_maisons_individuelles": 39.2,
+        "part_appartements_moins_5_etages": 45.9,
+        "taille_logement": { "moins_de_5_pieces_pct": 45.3, "plus_de_7_pieces_pct": 21.0 }
+      },
+      {
+        "nom": "Vieux-Moulin",
+        "logements_totaux_2021": 8045,
+        "part_maisons_individuelles": 16.4,
+        "part_appartements_moins_5_etages": 66.6,
+        "taille_logement": { "moins_de_5_pieces_pct": 61.5, "plus_de_7_pieces_pct": 9.8 }
+      }
+    ]
+  },
+  {
+    "zone": "Charlesbourg",
+    "quartiers": [
+      {
+        "nom": "Bourg-Royal (4-3)",
+        "logements_totaux_2021": 6215,
+        "part_maisons_individuelles": 41.4,
+        "part_appartements_moins_5_etages": 36.8,
+        "taille_logement": { "moins_de_5_pieces_pct": 33.3, "plus_de_7_pieces_pct": 28.4 }
+      },
+      {
+        "nom": "Jésuites",
+        "logements_totaux_2021": 7970,
+        "part_maisons_individuelles": 40.2,
+        "part_appartements_moins_5_etages": 36.9,
+        "taille_logement": { "moins_de_5_pieces_pct": 44.0, "plus_de_7_pieces_pct": 24.1 }
+      },
+      {
+        "nom": "Notre-Dame-des-Laurentides",
+        "logements_totaux_2021": 6100,
+        "part_maisons_individuelles": 55.0,
+        "part_appartements_moins_5_etages": 10.2,
+        "repartition_statut": { "proprietaires_pct": 82.2, "locataires_pct": 17.8 },
+        "taille_logement": { "moins_de_5_pieces_pct": 20.3, "plus_de_7_pieces_pct": 33.0 }
+      },
+      {
+        "nom": "Orsainville",
+        "logements_totaux_2021": 7550,
+        "part_maisons_individuelles": 48.5,
+        "part_appartements_moins_5_etages": 30.1,
+        "repartition_statut": { "proprietaires_pct": 69.3, "locataires_pct": 30.7 },
+        "taille_logement": { "moins_de_5_pieces_pct": 33.9, "plus_de_7_pieces_pct": 26.5 }
+      },
+      {
+        "nom": "Saint-Charles-Borromée (4-5)",
+        "logements_totaux_2021": 4380,
+        "part_maisons_individuelles": 52.7,
+        "part_appartements_moins_5_etages": 32.0,
+        "repartition_statut": { "proprietaires_pct": 62.0, "locataires_pct": 38.0 },
+        "taille_logement": { "moins_de_5_pieces_pct": 38.4, "plus_de_7_pieces_pct": 31.9 }
+      },
+      {
+        "nom": "Saint-Rodrigue (4-6)",
+        "logements_totaux_2021": 6315,
+        "part_maisons_individuelles": 10.3,
+        "part_appartements_moins_5_etages": 65.9,
+        "taille_logement": { "moins_de_5_pieces_pct": 70.7, "plus_de_7_pieces_pct": 6.7 }
+      }
+    ]
+  },
+  {
+    "zone": "Haute-Saint-Charles",
+    "quartiers": [
+      {
+        "nom": "Des Châtels",
+        "logements_totaux_2021": 5775,
+        "part_maisons_individuelles": 54.0,
+        "part_appartements_moins_5_etages": 20.5,
+        "taille_logement": { "moins_de_5_pieces_pct": 23.3, "plus_de_7_pieces_pct": 34.2 }
+      },
+      {
+        "nom": "Lac-Saint-Charles",
+        "logements_totaux_2021": 4060,
+        "part_maisons_individuelles": 74.6,
+        "part_appartements_moins_5_etages": 5.8,
+        "taille_logement": { "moins_de_5_pieces_pct": 17.0, "plus_de_7_pieces_pct": 32.3 }
+      },
+      {
+        "nom": "Loretteville",
+        "logements_totaux_2021": 7280,
+        "part_maisons_individuelles": 47.7,
+        "part_appartements_moins_5_etages": 36.1,
+        "taille_logement": { "moins_de_5_pieces_pct": 37.7, "plus_de_7_pieces_pct": 25.4 }
+      },
+      {
+        "nom": "Saint-Émile",
+        "logements_totaux_2021": 6295,
+        "part_maisons_individuelles": 55.4,
+        "part_appartements_moins_5_etages": 11.3,
+        "taille_logement": { "moins_de_5_pieces_pct": 19.6, "plus_de_7_pieces_pct": 35.6 }
+      }
+    ]
+  },
+  {
+    "zone": "Val-Bélair / L'Ancienne-Lorette",
+    "quartiers": [
+      {
+        "nom": "Val-Bélair",
+        "logements_totaux_2021": 12485,
+        "part_maisons_individuelles": 53.2,
+        "part_appartements_moins_5_etages": 24.7,
+        "repartition_statut": { "proprietaires_pct": 72.7, "locataires_pct": 27.3 },
+        "taille_logement": { "moins_de_5_pieces_pct": 25.9, "plus_de_7_pieces_pct": 30.0 }
+      }
+    ]
+  },
+  {
+    "zone": "Saint-Augustin / Cap-Rouge",
+    "quartiers": [
+      {
+        "nom": "Aéroport",
+        "logements_totaux_2021": 5950,
+        "part_maisons_individuelles": 53.0,
+        "part_appartements_moins_5_etages": 16.0,
+        "taille_logement": { "moins_de_5_pieces_pct": 23.5, "plus_de_7_pieces_pct": 32.4 }
+      },
+      {
+        "nom": "Cap-Rouge",
+        "logements_totaux_2021": 7040,
+        "part_maisons_individuelles": 66.9,
+        "part_appartements_moins_5_etages": 15.8,
+        "taille_logement": { "moins_de_5_pieces_pct": 14.8, "plus_de_7_pieces_pct": 55.1 }
+      }
+    ]
+  }
+]
