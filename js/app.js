@@ -2,7 +2,6 @@
 // 1. VARIABLES GLOBALES
 // =========================================================================
 var map;
-var mapInitialized = false;
 
 // Données du fichier GeoJSON RTC stockées en mémoire globale
 var rtcData = null; 
@@ -23,43 +22,62 @@ var rtcLinesGroup = L.featureGroup();
 // =========================================================================
 // 2. FONCTION DE NAVIGATION (TOUJOURS EN PREMIER)
 // =========================================================================
-var mapLoyersInitialized = false;
-var mapLoyers = null; // Notre deuxième objet de carte
+// Variables globales pour suivre l'état d'initialisation des cartes
+var mapInitialized = false;
+var mapStatsInitialized = false;
+var mapStats = null; // Objet pour la carte de statistiques
 
 function switchPage(pageId) {
-    // 1. Gestion de la classe active sur les onglets
-    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+    // 1. Nettoyer la classe active sur TOUS les liens de navigation possibles
+    document.querySelectorAll('header nav a').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // 2. Ajouter la classe active sur le lien cliqué (s'il existe)
     var activeLink = document.getElementById('link-' + pageId);
-    if (activeLink) activeLink.classList.add('active');
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
 
-    // 2. Masquer toutes les sections
-    document.getElementById('page-accueil').classList.add('hidden');
-    document.getElementById('page-carte').classList.add('hidden');
-    document.getElementById('page-carte-loyers').classList.add('hidden');
-    document.getElementById('page-analyse').classList.add('hidden');
+    // 3. Masquer TOUTES les sections de page de manière sécurisée
+    const pages = ['page-accueil', 'page-carte', 'page-carte-stats'];
+    pages.forEach(id => {
+        var pageEl = document.getElementById(id);
+        if (pageEl) {
+            pageEl.classList.add('hidden');
+        }
+    });
 
-    // 3. Afficher la section demandée et initialiser si nécessaire
+    // 4. Afficher la bonne section et gérer les cartes Leaflet
     if (pageId === 'accueil') {
-        document.getElementById('page-accueil').classList.remove('hidden');
+        var pageAccueil = document.getElementById('page-accueil');
+        if (pageAccueil) pageAccueil.classList.remove('hidden');
     } 
     else if (pageId === 'carte') {
-        document.getElementById('page-carte').classList.remove('hidden');
-        if (!mapInitialized) {
-            initMap(); // Ta fonction de carte actuelle (POIs, bus)
+        var pageCarte = document.getElementById('page-carte');
+        if (pageCarte) pageCarte.classList.remove('hidden');
+        
+        // Initialise la première carte si ce n'est pas fait
+        if (!mapInitialized && typeof initMap === 'function') {
+            initMap();
+            mapInitialized = true;
+        } else if (window.map) {
+            // Force Leaflet à recalculer sa taille au cas où elle était cachée
+            setTimeout(() => { window.map.invalidateSize(); }, 100);
         }
     } 
-    else if (pageId === 'carte-loyers') {
-        document.getElementById('page-carte-loyers').classList.remove('hidden');
-        if (!mapLoyersInitialized) {
-            initMapLoyers(); // Nouvelle fonction qu'on va coder ensuite
-        } else {
-            // Astuce Leaflet indispensable : recalcule la taille si la carte était cachée
-            setTimeout(() => { mapLoyers.invalidateSize(); }, 100);
+    else if (pageId === 'carte-stats') {
+        var pageStatsEl = document.getElementById('page-carte-stats');
+        if (pageStatsEl) pageStatsEl.classList.remove('hidden');
+        
+        // Initialise la deuxième carte (statistiques)
+        if (!mapStatsInitialized && typeof initMapStats === 'function') {
+            initMapStats();
+            mapStatsInitialized = true;
+        } else if (mapStats) {
+            // Force la carte statistique à recalculer sa taille
+            setTimeout(() => { mapStats.invalidateSize(); }, 100);
         }
-    } 
-    else if (pageId === 'analyse') {
-        document.getElementById('page-analyse').classList.remove('hidden');
-        genererAnalyses(); // Ta fonction de graphiques Chart.js
     }
 }
 
