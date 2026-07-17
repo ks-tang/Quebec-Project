@@ -28,6 +28,19 @@ header {
     box-sizing: border-box;
     z-index: 2000;
 }
+header nav a {
+    display: inline-block;
+    padding: 8px 16px;          /* Espace à l'intérieur du bouton (haut/bas gauche/droite) */
+    margin-right: 15px;         /* 🌟 Crée un espace de 15px à DROITE de chaque lien */
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Optionnel : on retire la marge sur le tout dernier élément pour que l'alignement reste parfait */
+header nav a:last-child {
+    margin-right: 0;
+}
 
 /* Conteneur pour aligner le logo et le menu à gauche */
 .nav-left {
