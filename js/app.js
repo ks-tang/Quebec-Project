@@ -384,8 +384,6 @@ function initMapStats() {
         .then(data => {
             donneesLogements = data; // On stocke les données officielles globalement
             
-            // Une fois les données prêtes, on configure les interactions sur la carte
-            setupMapInteractions(); 
         })
         .catch(error => console.error("Erreur de liaison du fichier logements :", error));
 }
@@ -481,6 +479,7 @@ function afficherDetailsZone(zoneData) {
 }
 
 function setupMapInteractions(data) {
+    // 1. Définition des coordonnées (accessible partout dans cette fonction)
     var coordsZones = {
         "Haute-Ville": [46.8075, -71.2224],
         "Basse-Ville": [46.8152, -71.2246],
@@ -493,6 +492,14 @@ function setupMapInteractions(data) {
         "Saint-Augustin / Cap-Rouge": [46.7516, -71.3934]
     };
 
+    // Si la fonction est appelée sans paramètres (via le fetch), on utilise les données statiques par défaut
+    if (!data) {
+        data = donneesLoyersStatic;
+    }
+
+    // Nettoie les anciens marqueurs s'il y en avait pour éviter les doublons
+    // (Optionnel selon ta structure, mais évite les bugs)
+
     data.forEach(item => {
         if (coordsZones[item.zone]) {
             var marker = L.circleMarker(coordsZones[item.zone], {
@@ -504,43 +511,25 @@ function setupMapInteractions(data) {
             }).addTo(mapStats);
             
             marker.bindPopup(`<b>${item.zone}</b><br>Loyer moyen : ${item.loyer_2025} $`);
-            marker.on('click', function() {
-                afficherDetailsZone(item);
+            
+            // On attache le nom de la zone au marqueur
+            marker.options.nomZone = item.zone;
+
+            // Gestion du clic combiné (Loyers + Détails des Quartiers)
+            marker.on('click', function(e) {
+                var nomDeLaZoneCliquee = e.target.options.nomZone;
+                
+                // 🔎 On cherche en priorité dans notre fichier logements.json chargé
+                var zoneLogementTrouvee = donneesLogements.find(l => l.zone === nomDeLaZoneCliquee);
+                
+                if (zoneLogementTrouvee) {
+                    // Si on a le JSON des 35 quartiers, on affiche la version détaillée !
+                    afficherDetailsZone(zoneLogementTrouvee);
+                } else {
+                    // Sinon, on affiche au moins les infos de base du loyer statique
+                    afficherDetailsZone(item);
+                }
             });
         }
     });
-}
-
-function setupMapInteractions() {
-    // Boucle à travers tes coordonnées de zones déjà existantes
-    for (var zoneName in coordsZones) {
-        var coords = coordsZones[zoneName];
-
-        // Création d'un marqueur pour chaque grande zone
-        var marker = L.circleMarker(coords, {
-            radius: 12,
-            fillColor: "#3498db",
-            color: "#fff",
-            weight: 2,
-            fillOpacity: 0.8
-        }).addTo(mapStats);
-
-        // On attache dynamiquement le nom de la zone au marqueur
-        marker.options.nomZone = zoneName;
-
-        // Événement au clic
-        marker.on('click', function(e) {
-            var nomDeLaZoneCliquee = e.target.options.nomZone;
-            
-            // 🔎 On cherche dans notre fichier JSON lié la zone correspondante
-            var zoneTrouvee = donneesLogements.find(item => item.zone === nomDeLaZoneCliquee);
-            
-            if (zoneTrouvee) {
-                // On envoie les données du JSON à la fonction d'affichage
-                afficherDetailsZone(zoneTrouvee); 
-            } else {
-                console.warn("Aucune donnée trouvée dans le JSON pour :", nomDeLaZoneCliquee);
-            }
-        });
-    }
 }
