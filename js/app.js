@@ -379,6 +379,11 @@ function getColorByLoyer(loyer) {
 
 // Fonction pour construire le graphique Chart.js
 function buildChart(data) {
+    if (typeof Chart === 'undefined') {
+        console.warn("Chart.js n'est pas encore prêt, réessai dans 100ms...");
+        setTimeout(() => buildChart(data), 100);
+        return;
+    }
     var ctx = document.getElementById('chart-loyers-stats').getContext('2d');
     
     // Extraire les étiquettes (zones) et les valeurs (loyers 2025)
