@@ -341,3 +341,105 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+// =========================================================================
+// 7. INITIALISATION DE LA CARTE STATISTIQUES
+// =========================================================================
+
+// Fonction pour initialiser la page statistique (Carte + Graphique)
+function initMapStats() {
+    // 1. Initialisation de la deuxième carte Leaflet
+    mapStats = L.map('map-stats').setView([46.8139, -71.2082], 11); // Centré sur Québec
+
+    // Ajouter un fond de carte neutre (CartoDB Positron est parfait pour les stats)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO'
+    }).addTo(mapStats);
+
+    // 2. Charger les données du fichier analyses.json
+    fetch('data/analyses.json')
+        .then(response => response.json())
+        .then(data => {
+            // Une fois les données chargées, on crée le graphique et on prépare l'interaction
+            buildChart(data);
+            setupMapInteractions(data);
+        })
+        .catch(error => console.error("Erreur lors du chargement des analyses :", error));
+}
+
+// Fonction pour attribuer une couleur selon le prix du loyer (liée à ta légende HTML)
+function getColorByLoyer(loyer) {
+    return loyer >= 1400 ? '#810f7c' :
+           loyer >= 1300 ? '#8856a7' :
+           loyer >= 1200 ? '#8c96c6' :
+           loyer >= 1100 ? '#b3cde3' :
+                           '#edf8fb';
+}
+
+// Fonction pour construire le graphique Chart.js
+function buildChart(data) {
+    var ctx = document.getElementById('chart-loyers-stats').getContext('2d');
+    
+    // Extraire les étiquettes (zones) et les valeurs (loyers 2025)
+    var labels = data.map(item => item.zone);
+    var loyers2025 = data.map(item => item.loyer_2025);
+    var couleurs = data.map(item => getColorByLoyer(item.loyer_2025));
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Loyer moyen 2025 ($)',
+                data: loyers2025,
+                backgroundColor: couleurs,
+                borderColor: '#cbd5e1',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false } // Masqué car on a déjà les couleurs
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: 800, // Pour mieux voir les disparités
+                    title: { display: true, text: 'En dollars ($)' }
+                }
+            },
+            onClick: (e, activeElements) => {
+                if (activeElements.length > 0) {
+                    var index = activeElements[0].index;
+                    afficherDetailsZone(data[index]);
+                }
+            }
+        }
+    });
+}
+
+// Fonction pour mettre à jour le panneau de texte au clic
+function afficherDetailsZone(zoneData) {
+    document.getElementById('details-zone-titre').innerHTML = `📍 ${zoneData.zone}`;
+    
+    var tauxVacance = zoneData.taux_inoccupation_2025 !== null ? `${zoneData.taux_inoccupation_2025} %` : 'Donnée non disponible';
+    
+    document.getElementById('details-zone-texte').innerHTML = `
+        <strong>Loyer moyen 2025 :</strong> ${zoneData.loyer_2025} $ / mois<br>
+        <strong>Loyer moyen 2024 :</strong> ${zoneData.loyer_2024} $<br>
+        <strong>Taux d'inoccupation :</strong> ${tauxVacance}<br>
+        <strong>Profil du secteur :</strong> ${zoneData.description}
+    `;
+}
+
+// Pour l'instant, on lie simplement les données sans polygones
+function setupMapInteractions(data) {
+    // Si l'utilisateur clique n'importe où sur la carte pour le moment, 
+    // on lui rappelle gentiment d'utiliser le graphique en attendant le GeoJSON des secteurs
+    mapStats.on('click', function() {
+        // Optionnel : interaction future
+    });
+}
