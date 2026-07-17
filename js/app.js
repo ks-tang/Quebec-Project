@@ -358,7 +358,7 @@ function initMapStats() {
     }).addTo(mapStats);
 
     // 2. Charger les données du fichier analyses.json
-    fetch('data/analyses.json')
+    fetch('../data/analyses.json')
         .then(response => response.json())
         .then(data => {
             // Une fois les données chargées, on crée le graphique et on prépare l'interaction
