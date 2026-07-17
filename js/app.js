@@ -414,6 +414,7 @@ function buildChart(data) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            resizeDelay: 50,
             plugins: {
                 legend: { display: false }
             },
