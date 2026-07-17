@@ -1,9 +1,13 @@
-/* Variables de couleurs pour un style moderne et cohérent */
+/* =========================================================================
+   1. VARIABLES & CONFIGURATION GENERALE
+   ========================================================================= */
 :root {
-    --primary-color: #2c3e50; /* Bleu foncé ardoise */
-    --accent-color: #e74c3c;  /* Rouge vif (clin d'oeil au Canada) */
-    --background-light: #f8f9fa;
-    --text-color: #333333;
+    --primary-color: #2c3e50;    /* Bleu foncé ardoise (Navbar) */
+    --accent-color: #e74c3c;     /* Rouge vif (Accentuation / Bouton actif) */
+    --background-light: #f8f9fa; /* Fond de page */
+    --text-color: #333333;       /* Texte général */
+    --text-muted: #7f8c8d;       /* Texte secondaire gris */
+    --nav-text-color: #bdc3c7;   /* Gris clair pour les liens non survolés */
 }
 
 body, html {
@@ -16,7 +20,23 @@ body, html {
     background-color: var(--background-light);
 }
 
-/* --- BARRE DE NAVIGATION --- */
+/* --- STRUCTURE DES PAGES --- */
+.page-content {
+    margin-top: 70px; /* Évite que le contenu soit caché sous la navbar fixe */
+    height: calc(100vh - 70px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cacher les pages inactives */
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================================
+   2. BARRE DE NAVIGATION (HEADER)
+   ========================================================================= */
 header {
     background-color: var(--primary-color);
     color: white;
@@ -28,68 +48,56 @@ header {
     box-sizing: border-box;
     z-index: 2000;
 }
-header nav a {
-    display: inline-block;
-    padding: 8px 16px;          /* Espace à l'intérieur du bouton (haut/bas gauche/droite) */
-    margin-right: 15px;         /* 🌟 Crée un espace de 15px à DROITE de chaque lien */
-    text-decoration: none;
-    color: #333;
-    transition: all 0.3s ease;
-}
 
-/* Optionnel : on retire la marge sur le tout dernier élément pour que l'alignement reste parfait */
-header nav a:last-child {
-    margin-right: 0;
-}
-
-/* Conteneur pour aligner le logo et le menu à gauche */
+/* Conteneur d'alignement pour le logo et le menu */
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espace entre le logo et le premier lien du menu */
+    gap: 30px; /* Écart global entre le logo et le bloc nav */
 }
 
 header .logo {
     font-size: 1.3rem;
     font-weight: bold;
     letter-spacing: 1px;
-    cursor: pointer; /* Indique clairement que le logo est cliquable */
-    user-select: none; /* Évite de sélectionner le texte par erreur en double-cliquant */
+    cursor: pointer;
+    user-select: none;
     transition: opacity 0.2s ease;
 }
 
 header .logo:hover {
-    opacity: 0.9; /* Léger effet au survol du logo */
+    opacity: 0.9;
 }
 
-nav a {
-    color: #bdc3c7;
+/* --- LIENS DE NAVIGATION --- */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Crée un espace harmonieux entre chaque bouton */
+}
+
+header nav a {
+    display: inline-block;
+    padding: 8px 16px;
     text-decoration: none;
+    color: var(--nav-text-color); /* FIX : Utilise le gris clair pour être visible sur fond bleu */
     font-weight: 500;
-    transition: color 0.3s ease;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-nav a:hover, nav a.active {
+/* États au survol (:hover) et page active (.active) */
+header nav a:hover, 
+header nav a.active {
     color: white;
     border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 5px;
+    padding-bottom: 6px; /* Ajustement micrométrique pour compenser la bordure */
 }
 
-/* --- STRUCTURE DES PAGES --- */
-.page-content {
-    margin-top: 70px; /* Espace pour pas être caché sous la navbar fixe */
-    height: calc(100vh - 70px);
-    width: 100%;
-    box-sizing: border-box;
-}
 
-/* Cacher les pages inactives */
-.hidden {
-    display: none !important;
-}
-
-/* --- PAGE ACCUEIL --- */
+/* =========================================================================
+   3. SECTION ACCUEIL
+   ========================================================================= */
 #page-accueil {
     display: block;
     max-width: 800px;
@@ -111,7 +119,7 @@ nav a:hover, nav a.active {
 
 .hero-section p {
     font-size: 1.2rem;
-    color: #7f8c8d;
+    color: var(--text-muted);
 }
 
 .profile-container {
@@ -139,30 +147,34 @@ nav a:hover, nav a.active {
     margin-bottom: 15px;
 }
 
-/* --- PAGE CARTE --- */
-#page-carte {
+
+/* =========================================================================
+   4. SECTIONS CARTES & FILTRES
+   ========================================================================= */
+#page-carte, 
+#page-carte-stats {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-#map {
+#map, 
+#map-stats {
     width: 100%;
     height: 100%;
 }
 
-/* --- FILTRES FLOTTANTS SUR LA CARTE --- */
+/* --- PANNEAUX DE FILTRES FLOTTANTS --- */
 .filter-box {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 1000; /* Doit passer par-dessus la carte Leaflet */
+    z-index: 1000; /* Passe obligatoirement par-dessus les tuiles Leaflet */
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     width: 200px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .filter-box h3 {
@@ -198,7 +210,6 @@ nav a:hover, nav a.active {
     accent-color: var(--primary-color);
 }
 
-/* La pastille de couleur à côté du nom de la catégorie */
 .legend-color {
     display: inline-block;
     width: 12px;
@@ -208,8 +219,11 @@ nav a:hover, nav a.active {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* --- FIXS POUR LEAFLET (CRUCIAL) --- */
-/* Empêche Leaflet d'appliquer des carrés blancs et des bordures par défaut sur nos icônes SVG */
+
+/* =========================================================================
+   5. CORRECTIFS TECHNIQUES (LEAFLET CORRECTION)
+   ========================================================================= */
+/* Supprime les bordures blanches par défaut appliquées par Leaflet aux conteneurs divIcon */
 .custom-svg-marker {
     background: transparent !important;
     border: none !important;
