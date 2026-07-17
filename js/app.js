@@ -281,7 +281,7 @@ function initMap() {
         .then(response => response.json())
         .then(data => {
             rtcData = data;
-            console.log("✨ Données RTC prêtes et chargées en mémoire !");
+            //console.log("✨ Données RTC prêtes et chargées en mémoire !");
         })
         .catch(error => console.error("Erreur de chargement des lignes :", error));
 
@@ -374,11 +374,11 @@ function initMapStats() {
 }
 
 function getColorByLoyer(loyer) {
-    return loyer >= 1400 ? '#810f7c' :
-           loyer >= 1300 ? '#8856a7' :
-           loyer >= 1200 ? '#8c96c6' :
-           loyer >= 1100 ? '#b3cde3' :
-                           '#edf8fb';
+    return loyer >= 1400 ? '#530950' :
+           loyer >= 1300 ? '#810f7c' :
+           loyer >= 1200 ? '#8856a7' :
+           loyer >= 1100 ? '#8c96c6' :
+                           '#b3cde3' ;
 }
 
 function buildChart(data) {
