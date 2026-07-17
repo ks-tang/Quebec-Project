@@ -21,6 +21,7 @@
             <div class="logo" onclick="switchPage('accueil')">🍁 Quebec Project</div>
             <nav>
                 <a id="link-carte" onclick="switchPage('carte')">Carte Interactive</a>
+                <a href="#" id="link-carte-stats" onclick="switchPage('carte-stats')">Carte statistiques</a>
             </nav>
         </div>
     </header>
@@ -96,6 +97,56 @@
             </div>
             
             <div id="map"></div>
+        </section>
+
+        <!-- SECTION 3 : CARTE STATISTIQUES (CHOROPLÈTHE ET GRAPHIQUES) -->
+        <section id="page-carte-stats" class="hidden" style="padding: 20px; font-family: Arial, sans-serif; max-width: 1400px; margin: 0 auto;">
+            <div style="margin-bottom: 20px;">
+                <h2 style="color: #2c3e50; margin-bottom: 5px;">Analyse des Loyers de l'Agglomération de Québec</h2>
+                <p style="color: #7f8c8d; margin: 0;">Données officielles issues de l'Enquête sur les logements locatifs de la SCHL.</p>
+            </div>
+
+            <!-- Disposition en grille : Carte thématique à gauche, graphiques à droite -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 25px; height: calc(100vh - 160px); min-height: 550px;">
+                
+                <!-- Bloc Carte Choroplèthe -->
+                <div style="position: relative; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="padding: 12px 15px; background: #f8fafc; border-bottom: 1px solid #edf2f7; font-weight: bold; color: #4a5568;">
+                        🗺️ Vue géographique par zone SCHL
+                    </div>
+                    <div id="map-stats" style="width: 100%; flex-grow: 1; z-index: 1;"></div>
+                    
+                    <!-- Légende de la carte intégrée en bas à droite -->
+                    <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(255,255,255,0.95); padding: 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 10; font-size: 12px;">
+                        <h4 style="margin: 0 0 8px 0; font-size: 13px; color: #2c3e50;">Loyer Moyen ($)</h4>
+                        <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <div><span style="display:inline-block; width:15px; height:10px; background:#edf8fb; margin-right:6px; border:1px solid #cbd5e1;"></span> &lt; 1 100 $</div>
+                            <div><span style="display:inline-block; width:15px; height:10px; background:#b3cde3; margin-right:6px; border:1px solid #cbd5e1;"></span> 1 100 $ - 1 200 $</div>
+                            <div><span style="display:inline-block; width:15px; height:10px; background:#8c96c6; margin-right:6px; border:1px solid #cbd5e1;"></span> 1 200 $ - 1 300 $</div>
+                            <div><span style="display:inline-block; width:15px; height:10px; background:#8856a7; margin-right:6px; border:1px solid #cbd5e1;"></span> 1 300 $ - 1 400 $</div>
+                            <div><span style="display:inline-block; width:15px; height:10px; background:#810f7c; margin-right:6px; border:1px solid #cbd5e1;"></span> 1 400 $ +</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc Graphiques et Détails -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Graphique comparatif -->
+                    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; flex: 1; min-height: 250px;">
+                        <h4 style="margin: 0 0 10px 0; color: #2c3e50;">📈 Comparatif des loyers moyens (2025)</h4>
+                        <div style="position: relative; width: 100%; height: calc(100% - 30px);">
+                            <canvas id="chart-loyers-stats"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Panneau d'informations dynamiques au clic -->
+                    <div id="panel-details-zone" style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 5px solid #3182ce; box-shadow: 0 2px 6px rgba(0,0,0,0.04); min-height: 120px;">
+                        <h4 style="margin: 0 0 5px 0; color: #2d3748;" id="details-zone-titre">Sélectionnez une zone</h4>
+                        <p style="margin: 0; color: #4a5568; font-size: 14px;" id="details-zone-texte">Cliquez sur une zone de la carte ou sur un bâtonnet du graphique pour afficher les statistiques complètes de l'échantillon (loyers, vacances, etc.).</p>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
     </div>

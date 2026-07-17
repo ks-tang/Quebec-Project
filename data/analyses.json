@@ -1,0 +1,74 @@
+[
+  {
+    "zone": "Haute-Ville",
+    "loyer_2024": 1233,
+    "loyer_2025": 1332,
+    "taux_inoccupation_2025": 2.9,
+    "variation_pourcent": 6.7,
+    "description": "Vieux-Québec, Montcalm, Saint-Jean-Baptiste. Zone historique très prisée, forte augmentation des loyers liée à la rareté et au tourisme."
+  },
+  {
+    "zone": "Basse-Ville",
+    "loyer_2024": 983,
+    "loyer_2025": 1139,
+    "taux_inoccupation_2025": 2.7,
+    "variation_pourcent": 5.3,
+    "description": "Saint-Roch, Saint-Sauveur, Saint-Malo. Quartiers en pleine revitalisation culturelle et technologique, loyers en hausse rapide."
+  },
+  {
+    "zone": "Sainte-Foy / Sillery",
+    "loyer_2024": 1183,
+    "loyer_2025": 1262,
+    "taux_inoccupation_2025": null,
+    "variation_pourcent": 6.4,
+    "description": "Secteur universitaire (Université Laval) et commercial. Très forte demande étudiante qui maintient une pression constante sur les prix."
+  },
+  {
+    "zone": "Les Rivières",
+    "loyer_2024": 1217,
+    "loyer_2025": 1398,
+    "taux_inoccupation_2025": 2.6,
+    "variation_pourcent": null,
+    "description": "Vanier, Lebourgneuf. Zone centrale, résidentielle et commerciale, affichant le loyer moyen le plus élevé pour les constructions récentes."
+  },
+  {
+    "zone": "Beauport",
+    "loyer_2024": 1037,
+    "loyer_2025": 1195,
+    "taux_inoccupation_2025": 3.4,
+    "variation_pourcent": 6.2,
+    "description": "Secteur de banlieue familiale, plus abordable, offrant le taux d'inoccupation le plus souple (3,4 %) de l'agglomération."
+  },
+  {
+    "zone": "Charlesbourg",
+    "loyer_2024": 1044,
+    "loyer_2025": 1032,
+    "taux_inoccupation_2025": 0.4,
+    "variation_pourcent": 5.5,
+    "description": "Secteur très familial et résidentiel. Le marché y est extrêmement serré avec seulement 0,4 % de logements vacants."
+  },
+  {
+    "zone": "Haute-Saint-Charles",
+    "loyer_2024": 1001,
+    "loyer_2025": 1115,
+    "taux_inoccupation_2025": 1.5,
+    "variation_pourcent": 6.9,
+    "description": "Loretteville, Lac-Saint-Charles. Secteur excentré, vert et tranquille, idéal pour les familles cherchant de l'espace."
+  },
+  {
+    "zone": "Val-Bélair / L'Ancienne-Lorette",
+    "loyer_2024": 1058,
+    "loyer_2025": 1137,
+    "taux_inoccupation_2025": 1.0,
+    "variation_pourcent": 6.4,
+    "description": "Secteurs résidentiels stables avec une forte proportion de propriétaires et un marché locatif très restreint."
+  },
+  {
+    "zone": "Saint-Augustin / Cap-Rouge",
+    "loyer_2024": 1268,
+    "loyer_2025": 1512,
+    "taux_inoccupation_2025": 1.8,
+    "variation_pourcent": 4.6,
+    "description": "Secteur aisé en périphérie ouest. Offre locative haut de gamme expliquant le coût moyen le plus élevé de la région (1 512 $)."
+  }
+]

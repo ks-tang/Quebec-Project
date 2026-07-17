@@ -23,24 +23,43 @@ var rtcLinesGroup = L.featureGroup();
 // =========================================================================
 // 2. FONCTION DE NAVIGATION (TOUJOURS EN PREMIER)
 // =========================================================================
-function switchPage(pageId) {
-    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-    
-    var activeLink = document.getElementById('link-' + pageId);
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
+var mapLoyersInitialized = false;
+var mapLoyers = null; // Notre deuxième objet de carte
 
+function switchPage(pageId) {
+    // 1. Gestion de la classe active sur les onglets
+    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+    var activeLink = document.getElementById('link-' + pageId);
+    if (activeLink) activeLink.classList.add('active');
+
+    // 2. Masquer toutes les sections
+    document.getElementById('page-accueil').classList.add('hidden');
+    document.getElementById('page-carte').classList.add('hidden');
+    document.getElementById('page-carte-loyers').classList.add('hidden');
+    document.getElementById('page-analyse').classList.add('hidden');
+
+    // 3. Afficher la section demandée et initialiser si nécessaire
     if (pageId === 'accueil') {
         document.getElementById('page-accueil').classList.remove('hidden');
-        document.getElementById('page-carte').classList.add('hidden');
-    } else if (pageId === 'carte') {
-        document.getElementById('page-accueil').classList.add('hidden');
+    } 
+    else if (pageId === 'carte') {
         document.getElementById('page-carte').classList.remove('hidden');
-        
         if (!mapInitialized) {
-            initMap();
+            initMap(); // Ta fonction de carte actuelle (POIs, bus)
         }
+    } 
+    else if (pageId === 'carte-loyers') {
+        document.getElementById('page-carte-loyers').classList.remove('hidden');
+        if (!mapLoyersInitialized) {
+            initMapLoyers(); // Nouvelle fonction qu'on va coder ensuite
+        } else {
+            // Astuce Leaflet indispensable : recalcule la taille si la carte était cachée
+            setTimeout(() => { mapLoyers.invalidateSize(); }, 100);
+        }
+    } 
+    else if (pageId === 'analyse') {
+        document.getElementById('page-analyse').classList.remove('hidden');
+        genererAnalyses(); // Ta fonction de graphiques Chart.js
     }
 }
 
