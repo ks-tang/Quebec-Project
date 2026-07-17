@@ -347,28 +347,32 @@ document.addEventListener("DOMContentLoaded", () => {
 // 7. INITIALISATION DE LA CARTE STATISTIQUES
 // =========================================================================
 
-// Fonction pour initialiser la page statistique (Carte + Graphique)
+// Données officielles de l'agglomération de Québec en dur pour éviter les erreurs de fetch JSON
+var donneesLoyersStatic = [
+    { "zone": "Haute-Ville", "loyer_2024": 1233, "loyer_2025": 1332, "taux_inoccupation_2025": 2.9, "description": "Vieux-Québec, Montcalm, Saint-Jean-Baptiste. Zone historique très prisée." },
+    { "zone": "Basse-Ville", "loyer_2024": 983, "loyer_2025": 1139, "taux_inoccupation_2025": 2.7, "description": "Saint-Roch, Saint-Sauveur. Quartiers en pleine revitalisation culturelle." },
+    { "zone": "Sainte-Foy / Sillery", "loyer_2024": 1183, "loyer_2025": 1262, "taux_inoccupation_2025": null, "description": "Secteur universitaire. Très forte demande étudiante." },
+    { "zone": "Les Rivières", "loyer_2024": 1217, "loyer_2025": 1398, "taux_inoccupation_2025": 2.6, "description": "Vanier, Lebourgneuf. Zone centrale, résidentielle et commerciale." },
+    { "zone": "Beauport", "loyer_2024": 1037, "loyer_2025": 1195, "taux_inoccupation_2025": 3.4, "description": "Secteur de banlieue familiale, plus abordable." },
+    { "zone": "Charlesbourg", "loyer_2024": 1044, "loyer_2025": 1032, "taux_inoccupation_2025": 0.4, "description": "Secteur très familial. Le marché y est extrêmement serré." },
+    { "zone": "Haute-Saint-Charles", "loyer_2024": 1001, "loyer_2025": 1115, "taux_inoccupation_2025": 1.5, "description": "Loretteville. Secteur excentré, vert et tranquille." },
+    { "zone": "Val-Bélair / L'Ancienne-Lorette", "loyer_2024": 1058, "loyer_2025": 1137, "taux_inoccupation_2025": 1.0, "description": "Secteurs résidentiels stables avec un marché locatif restreint." },
+    { "zone": "Saint-Augustin / Cap-Rouge", "loyer_2024": 1268, "loyer_2025": 1512, "taux_inoccupation_2025": 1.8, "description": "Secteur aisé. Offre locative haut de gamme." }
+];
+
 function initMapStats() {
     // 1. Initialisation de la deuxième carte Leaflet
-    mapStats = L.map('map-stats').setView([46.8139, -71.2082], 11); // Centré sur Québec
+    mapStats = L.map('map-stats').setView([46.8139, -71.2082], 11);
 
-    // Ajouter un fond de carte neutre (CartoDB Positron est parfait pour les stats)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO'
     }).addTo(mapStats);
 
-    // 2. Charger les données du fichier analyses.json
-    fetch('data/analyses.json')
-        .then(response => response.json())
-        .then(data => {
-            // Une fois les données chargées, on crée le graphique et on prépare l'interaction
-            buildChart(data);
-            setupMapInteractions(data);
-        })
-        .catch(error => console.error("Erreur lors du chargement des analyses :", error));
+    // 2. Lancement direct du graphique et de la carte avec les données locales
+    buildChart(donneesLoyersStatic);
+    setupMapInteractions(donneesLoyersStatic);
 }
 
-// Fonction pour attribuer une couleur selon le prix du loyer (liée à ta légende HTML)
 function getColorByLoyer(loyer) {
     return loyer >= 1400 ? '#810f7c' :
            loyer >= 1300 ? '#8856a7' :
@@ -377,21 +381,25 @@ function getColorByLoyer(loyer) {
                            '#edf8fb';
 }
 
-// Fonction pour construire le graphique Chart.js
 function buildChart(data) {
+    // Si Chart n'est vraiment pas là, on met un message clair plutôt qu'une boucle infinie
     if (typeof Chart === 'undefined') {
-        console.warn("Chart.js n'est pas encore prêt, réessai dans 100ms...");
-        setTimeout(() => buildChart(data), 100);
+        console.error("❌ ERREUR : La bibliothèque Chart.js est manquante dans votre fichier HTML ! Ajoutez la balise script correspondante.");
         return;
     }
+
     var ctx = document.getElementById('chart-loyers-stats').getContext('2d');
     
-    // Extraire les étiquettes (zones) et les valeurs (loyers 2025)
+    // Éviter les superpositions de graphiques au changement d'onglet
+    if (window.monGraphiqueStats) {
+        window.monGraphiqueStats.destroy();
+    }
+
     var labels = data.map(item => item.zone);
     var loyers2025 = data.map(item => item.loyer_2025);
     var couleurs = data.map(item => getColorByLoyer(item.loyer_2025));
 
-    new Chart(ctx, {
+    window.monGraphiqueStats = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
@@ -407,12 +415,12 @@ function buildChart(data) {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false } // Masqué car on a déjà les couleurs
+                legend: { display: false }
             },
             scales: {
                 y: {
                     beginAtZero: false,
-                    min: 800, // Pour mieux voir les disparités
+                    min: 800,
                     title: { display: true, text: 'En dollars ($)' }
                 }
             },
@@ -426,10 +434,8 @@ function buildChart(data) {
     });
 }
 
-// Fonction pour mettre à jour le panneau de texte au clic
 function afficherDetailsZone(zoneData) {
     document.getElementById('details-zone-titre').innerHTML = `📍 ${zoneData.zone}`;
-    
     var tauxVacance = zoneData.taux_inoccupation_2025 !== null ? `${zoneData.taux_inoccupation_2025} %` : 'Donnée non disponible';
     
     document.getElementById('details-zone-texte').innerHTML = `
@@ -440,11 +446,33 @@ function afficherDetailsZone(zoneData) {
     `;
 }
 
-// Pour l'instant, on lie simplement les données sans polygones
 function setupMapInteractions(data) {
-    // Si l'utilisateur clique n'importe où sur la carte pour le moment, 
-    // on lui rappelle gentiment d'utiliser le graphique en attendant le GeoJSON des secteurs
-    mapStats.on('click', function() {
-        // Optionnel : interaction future
+    var coordsZones = {
+        "Haute-Ville": [46.8075, -71.2224],
+        "Basse-Ville": [46.8152, -71.2246],
+        "Sainte-Foy / Sillery": [46.7852, -71.2854],
+        "Les Rivières": [46.8285, -71.2842],
+        "Beauport": [46.8614, -71.1925],
+        "Charlesbourg": [46.8619, -71.2674],
+        "Haute-Saint-Charles": [46.8610, -71.3630],
+        "Val-Bélair / L'Ancienne-Lorette": [46.7972, -71.3503],
+        "Saint-Augustin / Cap-Rouge": [46.7516, -71.3934]
+    };
+
+    data.forEach(item => {
+        if (coordsZones[item.zone]) {
+            var marker = L.circleMarker(coordsZones[item.zone], {
+                radius: 12,
+                fillColor: getColorByLoyer(item.loyer_2025),
+                color: '#fff',
+                weight: 2,
+                fillOpacity: 0.85
+            }).addTo(mapStats);
+            
+            marker.bindPopup(`<b>${item.zone}</b><br>Loyer moyen : ${item.loyer_2025} $`);
+            marker.on('click', function() {
+                afficherDetailsZone(item);
+            });
+        }
     });
 }
