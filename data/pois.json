@@ -254,7 +254,7 @@
     "name": "Chute Montmorency",
     "lat": 46.89029796525226, 
     "lng": -71.14793418373061,
-    "color": "#F0FF3D",
+    "color": "#148000",
     "description": "Chute d'eau",
     "category": "nature"
   },
@@ -262,7 +262,7 @@
     "name": "Parc de la Pointe-aux-Lièvres",
     "lat": 46.82215779706341, 
     "lng": -71.23529734210761 ,
-    "color": "#F0FF3D",
+    "color": "#148000",
     "description": "Parc, devient une patinoire naturelle en hiver.",
     "category": "nature"
   },
@@ -270,9 +270,51 @@
     "name": "Plaines d'Abraham",
     "lat": 46.80041173965673, 
     "lng": -71.22028954714034,
-    "color": "#F0FF3D",
+    "color": "#148000",
     "description": "Grand parc",
     "category": "nature"
+  },
+
+
+  {
+    "name": "Piscine Notre-Dame-de-la-Garde",
+    "lat": 46.801455247755506, 
+    "lng": -71.21077177503085,
+    "color": "#e67e22",
+    "description": "Piscine municipale extérieure chauffée",
+    "category": "sport"
+  },
+  {
+    "name": "Piscine Lucien Borne",
+    "lat": 46.8067138085779, 
+    "lng": -71.22862753271917,
+    "color": "#e67e22",
+    "description": "Piscine couverte",
+    "category": "sport"
+  },
+  {
+    "name": "Marina Saint-Roch",
+    "lat": 46.81829551811935, 
+    "lng": -71.22628904113712,
+    "color": "#e67e22",
+    "description": "Piscine municipale extérieure chauffée en bord de rivière",
+    "category": "sport"
+  },
+  {
+    "name": "Piscine de la promenade Samuel-De Champlain",
+    "lat": 46.776678183876584, 
+    "lng": -71.24242795371308 ,
+    "color": "#e67e22",
+    "description": "Piscine extérieure gratuite en bord de plage",
+    "category": "sport"
+  },
+  {
+    "name": "Plage Samuel de Champlain",
+    "lat": 46.77797229430867, 
+    "lng": -71.24240001931109,
+    "color": "#e67e22",
+    "description": "Plage",
+    "category": "sport"
   }
 
 ]
