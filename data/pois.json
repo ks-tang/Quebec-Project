@@ -195,7 +195,23 @@
     "lat": 46.8156264179888, 
     "lng": -71.21985823078998,
     "color": "#8A0000",
-    "description": "Magasin de vêtements",
+    "description": "Restaurants de poutine",
+    "category": "restaurant"
+  },
+  {
+    "name": "Burger King",
+    "lat": 46.83400525045876, 
+    "lng": -71.27595865680775,
+    "color": "#8A0000",
+    "description": "Fast food burgers",
+    "category": "restaurant"
+  },
+  {
+    "name": "Burger King",
+    "lat": 46.79094359003542, 
+    "lng": -71.1709346650614,
+    "color": "#8A0000",
+    "description": "Fast food burgers",
     "category": "restaurant"
   },
 
@@ -204,7 +220,7 @@
     "name": "Auberge Internationale de Québec",
     "lat": 46.81235403915732, 
     "lng": -71.21134670168269,
-    "color": "#FFFF00",
+    "color": "#F0FF3D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
@@ -212,7 +228,7 @@
     "name": "Auberge Jeunesse québec central",
     "lat": 46.81562773073626, 
     "lng": -71.22105020068939 ,
-    "color": "#FFFF00",
+    "color": "#F0FF3D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
@@ -220,7 +236,7 @@
     "name": "Résidences - Université Laval",
     "lat": 46.78056638232142, 
     "lng": -71.26720703318522 ,
-    "color": "#FFFF00",
+    "color": "#F0FF3D",
     "description": "Résidence universitaire",
     "category": "logement"
   }
