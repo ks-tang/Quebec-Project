@@ -264,6 +264,14 @@
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
+  {
+    "name": "Auberge de la Paix",
+    "lat": 46.81505005563687, 
+    "lng": -71.2086843478889 ,
+    "color": "#F0FF3D",
+    "description": "Auberge de jeunesse",
+    "category": "logement"
+  },
 
 
   {
