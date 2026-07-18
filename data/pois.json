@@ -39,6 +39,22 @@
     "description": "Aéroport",
     "category": "administration"
   },
+  {
+    "name": "Service d'Orientation et d'Intégration des Immigrants au Travail",
+    "lat": 46.766826102327585,
+    "lng": -71.29328455112321, 
+    "color": "#00007A",
+    "description": "Agence de recrutement",
+    "category": "administration"
+  },
+  {
+    "name": "Centre multiethnique de Québec",
+    "lat": 46.81584062423002, 
+    "lng": -71.22916289500264, 
+    "color": "#00007A",
+    "description": "Centre social. Peut fournir un logement. Si besoin en cas d'urgence.",
+    "category": "administration"
+  },
 
 
 
