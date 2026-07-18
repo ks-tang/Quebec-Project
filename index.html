@@ -22,8 +22,9 @@
         <div class="nav-left">
             <div class="logo" onclick="switchPage('accueil')">🍁 Quebec Project</div>
             <nav>
-                <a id="link-carte" onclick="switchPage('carte')">Carte Interactive</a>
-                <a href="#" id="link-carte-stats" onclick="switchPage('carte-stats')">Carte statistiques</a>
+                <a id="link-carte" onclick="switchPage('carte')">🗺️ Carte Interactive</a>
+                <a href="#" id="link-carte-stats" onclick="switchPage('carte-stats')">📊 Carte statistiques</a>
+                <a href="#" id="link-checklist" onclick="switchPage('checklist')">📋 Mon Bloc-Notes</a>
             </nav>
         </div>
     </header>
@@ -167,6 +168,122 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- =========================================================================
+            PAGE 4 : CHECKLIST & BLOC-NOTES VOYAGE
+        ========================================================================= -->
+        <section id="page-checklist" class="hidden">
+            <div class="checklist-container">
+                <h1>📋 Préparatifs du Voyage & Checklist</h1>
+                <p class="subtitle">Suivi en temps réel de mes démarches. (Sauvegarde automatique)</p>
+
+                <div class="checklist-grid">
+                    
+                    <!-- 1. ASSURANCE -->
+                    <div class="checklist-card priority">
+                        <div class="card-header">
+                            <h3>🛡️ Assurance Maladie / Rapatriement</h3>
+                            <span class="badge red">Obligatoire</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="warning-text">
+                                ⚠️ <strong>ATTENTION CRITIQUE :</strong> L'assurance doit impérativement être souscrite 
+                                <strong>AVANT</strong> le départ et couvrir <strong>toute la durée prévue du séjour</strong>. 
+                                À l'arrivée, l'agent de l'immigration calquera la durée de ton visa sur la durée exacte de ton attestation d'assurance. 
+                                Si tu prends 6 mois, ton visa sera limité à 6 mois sans possibilité de le prolonger !
+                            </p>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-assurance-souscrite">
+                                <span>Souscrire à l'assurance pour la durée totale du séjour</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-assurance-imprimee">
+                                <span>Imprimer l'attestation papier (à présenter à l'immigration)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. BANQUE -->
+                    <div class="checklist-card">
+                        <div class="card-header">
+                            <h3>🏦 Choix de la Banque</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Comparatif des meilleures options pour pvtistes au Canada :</p>
+                            <ul class="info-list">
+                                <li><strong>Desjardins :</strong> Le réseau le plus grand au Québec, excellente offre nouveaux arrivants (compte gratuit 1 an).</li>
+                                <li><strong>Banque Nationale (BNC) :</strong> Très populaire, super offre pvtistes (gratuit jusqu'à 3 ans selon les offres).</li>
+                                <li><strong>RBC / TD :</strong> Très grosses banques canadiennes, parfait si tu bouges hors du Québec plus tard.</li>
+                            </ul>
+                            <hr>
+                            <p class="selection-title">Mon choix final (cocher l'élu) :</p>
+                            <label class="todo-item radio-like">
+                                <input type="checkbox" id="choice-bank-desjardins" class="bank-choice">
+                                <span>Desjardins (Mon choix recommandé pour le Québec)</span>
+                            </label>
+                            <label class="todo-item radio-like">
+                                <input type="checkbox" id="choice-bank-bnc" class="bank-choice">
+                                <span>Banque Nationale</span>
+                            </label>
+                            <label class="todo-item radio-like">
+                                <input type="checkbox" id="choice-bank-autre" class="bank-choice">
+                                <span>Autre banque</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 3. CARTE SIM -->
+                    <div class="checklist-card">
+                        <div class="card-header">
+                            <h3>📱 Carte SIM & Téléphonie</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="warning-text">
+                                ❌ <strong>Note importante :</strong> Mon téléphone actuel <strong>ne prend pas en charge les eSIM</strong>. 
+                                Je dois obligatoirement obtenir une carte SIM physique.
+                            </p>
+                            <p>Alternatives disponibles :</p>
+                            <ul class="info-list">
+                                <li><strong>Option A :</strong> Commander une SIM physique avant le départ (ex: PhoneBox / Fido via des partenaires).</li>
+                                <li><strong>Option B :</strong> Acheter une SIM physique directement à l'aéroport ou en boutique à l'arrivée (Koodo, Virgin Plus, Fizz).</li>
+                            </ul>
+                            <hr>
+                            <p class="selection-title">Mon plan d'action :</p>
+                            <label class="todo-item">
+                                <input type="checkbox" id="choice-sim-airport">
+                                <span>Acheter à l'arrivée en boutique (Fizz ou Koodo)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="choice-sim-precommander">
+                                <span>Pré-commander une SIM physique livrée à la maison</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 4. LOGEMENT ET BILLETS -->
+                    <div class="checklist-card">
+                        <div class="card-header">
+                            <h3>✈️ Logement & Logistique</h3>
+                        </div>
+                        <div class="card-body">
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-billets">
+                                <span>Acheter les billets d'avion (Prendre un aller simple ou aller-retour selon exigences)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-airbnb">
+                                <span>Réserver un Airbnb ou une auberge pour les 2 premières semaines</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-docs-pvt">
+                                <span>Imprimer ma Lettre d'Introduction (LI) du PVT + Preuve de fonds bancaires</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 

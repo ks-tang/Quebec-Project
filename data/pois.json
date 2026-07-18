@@ -188,6 +188,14 @@
     "description": "Magasin de meubles",
     "category": "shopping"
   },
+  {
+    "name": "Montagne Dorée",
+    "lat": 46.80880656711015, 
+    "lng": -71.24418689046487 ,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
 
 
   {
@@ -246,6 +254,14 @@
     "lng": -71.26720703318522 ,
     "color": "#F0FF3D",
     "description": "Résidence universitaire",
+    "category": "logement"
+  },
+  {
+    "name": "Auberge Jeunesse QBEDS Hostel",
+    "lat": 46.806044457796055, 
+    "lng": -71.21636441065984 ,
+    "color": "#F0FF3D",
+    "description": "Auberge de jeunesse",
     "category": "logement"
   },
 

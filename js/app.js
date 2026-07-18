@@ -84,6 +84,10 @@ function switchPage(pageId) {
             setTimeout(() => { mapStats.invalidateSize(); }, 100);
         }
     }
+    else if (pageId === 'checklist') {
+        var pageChecklistEl = document.getElementById('page-checklist');
+        if (pageChecklistEl) pageChecklistEl.classList.remove('hidden');
+    }
 }
 
 
@@ -386,6 +390,45 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+
+    // =========================================================================
+    // 🌟 SAUVEGARDE DE LA CHECKLIST VOYAGE (LOCALSTORAGE)
+    // =========================================================================
+    const checklistSection = document.getElementById('page-checklist');
+    
+    if (checklistSection) {
+        // 1. Recharger l'état sauvegardé au chargement de la page
+        const checkboxes = checklistSection.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxes.forEach(checkbox => {
+            // On vérifie s'il y a un état enregistré dans le localStorage pour cette ID
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+            
+            // 2. Écouter les changements pour sauvegarder en temps réel
+            checkbox.addEventListener('change', (e) => {
+                localStorage.setItem(e.target.id, e.target.checked);
+            });
+        });
+
+        // 🌟 Petit bonus pour forcer le choix d'UNE SEULE banque (comme des boutons radio)
+        const bankCheckboxes = checklistSection.querySelectorAll('.bank-choice');
+        bankCheckboxes.forEach(bankCheck => {
+            bankCheck.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    // Si on coche une banque, on décoche toutes les autres banques
+                    bankCheckboxes.forEach(otherCheck => {
+                        if (otherCheck !== e.target) {
+                            otherCheck.checked = false;
+                            localStorage.setItem(otherCheck.id, 'false');
+                        }
+                    });
+                }
+            });
+        });
+    }
 });
 
 
