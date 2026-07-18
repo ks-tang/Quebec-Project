@@ -180,6 +180,14 @@
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
+  {
+    "name": "IKEA",
+    "lat": 46.77655503339784, 
+    "lng": -71.3494925308816,
+    "color": "#6F00FF",
+    "description": "Magasin de meubles",
+    "category": "shopping"
+  },
 
 
   {
@@ -239,6 +247,32 @@
     "color": "#F0FF3D",
     "description": "Résidence universitaire",
     "category": "logement"
+  },
+
+
+  {
+    "name": "Chute Montmorency",
+    "lat": 46.89029796525226, 
+    "lng": -71.14793418373061,
+    "color": "#F0FF3D",
+    "description": "Chute d'eau",
+    "category": "nature"
+  },
+  {
+    "name": "Parc de la Pointe-aux-Lièvres",
+    "lat": 46.82215779706341, 
+    "lng": -71.23529734210761 ,
+    "color": "#F0FF3D",
+    "description": "Parc, devient une patinoire naturelle en hiver.",
+    "category": "nature"
+  },
+  {
+    "name": "Plaines d'Abraham",
+    "lat": 46.80041173965673, 
+    "lng": -71.22028954714034,
+    "color": "#F0FF3D",
+    "description": "Grand parc",
+    "category": "nature"
   }
 
 ]
