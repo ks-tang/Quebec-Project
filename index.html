@@ -64,6 +64,14 @@
             <!-- Boîte de filtres flottante au-dessus de la carte -->
             <div class="filter-box">
                 <h3>Filtrer la carte</h3>
+                
+                <label class="filter-label main-filter">
+                    <input type="checkbox" id="chk-toggle-all" checked> 
+                    <strong>🌟 Tout sélectionner / Désélectionner</strong>
+                </label>
+
+                <hr>
+
                 <label class="filter-item">
                     <input type="checkbox" id="chk-administration" checked onchange="toggleCategory('administration')">
                     <span class="legend-color" style="background-color: #00007A;"></span> Administration

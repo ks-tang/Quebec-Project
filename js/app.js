@@ -131,6 +131,28 @@ function obtenirCouleurLigne(properties) {
 // 4. FILTRES ET GESTION DES COUCHES (VISIBILITÉ)
 // =========================================================================
 
+// Fonction pour tout cocher ou tout décocher d'un coup
+function toggleAllCategories(isChecked) {
+    if (!map) return;
+
+    // 1. On parcourt toutes les catégories définies dans ton objet global 'categoryGroups'
+    for (var category in categoryGroups) {
+        var checkbox = document.getElementById('chk-' + category);
+        
+        if (checkbox) {
+            // On aligne l'état de la case individuelle sur la case maîtresse
+            checkbox.checked = isChecked;
+            
+            // On ajoute ou on retire le calque Leaflet de la carte
+            if (isChecked) {
+                map.addLayer(categoryGroups[category]);
+            } else {
+                map.removeLayer(categoryGroups[category]);
+            }
+        }
+    }
+}
+
 // Filtre des catégories (POIs)
 function toggleCategory(category) {
     var checkbox = document.getElementById('chk-' + category);
