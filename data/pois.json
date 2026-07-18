@@ -64,7 +64,7 @@
     "name": "Uniqlo Place Ste Foy",
     "lat": 46.77296242201724, 
     "lng": -71.28041386855493 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de vêtements",
     "category": "shopping"
   },
@@ -72,7 +72,7 @@
     "name": "Uniqlo Galeries de la Capitale",
     "lat": 46.83063469861718, 
     "lng": -71.30079810942723, 
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de vêtements",
     "category": "shopping"
   },
@@ -80,7 +80,7 @@
     "name": "Decathlon PEPS Université Laval",
     "lat": 46.78459320238817, 
     "lng": -71.27694366855455,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de sports",
     "category": "shopping"
   },
@@ -88,7 +88,7 @@
     "name": "Decathlon Sainte-Foy",
     "lat": 46.778857268537976, 
     "lng": -71.3465662556826,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de sports",
     "category": "shopping"
   },
@@ -96,7 +96,7 @@
     "name": "Walmart",
     "lat": 46.82430243004832, 
     "lng": -71.25290708986672,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
@@ -104,7 +104,7 @@
     "name": "Walmart",
     "lat": 46.77068084686462, 
     "lng": -71.28494486544038 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
@@ -112,7 +112,7 @@
     "name": "Walmart",
     "lat": 46.782226369891504, 
     "lng": -71.34869079135008,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
@@ -120,7 +120,7 @@
     "name": "Walmart Lebourgneuf",
     "lat": 46.83305907974895, 
     "lng": -71.30477576161243, 
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
@@ -128,7 +128,7 @@
     "name": "Walmart Lévis",
     "lat": 46.79640983838153, 
     "lng": -71.17173969601734, 
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
@@ -136,7 +136,7 @@
     "name": "Walmart",
     "lat": 46.8724121697256, 
     "lng": -71.20478690879169, 
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
@@ -144,7 +144,7 @@
     "name": "Supermarché Xinya",
     "lat": 46.8119339667011, 
     "lng": -71.29971190383677 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Supermarché asiatique",
     "category": "shopping"
   },
@@ -152,7 +152,7 @@
     "name": "Chanhda épicerie asiatique",
     "lat": 46.80911512417601, 
     "lng": -71.2396754196452 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Supermarché asiatique",
     "category": "shopping"
   },
@@ -160,7 +160,7 @@
     "name": "Village des Valeurs",
     "lat": 46.764556612188194, 
     "lng": -71.31557446563518 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
@@ -168,7 +168,7 @@
     "name": "Village des Valeurs",
     "lat": 46.84176788263016, 
     "lng": -71.27498392661275 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
@@ -176,7 +176,7 @@
     "name": "Village des Valeurs Beauport",
     "lat": 46.84268746618644, 
     "lng": -71.21475272794967 ,
-    "color": "#446644",
+    "color": "#6F00FF",
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
