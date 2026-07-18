@@ -55,7 +55,7 @@
                     <li><em>À venir :</em> Utiliser des modèles de scoring basés sur l'Open Data pour identifier les quartiers répondant le mieux à mes critères de vie !</li>
                 </ul>
                 <p>
-                    N'hésitez pas à cliquer sur <strong>Carte Interactive</strong> pour voir le projet en action !
+                    N'hésitez pas à explorer le site et à donner vos recommendations !
                 </p>
             </div>
         </section>
@@ -173,7 +173,7 @@
 
         <!-- =========================================================================
             PAGE 4 : CHECKLIST & BLOC-NOTES VOYAGE
-        ========================================================================= -->
+            ========================================================================= -->
         <section id="page-checklist" class="hidden">
             <div class="checklist-container">
                 <h1>📋 Préparatifs du Voyage & Checklist</h1>
@@ -205,7 +205,33 @@
                         </div>
                     </div>
 
-                    <!-- 2. BANQUE -->
+                    <!-- 2. ADMINISTRATIF AVANT LE DÉPART -->
+                    <div class="checklist-card">
+                        <div class="card-header">
+                            <h3>📄 L'Administratif Invisible (Avant le départ)</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Démarches officielles à anticiper plusieurs semaines avant de décoller :</p>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-permis-international">
+                                <span>Demander le permis de conduire international (Gratuit, délais longs)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-impots">
+                                <span>Signaler mon changement de résidence aux impôts</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-poste">
+                                <span>Mettre en place un transfert ou suivi de courrier postal</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-resiliations">
+                                <span>Résilier mes abonnements actuels (Mobile, internet, gym, assurances...)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 3. BANQUE -->
                     <div class="checklist-card">
                         <div class="card-header">
                             <h3>🏦 Choix de la Banque</h3>
@@ -234,7 +260,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. CARTE SIM -->
+                    <!-- 4. CARTE SIM & TELEPHONIE -->
                     <div class="checklist-card">
                         <div class="card-header">
                             <h3>📱 Carte SIM & Téléphonie</h3>
@@ -242,7 +268,7 @@
                         <div class="card-body">
                             <p class="warning-text">
                                 ❌ <strong>Note importante :</strong> Mon téléphone actuel <strong>ne prend pas en charge les eSIM</strong>. 
-                                Je dois obligatoirement obtenir une carte SIM physique.
+                                Je dois obligatoirement obtenir une carte SIM physique et m'assurer que l'appareil est débloqué.
                             </p>
                             <p>Alternatives disponibles :</p>
                             <ul class="info-list">
@@ -262,7 +288,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. LOGEMENT ET BILLETS -->
+                    <!-- 5. LOGEMENT, BILLETS & LOGISTIQUE -->
                     <div class="checklist-card">
                         <div class="card-header">
                             <h3>✈️ Logement & Logistique</h3>
@@ -274,11 +300,62 @@
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-airbnb">
-                                <span>Réserver un Airbnb ou une auberge pour les 2 premières semaines</span>
+                                <span>Réserver un Airbnb ou une auberge pour les 2 premières semaines à Québec</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-docs-pvt">
                                 <span>Imprimer ma Lettre d'Introduction (LI) du PVT + Preuve de fonds bancaires</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-adaptateurs">
+                                <span>Acheter 2 ou 3 adaptateurs de prise Europe/France vers Canada (Type A/B)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 6. SANTÉ & MÉDICAMENTS -->
+                    <div class="checklist-card">
+                        <div class="card-header">
+                            <h3>🩺 Santé, Médecins & Traitements</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="warning-text">
+                                🩹 Anticiper les besoins médicaux évite de devoir payer de sa poche sur place de grosses consultations.
+                            </p>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-checkup-medical">
+                                <span>Faire un check-up complet avant le départ (Dentiste, médecin traitant)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-ordonnance-longue">
+                                <span>Obtenir une ordonnance d'un an pour les traitements réguliers (Lentilles, pilule, etc.)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-accord-secu">
+                                <span>Demander l'accord de la caisse d'assurance maladie pour la délivrance d'un coup</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 7. ARRIVÉE À QUÉBEC : LES PREMIÈRES 48 HEURES -->
+                    <div class="checklist-card priority-blue">
+                        <div class="card-header">
+                            <h3>🚀 Les Premières 48 Heures sur Place</h3>
+                            <span class="badge blue">Priorité Arrivée</span>
+                        </div>
+                        <div class="card-body">
+                            <p>Démarches vitales à effectuer directement en arrivant dans la ville de Québec :</p>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-nas">
+                                <span>Demander mon NAS (Numéro d'Assurance Sociale) dans un bureau Service Canada (Indispensable pour travailler)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-ramq">
+                                <span>S'inscrire à la RAMQ / Carte Soleil (Si accord bilatéral avec mon pays d'origine)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-ouvrir-compte">
+                                <span>Valider l'ouverture de mon compte bancaire en agence et récupérer ma carte de débit</span>
                             </label>
                         </div>
                     </div>

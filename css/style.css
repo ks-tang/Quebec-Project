@@ -347,3 +347,46 @@ header nav a.active {
     background: #f0fdf4;       /* Un joli fond vert très clair de sélection */
     border: 1px solid #bbf7d0; /* Une petite bordure verte discrète */
 }
+.checklist-card.priority-blue {
+    border-left: 5px solid #3498db; /* Une bordure bleue pour les tâches sur place */
+}
+.badge.blue { 
+    background: #e0f2fe; 
+    color: #0369a1; 
+}
+/* 1. On donne un fond gris très léger à toute la page pour faire ressortir les blocs blancs */
+#page-checklist {
+    background-color: #f1f5f9; /* Gris doux (couleur ardoise claire) */
+    min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. On booste le contraste et l'ombre des cartes */
+.checklist-card {
+    background: #ffffff;
+    border-radius: 12px;
+    /* Ombre plus prononcée pour détacher le bloc du fond */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); 
+    border: 2px solid #e2e8f0; /* Bordure légèrement plus épaisse */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Petit effet de survol sympa : la carte se soulève légèrement */
+.checklist-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. On fonce un peu l'entête des blocs pour créer une vraie séparation */
+.card-header {
+    background: #f8fafc;
+    padding: 18px 20px;
+    border-bottom: 2px solid #e2e8f0; /* Ligne de séparation plus nette */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
