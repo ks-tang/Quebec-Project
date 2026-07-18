@@ -163,6 +163,15 @@ function toggleCategory(category) {
     } else {
         map.removeLayer(categoryGroups[category]);
     }
+
+    // 👇 AJOUT : Synchroniser la case Maîtresse si on décoche/décoche à la main
+    var chkToggleAll = document.getElementById('chk-toggle-all');
+    if (chkToggleAll) {
+        // On récupère toutes les cases de catégories sous forme de tableau
+        var touteslesCases = Object.keys(categoryGroups).map(cat => document.getElementById('chk-' + cat));
+        // La case maîtresse reste cochée UNIQUEMENT si CHAQUE case individuelle est cochée
+        chkToggleAll.checked = touteslesCases.every(chk => chk && chk.checked);
+    }
 }
 
 // Filtre global de la case à cocher "Transport (RTC)"
@@ -356,7 +365,17 @@ function initMap() {
 // 6. ENREGISTREMENT DES ÉCOUTEURS D'ÉVÉNEMENTS SECURISÉS
 // =========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-    // Écouteur global sécurisé pour le changement du menu déroulant
+    
+    // 🌟 ÉCOUTEUR POUR TOUT SÉLECTIONNER / DÉSÉLECTIONNER
+    const chkToggleAll = document.getElementById('chk-toggle-all');
+    if (chkToggleAll) {
+        chkToggleAll.addEventListener('change', function(e) {
+            // e.target.checked vaut true (coché) ou false (décoché)
+            toggleAllCategories(e.target.checked);
+        });
+    }
+
+    // Ton écouteur existant pour le transport RTC...
     document.addEventListener('change', function(e) {
         if (e.target && e.target.id === 'select-type-transport') {
             const checkBox = document.getElementById("chk-transport");
