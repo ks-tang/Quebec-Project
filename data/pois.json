@@ -236,7 +236,7 @@
     "name": "Auberge Internationale de Québec",
     "lat": 46.81235403915732, 
     "lng": -71.21134670168269,
-    "color": "#F0FF3D",
+    "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
@@ -244,7 +244,7 @@
     "name": "Auberge Jeunesse québec central",
     "lat": 46.81562773073626, 
     "lng": -71.22105020068939 ,
-    "color": "#F0FF3D",
+    "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
@@ -252,7 +252,7 @@
     "name": "Résidences - Université Laval",
     "lat": 46.78056638232142, 
     "lng": -71.26720703318522 ,
-    "color": "#F0FF3D",
+    "color": "#D4AC0D",
     "description": "Résidence universitaire",
     "category": "logement"
   },
@@ -260,7 +260,7 @@
     "name": "Auberge Jeunesse QBEDS Hostel",
     "lat": 46.806044457796055, 
     "lng": -71.21636441065984 ,
-    "color": "#F0FF3D",
+    "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
@@ -268,7 +268,7 @@
     "name": "Auberge de la Paix",
     "lat": 46.81505005563687, 
     "lng": -71.2086843478889 ,
-    "color": "#F0FF3D",
+    "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
