@@ -246,6 +246,30 @@
     "description": "Fast food burgers",
     "category": "restaurant"
   },
+  {
+    "name": "McDonald's",
+    "lat": 46.81415692763484, 
+    "lng": -71.20987638916698,
+    "color": "#8A0000",
+    "description": "Fast food burgers",
+    "category": "restaurant"
+  },
+  {
+    "name": "La Buche",
+    "lat": 46.81127134948248, 
+    "lng": -71.20802191860898,
+    "color": "#8A0000",
+    "description": "Restaurant québécois",
+    "category": "restaurant"
+  },
+  {
+    "name": "Cochon Dingue Champlain",
+    "lat": 46.81154412326094, 
+    "lng": -71.20337541428624,
+    "color": "#8A0000",
+    "description": "Restaurant québécois",
+    "category": "restaurant"
+  },
 
 
   {
