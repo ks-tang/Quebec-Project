@@ -95,6 +95,47 @@ header nav a.active {
     padding-bottom: 6px; /* Ajustement micrométrique pour compenser la bordure */
 }
 
+/* =========================================================================
+   ADAPTATION MOBILE (RESPONSIVE DESIGN) - HEADER
+   ========================================================================= */
+
+/* S'applique uniquement aux écrans de 768px de large ou moins (tablettes & smartphones) */
+@media (max-width: 768px) {
+    
+    header, nav, .header-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px 15px !important;
+        gap: 12px !important;
+    }
+
+    /* Centrer le logo / titre du site */
+    .header-logo, header h1, header .logo {
+        font-size: 1.2rem !important;
+        text-align: center;
+    }
+
+    /* Nav bar : liens disposés de manière fluide */
+    nav ul, .header-links, nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px 12px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Boutons/liens du menu optimisés pour le tactile */
+    nav a, .header-links a {
+        font-size: 0.85rem !important;
+        padding: 8px 12px !important;
+        background: rgba(255, 255, 255, 0.1); /* Légère bulle tactile */
+        border-radius: 6px;
+        white-space: nowrap; /* Empêche le texte de se couper sur deux lignes */
+        text-align: center;
+    }
+}
 
 /* =========================================================================
    3. SECTION ACCUEIL
