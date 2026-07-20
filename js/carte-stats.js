@@ -154,6 +154,9 @@ function setupMapInteractions(data) {
 // 4. INITIALISATION
 // =========================================================================
 function initMapStats() {
+    var mapContainer = document.getElementById('map-stats');
+    if (!mapContainer) return;
+
     mapStats = L.map('map-stats').setView([46.8139, -71.2082], 11);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -162,6 +165,11 @@ function initMapStats() {
 
     buildChart(donneesLoyersStatic);
     setupMapInteractions(donneesLoyersStatic);
+
+    // Force le redimensionnement immédiat de la carte
+    setTimeout(() => {
+        if (mapStats) mapStats.invalidateSize();
+    }, 100);
 
     fetch('data/logements.json')
         .then(response => {
@@ -173,7 +181,3 @@ function initMapStats() {
         })
         .catch(error => console.error("Erreur de liaison du fichier logements :", error));
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    initMapStats();
-});
