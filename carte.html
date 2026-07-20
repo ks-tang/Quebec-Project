@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Interactive - Québec Project</title>
+    <link rel="icon" href="data/logo_canada.jpg">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="index.html" class="logo">🍁 Quebec Project</a>
+            <nav>
+                <a href="carte.html" class="active">🗺️ Carte Interactive</a>
+                <a href="carte-stats.html">📊 Carte statistiques</a>
+                <a href="checklist.html">📋 Mon Bloc-Notes</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <section id="page-carte">
+            <div class="filter-box">
+                <h3>Filtrer la carte</h3>
+
+                <label class="filter-label main-filter">
+                    <input type="checkbox" id="chk-toggle-all" checked> 
+                    <strong>🌟 Tout sélectionner / Désélectionner</strong>
+                </label>
+
+                <hr>
+
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-administration" checked onchange="toggleCategory('administration')">
+                    <span class="legend-color" style="background-color: #00007A;"></span> Administration
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-tourisme" checked onchange="toggleCategory('tourisme')">
+                    <span class="legend-color" style="background-color: #0099FF;"></span> Tourisme
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-shopping" checked onchange="toggleCategory('shopping')">
+                    <span class="legend-color" style="background-color: #6F00FF;"></span> Shopping / Magasins
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-restaurant" checked onchange="toggleCategory('restaurant')">
+                    <span class="legend-color" style="background-color: #8A0000;"></span> Restaurants
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-logement" checked onchange="toggleCategory('logement')">
+                    <span class="legend-color" style="background-color: #D4AC0D;"></span> Logement / Hébergement
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-nature" checked onchange="toggleCategory('nature')">
+                    <span class="legend-color" style="background-color: #148000;"></span> Nature / Parc
+                </label>
+                <label class="filter-item">
+                    <input type="checkbox" id="chk-sport" checked onchange="toggleCategory('sport')">
+                    <span class="legend-color" style="background-color: #e67e22;"></span> Centres sportifs / Piscine / Gym
+                </label>
+
+                <hr>
+
+                <label class="filter-item" style="margin-top: 12px; border-top: 1px solid #eee; padding-top: 8px;">
+                    <input type="checkbox" id="chk-transport" onchange="toggleTransport()">
+                    <span class="legend-color" style="background-color: #e67e22; border-radius: 2px; width: 15px; height: 3px;"></span> Transport (RTC)
+                </label>
+                <div class="filter-item" style="margin-top: 8px;">
+                    <select id="select-type-transport" disabled style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                        <option value="tous">Toutes les lignes</option>
+                        <option value="metrobus">Métrobus (800+)</option>
+                        <option value="express">Express</option>
+                        <option value="regulier">Lignes régulières</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="map"></div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/carte.js"></script>
+</body>
+</html>

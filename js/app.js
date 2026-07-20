@@ -32,63 +32,63 @@ var mapInitialized = false;
 var mapStatsInitialized = false;
 var mapStats = null; // Objet pour la carte de statistiques
 
-function switchPage(pageId) {
-    // 1. Nettoyer la classe active sur TOUS les liens de navigation possibles
-    document.querySelectorAll('header nav a').forEach(link => {
-        link.classList.remove('active');
-    });
+// function switchPage(pageId) {
+//     // 1. Nettoyer la classe active sur TOUS les liens de navigation possibles
+//     document.querySelectorAll('header nav a').forEach(link => {
+//         link.classList.remove('active');
+//     });
 
-    // 2. Ajouter la classe active sur le lien cliqué (s'il existe)
-    var activeLink = document.getElementById('link-' + pageId);
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
+//     // 2. Ajouter la classe active sur le lien cliqué (s'il existe)
+//     var activeLink = document.getElementById('link-' + pageId);
+//     if (activeLink) {
+//         activeLink.classList.add('active');
+//     }
 
-    // 3. Masquer TOUTES les sections de page de manière sécurisée
-    const pages = ['page-accueil', 'page-carte', 'page-carte-stats'];
-    pages.forEach(id => {
-        var pageEl = document.getElementById(id);
-        if (pageEl) {
-            pageEl.classList.add('hidden');
-        }
-    });
+//     // 3. Masquer TOUTES les sections de page de manière sécurisée
+//     const pages = ['page-accueil', 'page-carte', 'page-carte-stats'];
+//     pages.forEach(id => {
+//         var pageEl = document.getElementById(id);
+//         if (pageEl) {
+//             pageEl.classList.add('hidden');
+//         }
+//     });
 
-    // 4. Afficher la bonne section et gérer les cartes Leaflet
-    if (pageId === 'accueil') {
-        var pageAccueil = document.getElementById('page-accueil');
-        if (pageAccueil) pageAccueil.classList.remove('hidden');
-    } 
-    else if (pageId === 'carte') {
-        var pageCarte = document.getElementById('page-carte');
-        if (pageCarte) pageCarte.classList.remove('hidden');
+//     // 4. Afficher la bonne section et gérer les cartes Leaflet
+//     if (pageId === 'accueil') {
+//         var pageAccueil = document.getElementById('page-accueil');
+//         if (pageAccueil) pageAccueil.classList.remove('hidden');
+//     } 
+//     else if (pageId === 'carte') {
+//         var pageCarte = document.getElementById('page-carte');
+//         if (pageCarte) pageCarte.classList.remove('hidden');
         
-        // Initialise la première carte si ce n'est pas fait
-        if (!mapInitialized && typeof initMap === 'function') {
-            initMap();
-            mapInitialized = true;
-        } else if (window.map) {
-            // Force Leaflet à recalculer sa taille au cas où elle était cachée
-            setTimeout(() => { window.map.invalidateSize(); }, 100);
-        }
-    } 
-    else if (pageId === 'carte-stats') {
-        var pageStatsEl = document.getElementById('page-carte-stats');
-        if (pageStatsEl) pageStatsEl.classList.remove('hidden');
+//         // Initialise la première carte si ce n'est pas fait
+//         if (!mapInitialized && typeof initMap === 'function') {
+//             initMap();
+//             mapInitialized = true;
+//         } else if (window.map) {
+//             // Force Leaflet à recalculer sa taille au cas où elle était cachée
+//             setTimeout(() => { window.map.invalidateSize(); }, 100);
+//         }
+//     } 
+//     else if (pageId === 'carte-stats') {
+//         var pageStatsEl = document.getElementById('page-carte-stats');
+//         if (pageStatsEl) pageStatsEl.classList.remove('hidden');
         
-        // Initialise la deuxième carte (statistiques)
-        if (!mapStatsInitialized && typeof initMapStats === 'function') {
-            initMapStats();
-            mapStatsInitialized = true;
-        } else if (mapStats) {
-            // Force la carte statistique à recalculer sa taille
-            setTimeout(() => { mapStats.invalidateSize(); }, 100);
-        }
-    }
-    else if (pageId === 'checklist') {
-        var pageChecklistEl = document.getElementById('page-checklist');
-        if (pageChecklistEl) pageChecklistEl.classList.remove('hidden');
-    }
-}
+//         // Initialise la deuxième carte (statistiques)
+//         if (!mapStatsInitialized && typeof initMapStats === 'function') {
+//             initMapStats();
+//             mapStatsInitialized = true;
+//         } else if (mapStats) {
+//             // Force la carte statistique à recalculer sa taille
+//             setTimeout(() => { mapStats.invalidateSize(); }, 100);
+//         }
+//     }
+//     else if (pageId === 'checklist') {
+//         var pageChecklistEl = document.getElementById('page-checklist');
+//         if (pageChecklistEl) pageChecklistEl.classList.remove('hidden');
+//     }
+// }
 
 
 // =========================================================================
@@ -197,7 +197,6 @@ function toggleTransport() {
     }
 }
 
-// Dessine uniquement les entités filtrées dans le groupe rtcLinesGroup
 // Dessine uniquement les entités filtrées dans le groupe rtcLinesGroup
 function mettreAJourCarte(featuresFiltrees) {
     rtcLinesGroup.clearLayers();
