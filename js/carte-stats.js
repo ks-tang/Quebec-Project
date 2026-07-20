@@ -153,9 +153,17 @@ function setupMapInteractions(data) {
 // =========================================================================
 // 4. INITIALISATION
 // =========================================================================
+// =========================================================================
+// 4. INITIALISATION
+// =========================================================================
 function initMapStats() {
     var mapContainer = document.getElementById('map-stats');
     if (!mapContainer) return;
+
+    // Évite la ré-initialisation si Leaflet est déjà instancié
+    if (mapStats !== null) {
+        mapStats.remove();
+    }
 
     mapStats = L.map('map-stats').setView([46.8139, -71.2082], 11);
 
@@ -166,10 +174,10 @@ function initMapStats() {
     buildChart(donneesLoyersStatic);
     setupMapInteractions(donneesLoyersStatic);
 
-    // Force le redimensionnement immédiat de la carte
+    // Redimensionne proprement la carte Leaflet une fois le layout rendu
     setTimeout(() => {
         if (mapStats) mapStats.invalidateSize();
-    }, 100);
+    }, 200);
 
     fetch('data/logements.json')
         .then(response => {
@@ -180,4 +188,11 @@ function initMapStats() {
             donneesLogements = data;
         })
         .catch(error => console.error("Erreur de liaison du fichier logements :", error));
+}
+
+// Lancement automatique dès que le DOM est prêt
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMapStats);
+} else {
+    initMapStats();
 }
