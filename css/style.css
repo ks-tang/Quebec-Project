@@ -129,6 +129,15 @@ header nav a.active {
         white-space: nowrap;
         text-align: center;
     }
+    /* Compensation pour le header fixe sur mobile */
+    body {
+        padding-top: 60px; /* Ajuste cette valeur selon la hauteur exacte de ton header */
+    }
+
+    /* Ou si tu préfères cibler directement le conteneur principal */
+    .page-content {
+        padding-top: 20px;
+    }
 }
 
 
