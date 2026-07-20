@@ -322,7 +322,7 @@ header nav a.active {
     /* La carte prend une hauteur confortable pour le tactile sans bloquer le scroll */
     #map {
         height: 60vh;
-        width: 100%;
+        width: 92%;
     }
 
     /* Le panneau de filtres se transforme en bloc compact défilable */
