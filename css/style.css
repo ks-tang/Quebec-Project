@@ -337,6 +337,85 @@ header nav a.active {
     }
 }
 
+/* =========================================================================
+   LISTE DES POINTS D'INTÉRÊT (SOUS LA CARTE)
+   ========================================================================= */
+.poi-list-container {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.poi-list-container h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.poi-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.poi-item {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.poi-item:hover {
+    background: #edf2f7;
+    border-color: #3182ce;
+    transform: translateY(-2px);
+}
+
+.poi-nom {
+    color: #1a202c;
+    font-size: 0.95rem;
+}
+
+.poi-categorie-tag {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #e2e8f0;
+    color: #475569;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.poi-adresse {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.poi-empty {
+    color: #a0aec0;
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+/* Ajustement Mobile */
+@media (max-width: 768px) {
+    .poi-list {
+        grid-template-columns: 1fr; /* Une seule colonne sur smartphone */
+    }
+}
 
 /* =========================================================================
    5. PAGE STATISTIQUES (carte-stats) + RESPONSIVE

@@ -3,6 +3,7 @@
 // =========================================================================
 var map;
 var rtcData = null;
+var allPois = []; // <--- 1. Stockage global des données POI
 
 // Groupes de calques pour les POIs
 var categoryGroups = {
@@ -23,7 +24,6 @@ var rtcLinesGroup = L.featureGroup();
 // 2. HELPERS & GENERATEURS DE STYLE
 // =========================================================================
 
-// Générateur de marqueur SVG
 function createCustomMarker(color) {
     const svgTemplate = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
@@ -42,7 +42,6 @@ function createCustomMarker(color) {
     });
 }
 
-// Attribution des couleurs de tracé RTC
 function obtenirCouleurLigne(properties) {
     const parcours = String(properties.Parcours);
     const type = properties.Type || '';
@@ -78,6 +77,9 @@ function toggleAllCategories(isChecked) {
             }
         }
     }
+    
+    // Mettre à jour la liste texte sous la carte
+    rafraichirPOIsVisibles();
 }
 
 function toggleCategory(category) {
@@ -95,6 +97,18 @@ function toggleCategory(category) {
         var touteslesCases = Object.keys(categoryGroups).map(cat => document.getElementById('chk-' + cat));
         chkToggleAll.checked = touteslesCases.every(chk => chk && chk.checked);
     }
+
+    // Mettre à jour la liste texte sous la carte
+    rafraichirPOIsVisibles();
+}
+
+// <--- 2. Nouvelle fonction de filtrage pour la liste texte
+function rafraichirPOIsVisibles() {
+    const poisFiltres = allPois.filter(poi => {
+        const chk = document.getElementById('chk-' + poi.category);
+        return chk ? chk.checked : true;
+    });
+    mettreAJourListePOI(poisFiltres);
 }
 
 function toggleTransport() {
@@ -231,10 +245,15 @@ function initMap() {
             return response.json();
         })
         .then(poisData => {
-            poisData.forEach(poi => {
+            allPois = poisData; // <--- Sauvegarde dans la variable globale
+
+            allPois.forEach(poi => {
                 var customIcon = createCustomMarker(poi.color);
                 var marker = L.marker([poi.lat, poi.lng], { icon: customIcon });
                 
+                // On attache l'instance du marker sur le POI pour l'ouvrir au clic depuis la liste texte
+                poi.marker = marker; 
+
                 marker.bindPopup(`
                     <div style="font-family: Arial, sans-serif; max-width: 200px;">
                         <h3 style="margin: 0 0 5px 0; color: ${poi.color}; font-size: 1rem;">${poi.name}</h3>
@@ -254,6 +273,9 @@ function initMap() {
             for (var category in categoryGroups) {
                 categoryGroups[category].addTo(map);
             }
+
+            // Génération de la liste au premier chargement
+            rafraichirPOIsVisibles();
         })
         .catch(error => console.error("Erreur POIs :", error));
 }
@@ -277,3 +299,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// =========================================================================
+// 5. FONCTION POUR METTRE À JOUR LA LISTE TEXTE
+// =========================================================================
+function mettreAJourListePOI(pointsVisibles) {
+    const listeElement = document.getElementById('poi-list');
+    if (!listeElement) return;
+
+    listeElement.innerHTML = ''; // Réinitialise la liste
+
+    if (pointsVisibles.length === 0) {
+        listeElement.innerHTML = '<li class="poi-empty">Aucun point d\'intérêt ne correspond aux filtres sélectionnés.</li>';
+        return;
+    }
+
+    pointsVisibles.forEach(point => {
+        const li = document.createElement('li');
+        li.className = 'poi-item';
+        
+        // <--- 4. Adapté selon les clés de pois.json (name, category, description)
+        li.innerHTML = `
+            <span class="poi-categorie-tag" style="border-left: 3px solid ${point.color || '#3182ce'}">${point.category}</span>
+            <strong class="poi-nom">${point.name}</strong>
+            <span class="poi-adresse">${point.description || ''}</span>
+        `;
+
+        // Un clic sur la puce recentre la carte et ouvre le popup
+        li.addEventListener('click', () => {
+            map.setView([point.lat, point.lng], 16, { animate: true, duration: 1.0 });
+            if (point.marker) {
+                point.marker.openPopup();
+            }
+        });
+
+        listeElement.appendChild(li);
+    });
+}
