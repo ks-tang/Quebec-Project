@@ -15,41 +15,21 @@
         <section id="page-checklist">
             <div class="checklist-container">
                 <h1>📋 Préparatifs du Voyage & Checklist</h1>
-                <p class="subtitle">Suivi en temps réel de mes démarches. (Sauvegarde automatique)</p>
+                <p class="subtitle">Suivi en temps réel de mes démarches chronologiques. (Sauvegarde automatique)</p>
 
                 <div class="checklist-grid">
-                    
-                    <!-- 1. ASSURANCE -->
-                    <div class="checklist-card priority">
-                        <div class="card-header">
-                            <h3>🛡️ Assurance Maladie / Rapatriement</h3>
-                            <span class="badge red">Obligatoire</span>
-                        </div>
-                        <div class="card-body">
-                            <p class="warning-text">
-                                ⚠️ <strong>ATTENTION CRITIQUE :</strong> L'assurance doit impérativement être souscrite 
-                                <strong>AVANT</strong> le départ et couvrir <strong>toute la durée prévue du séjour</strong>. 
-                                À l'arrivée, l'agent de l'immigration calquera la durée de ton visa sur la durée exacte de ton attestation d'assurance. 
-                                Si tu prends 6 mois, ton visa sera limité à 6 mois sans possibilité de le prolonger !
-                            </p>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-assurance-souscrite">
-                                <span>Souscrire à l'assurance pour la durée totale du séjour</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-assurance-imprimee">
-                                <span>Imprimer l'attestation papier (à présenter à l'immigration)</span>
-                            </label>
-                        </div>
-                    </div>
 
-                    <!-- 2. ADMINISTRATIF AVANT LE DÉPART -->
+                    <!-- ========================================================
+                         ÉTAPE 1 : 3 À 6 MOIS AVANT LE DÉPART
+                         ======================================================== -->
+                    
+                    <!-- 1. ADMINISTRATIF & ANTICIPATION -->
                     <div class="checklist-card">
                         <div class="card-header">
-                            <h3>📄 L'Administratif Invisible (Avant le départ)</h3>
+                            <h3>📄 1. Administratif & Anticipation</h3>
+                            <span class="badge blue">3 à 6 mois avant</span>
                         </div>
                         <div class="card-body">
-                            <p>Démarches officielles à anticiper plusieurs semaines avant de décoller :</p>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-permis-international">
                                 <span>Demander le permis de conduire international (Gratuit, délais longs)</span>
@@ -58,21 +38,39 @@
                                 <input type="checkbox" id="todo-impots">
                                 <span>Signaler mon changement de résidence aux impôts</span>
                             </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. SANTÉ & MÉDICAMENTS -->
+                    <div class="checklist-card">
+                        <div class="card-header">
+                            <h3>🩺 2. Santé & Traitements</h3>
+                            <span class="badge blue">3 à 6 mois avant</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="warning-text">
+                                🩹 Anticiper les besoins médicaux évite de devoir payer de sa poche sur place de grosses consultations.
+                            </p>
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-poste">
-                                <span>Mettre en place un transfert ou suivi de courrier postal</span>
+                                <input type="checkbox" id="todo-checkup-medical">
+                                <span>Faire un check-up complet (Dentiste, médecin traitant)</span>
                             </label>
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-resiliations">
-                                <span>Résilier mes abonnements actuels (Mobile, internet, gym, assurances...)</span>
+                                <input type="checkbox" id="todo-ordonnance-longue">
+                                <span>Obtenir une ordonnance d'un an pour les traitements réguliers</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-accord-secu">
+                                <span>Demander l'accord de la CPAM pour la délivrance des médicaments en 1 fois</span>
                             </label>
                         </div>
                     </div>
 
-                    <!-- 3. BANQUE -->
+                    <!-- 3. RECHERCHE BANCAIRE -->
                     <div class="checklist-card">
                         <div class="card-header">
-                            <h3>🏦 Choix de la Banque</h3>
+                            <h3>🏦 3. Choix de la Banque</h3>
+                            <span class="badge blue">2 à 3 mois avant</span>
                         </div>
                         <div class="card-body">
                             <p>Comparatif des meilleures options pour pvtistes au Canada :</p>
@@ -98,30 +96,30 @@
                         </div>
                     </div>
 
-                    <!-- 4. CARTE SIM & TELEPHONIE -->
-                    <div class="checklist-card">
+
+                    <!-- ========================================================
+                         ÉTAPE 2 : 1 À 2 MOIS AVANT LE DÉPART
+                         ======================================================== -->
+
+                    <!-- 4. ASSURANCE OBLIGATOIRE -->
+                    <div class="checklist-card priority">
                         <div class="card-header">
-                            <h3>📱 Carte SIM & Téléphonie</h3>
+                            <h3>🛡️ 4. Assurance Maladie / Rapatriement</h3>
+                            <span class="badge red">1 à 2 mois avant</span>
                         </div>
                         <div class="card-body">
                             <p class="warning-text">
-                                ❌ <strong>Note importante :</strong> Mon téléphone actuel <strong>ne prend pas en charge les eSIM</strong>. 
-                                Je dois obligatoirement obtenir une carte SIM physique et m'assurer que l'appareil est débloqué.
+                                ⚠️ <strong>ATTENTION CRITIQUE :</strong> L'assurance doit impérativement être souscrite 
+                                <strong>AVANT</strong> le départ et couvrir <strong>toute la durée prévue du séjour</strong>. 
+                                À l'arrivée, l'agent de l'immigration calquera la durée de ton visa sur la durée exacte de ton attestation d'assurance.
                             </p>
-                            <p>Alternatives disponibles :</p>
-                            <ul class="info-list">
-                                <li><strong>Option A :</strong> Commander une SIM physique avant le départ (ex: PhoneBox / Fido via des partenaires).</li>
-                                <li><strong>Option B :</strong> Acheter une SIM physique directement à l'aéroport ou en boutique à l'arrivée (Koodo, Virgin Plus, Fizz).</li>
-                            </ul>
-                            <hr>
-                            <p class="selection-title">Mon plan d'action :</p>
                             <label class="todo-item">
-                                <input type="checkbox" id="choice-sim-airport">
-                                <span>Acheter à l'arrivée en boutique (Fizz ou Koodo)</span>
+                                <input type="checkbox" id="todo-assurance-souscrite">
+                                <span>Souscrire à l'assurance pour la durée totale du séjour</span>
                             </label>
                             <label class="todo-item">
-                                <input type="checkbox" id="choice-sim-precommander">
-                                <span>Pré-commander une SIM physique livrée à la maison</span>
+                                <input type="checkbox" id="todo-assurance-imprimee">
+                                <span>Imprimer l'attestation papier (à présenter à l'immigration)</span>
                             </label>
                         </div>
                     </div>
@@ -129,71 +127,84 @@
                     <!-- 5. LOGEMENT, BILLETS & LOGISTIQUE -->
                     <div class="checklist-card">
                         <div class="card-header">
-                            <h3>✈️ Logement & Logistique</h3>
+                            <h3>✈️ 5. Billets & Logistique du Départ</h3>
+                            <span class="badge red">1 à 2 mois avant</span>
                         </div>
                         <div class="card-body">
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-billets">
-                                <span>Acheter les billets d'avion (Prendre un aller simple ou aller-retour selon exigences)</span>
+                                <span>Acheter les billets d'avion</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-airbnb">
-                                <span>Réserver un Airbnb ou une auberge pour les 2 premières semaines à Québec</span>
+                                <span>Réserver un Airbnb / auberge pour les 2 premières semaines à Québec</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-docs-pvt">
-                                <span>Imprimer ma Lettre d'Introduction (LI) du PVT + Preuve de fonds bancaires</span>
+                                <span>Imprimer la Lettre d'Introduction (LI) + Preuve de fonds bancaires</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-adaptateurs">
                                 <span>Acheter 2 ou 3 adaptateurs de prise Europe/France vers Canada (Type A/B)</span>
                             </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-poste">
+                                <span>Mettre en place le transfert ou suivi de courrier postal</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-resiliations">
+                                <span>Résilier mes abonnements actuels (Mobile, internet, gym, etc.)</span>
+                            </label>
                         </div>
                     </div>
 
-                    <!-- 6. SANTÉ & MÉDICAMENTS -->
+                    <!-- 6. TÉLÉPHONIE AVANT LE DÉPART -->
                     <div class="checklist-card">
                         <div class="card-header">
-                            <h3>🩺 Santé, Médecins & Traitements</h3>
+                            <h3>📱 6. Carte SIM & Téléphonie</h3>
+                            <span class="badge red">1 mois avant</span>
                         </div>
                         <div class="card-body">
                             <p class="warning-text">
-                                🩹 Anticiper les besoins médicaux évite de devoir payer de sa poche sur place de grosses consultations.
+                                ❌ <strong>Note importante :</strong> Mon téléphone actuel <strong>ne prend pas en charge les eSIM</strong>. 
+                                Je dois obligatoirement obtenir une carte SIM physique et m'assurer que l'appareil est désimlocké.
                             </p>
+                            <p>Plan d'action :</p>
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-checkup-medical">
-                                <span>Faire un check-up complet avant le départ (Dentiste, médecin traitant)</span>
+                                <input type="checkbox" id="choice-sim-precommander">
+                                <span>Option A : Pré-commander une SIM physique livrée en France</span>
                             </label>
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-ordonnance-longue">
-                                <span>Obtenir une ordonnance d'un an pour les traitements réguliers (Lentilles, pilule, etc.)</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-accord-secu">
-                                <span>Demander l'accord de la caisse d'assurance maladie pour la délivrance d'un coup</span>
+                                <input type="checkbox" id="choice-sim-airport">
+                                <span>Option B : Acheter à l'arrivée en boutique (Fizz, Koodo, etc.)</span>
                             </label>
                         </div>
                     </div>
+
+
+                    <!-- ========================================================
+                         ÉTAPE 3 : SUR PLACE
+                         ======================================================== -->
 
                     <!-- 7. ARRIVÉE À QUÉBEC : LES PREMIÈRES 48 HEURES -->
                     <div class="checklist-card priority-blue">
                         <div class="card-header">
-                            <h3>🚀 Les Premières 48 Heures sur Place</h3>
-                            <span class="badge blue">Priorité Arrivée</span>
+                            <h3>🚀 7. Les Premières 48h à Québec</h3>
+                            <span class="badge blue">À l'arrivée</span>
                         </div>
                         <div class="card-body">
-                            <p>Démarches vitales à effectuer directement en arrivant dans la ville de Québec :</p>
+                            <p>Démarches vitales à effectuer directement en arrivant :</p>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-nas">
-                                <span>Demander mon NAS (Numéro d'Assurance Sociale) dans un bureau Service Canada (Indispensable pour travailler)</span>
+                                <span>Demander le NAS (Numéro d'Assurance Sociale) chez Service Canada</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-ramq">
-                                <span>S'inscrire à la RAMQ / Carte Soleil (Si accord bilatéral avec mon pays d'origine)</span>
+                                <span>S'inscrire à la RAMQ / Carte Soleil (Inscription entente France-Québec)</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-ouvrir-compte">
-                                <span>Valider l'ouverture de mon compte bancaire en agence et récupérer ma carte de débit</span>
+                                <span>Rendez-vous en agence pour finaliser le compte bancaire et récupérer la carte</span>
                             </label>
                         </div>
                     </div>
