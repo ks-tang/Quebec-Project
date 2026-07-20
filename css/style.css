@@ -184,9 +184,41 @@ header nav a.active {
     margin-bottom: 15px;
 }
 
+/* --- Ajustements Mobile Accueil --- */
+@media (max-width: 768px) {
+    #page-accueil {
+        padding: 20px 15px; /* Réduit un peu les marges internes */
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem; /* Réduit la taille du gros titre pour qu'il tienne bien */
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .profile-container {
+        padding: 20px 15px; /* Plus d'espace pour le texte dans la carte */
+    }
+
+    .profile-container h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Aère les puces de la liste pour faciliter la lecture tactile */
+    .profile-container ul {
+        padding-left: 20px;
+    }
+
+    .profile-container li {
+        margin-bottom: 8px;
+    }
+}
+
 
 /* =========================================================================
-   4. SECTIONS CARTES INTERACTIVES & FILTRES
+   4. SECTIONS CARTES INTERACTIVES & FILTRES (+ RESPONSIVE)
    ========================================================================= */
 #page-carte, 
 #page-carte-stats {
@@ -201,12 +233,12 @@ header nav a.active {
     height: 100%;
 }
 
-/* --- PANNEAUX DE FILTRES FLOTTANTS --- */
+/* --- PANNEAUX DE FILTRES FLOTTANTS (DESKTOP) --- */
 .filter-box {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 1000; /* Passe par-dessus les tuiles Leaflet */
+    z-index: 1000;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px;
     border-radius: 10px;
@@ -248,8 +280,47 @@ header nav a.active {
 }
 
 
+/* --- ADAPTATION MOBILE (RESPONSIVE) - CARTE & FILTRES --- */
+@media (max-width: 768px) {
+    
+    /* Structure globale sur mobile : la page défile verticalement */
+    #page-carte {
+        display: flex;
+        flex-direction: column-reverse; /* Place les filtres en bas sous la carte, ou adapte le flux */
+        height: auto;
+        min-height: calc(100vh - 70px);
+    }
+
+    /* La carte prend une hauteur confortable pour le tactile sans bloquer le scroll */
+    #map {
+        height: 60vh;
+        width: 100%;
+    }
+
+    /* Le panneau de filtres se transforme en bloc compact défilable */
+    .filter-box {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 20px;
+        max-height: 250px;
+        overflow-y: auto; /* Permet de faire défiler les catégories si besoin */
+    }
+
+    /* Repositionner les contrôles de zoom Leaflet pour éviter les chevauchements */
+    .leaflet-top.leaflet-left {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+
 /* =========================================================================
-   5. PAGE STATISTIQUES (carte-stats)
+   5. PAGE STATISTIQUES (carte-stats) + RESPONSIVE
    ========================================================================= */
 .stats-container {
     padding: 20px;
@@ -376,11 +447,57 @@ header nav a.active {
 }
 
 
+/* --- ADAPTATION MOBILE (RESPONSIVE) - STATISTIQUES --- */
+@media (max-width: 768px) {
+    .stats-container {
+        padding: 15px 10px;
+    }
+
+    .stats-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .stats-header p {
+        font-size: 0.9rem;
+    }
+
+    /* Passer sur une seule colonne fluide */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Réduire la hauteur de la carte et désactiver le sticky */
+    .map-card {
+        position: static;
+        height: 380px;
+    }
+
+    /* Légende plus discrète et compacte */
+    .map-legend {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .map-legend h4 {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+
+    /* Hauteur adaptée pour le graphique Chart.js */
+    .chart-container {
+        height: 220px;
+    }
+}
+
+
 /* =========================================================================
-   6. PAGE CHECKLIST & BLOC-NOTES
+   6. PAGE CHECKLIST & BLOC-NOTES + RESPONSIVE
    ========================================================================= */
 #page-checklist {
-    background-color: #f1f5f9; /* Fond ardoise clair */
+    background-color: #f1f5f9;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -528,6 +645,58 @@ header nav a.active {
 .todo-item:has(input[type="checkbox"]:checked) {
     background: #f0fdf4;
     border: 1px solid #bbf7d0;
+}
+
+
+/* --- ADAPTATION MOBILE (RESPONSIVE) - CHECKLIST --- */
+@media (max-width: 768px) {
+    .checklist-container {
+        padding: 15px 10px;
+    }
+
+    .checklist-container h1 {
+        font-size: 1.4rem;
+    }
+
+    .checklist-container .subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+
+    /* Transition vers 1 colonne fluide */
+    .checklist-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Réaménagement de l'en-tête de carte si le titre est long */
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 15px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    /* Zones tactiles plus confortables pour les cases à cocher */
+    .todo-item {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+
+    .todo-item input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 1px;
+    }
+
+    .info-list {
+        padding-left: 15px;
+        margin-left: 0;
+    }
 }
 
 
