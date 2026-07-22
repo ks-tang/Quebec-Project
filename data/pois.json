@@ -212,6 +212,30 @@
     "description": "Supermarché asiatique",
     "category": "shopping"
   },
+  {
+    "name": "Maxi Québec Rene-Levesque",
+    "lat": 46.79648792423626, 
+    "lng": -71.23976251101462 ,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi Québec Wilfrid-Hamel",
+    "lat": 46.82273286515269, 
+    "lng": -71.25437154066017,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi",
+    "lat": 46.78895913471801, 
+    "lng": -71.2693224997782,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
 
 
   {
