@@ -236,6 +236,15 @@
     "description": "Supermarché discount",
     "category": "shopping"
   },
+  {
+    "name": "Lavoir Sainte-Ursule",
+    "lat": 46.81264594785544, 
+    "lng": -71.21164173274228,
+    "color": "#6F00FF",
+    "description": "Laverie",
+    "category": "shopping"
+  },
+
 
 
   {
