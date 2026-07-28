@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checklist & Bloc-Notes - Québec Project</title>
+    <title>Checklist & Préparatifs - Québec Project</title>
     <link rel="icon" href="data/logo_canada.jpg">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,19 +15,75 @@
         <section id="page-checklist">
             <div class="checklist-container">
                 <h1>📋 Préparatifs du Voyage & Checklist</h1>
-                <p class="subtitle">Suivi en temps réel de mes démarches chronologiques. (Sauvegarde automatique)</p>
+                <p class="subtitle">Suivi en temps réel de mes démarches chronologiques (Sauvegarde automatique).</p>
 
                 <div class="checklist-grid">
 
                     <!-- ========================================================
-                         ÉTAPE 1 : 3 À 6 MOIS AVANT LE DÉPART
+                         ÉTAPE 1 : DÈS LA DATE DE DÉPART CONNUE (PRIORITÉ ABSOLUE)
                          ======================================================== -->
-                    
-                    <!-- 1. ADMINISTRATIF & ANTICIPATION -->
+
+                    <!-- 1. BILLETS, ASSURANCE & LOGEMENT TEMPORAIRE -->
+                    <div class="checklist-card priority">
+                        <div class="card-header">
+                            <h3>🚨 1. Démarches Immédiates (Dès la date connue)</h3>
+                            <span class="badge red">Priorité Absolue</span>
+                        </div>
+                        <div class="card-body">
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-billet-avion">
+                                <span><strong>Acheter le billet d'avion</strong> pour fixer la date officielle</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-assurance-pvt">
+                                <span><strong>Souscrire l'assurance PVT</strong> (Couvrant TOUTE la durée du séjour prévisionnel)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-compte-bnc-enligne">
+                                <span><strong>Ouvrir le compte bancaire BNC en ligne</strong> (Offre PVTiste préalable)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-auberge-jeunesse">
+                                <span><strong>Réserver l'auberge de jeunesse</strong> pour les premières semaines à Québec</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. DOSSIER D'IMMIGRATION (LE SÉSAME POUR LE PERMIS) -->
+                    <div class="checklist-card priority-blue">
+                        <div class="card-header">
+                            <h3>🛂 2. Documents Clés pour l'Immigration</h3>
+                            <span class="badge blue">À présenter à la douane</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="warning-text">
+                                ⚠️ À imprimer en format papier et garder impérativement dans son bagage à main.
+                            </p>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-doc-li">
+                                <span>Lettre d'Introduction (LI) de l'IRCC</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-doc-attestation-assurance">
+                                <span>Attestation d'assurance imprimée (mentionnant le rapatriement)</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-doc-preuve-fonds">
+                                <span>Preuve de fonds bancaires récente (3 000 $ CAD minimum)</span>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <!-- ========================================================
+                         ÉTAPE 2 : AVANT LE DÉPART (LOGISTIQUE ET DÉMARCHES)
+                         ======================================================== -->
+
+                    <!-- 3. ADMINISTRATIF & LOGISTIQUE AVANT DÉPART -->
                     <div class="checklist-card">
                         <div class="card-header">
-                            <h3>📄 1. Administratif & Anticipation</h3>
-                            <span class="badge blue">3 à 6 mois avant</span>
+                            <h3>✈️ 3. Logistique & Anticipation</h3>
+                            <span class="badge blue">Avant le départ</span>
                         </div>
                         <div class="card-body">
                             <label class="todo-item">
@@ -35,176 +91,51 @@
                                 <span>Demander le permis de conduire international (Gratuit, délais longs)</span>
                             </label>
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-impots">
-                                <span>Signaler mon changement de résidence aux impôts</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- 2. SANTÉ & MÉDICAMENTS
-                    <div class="checklist-card">
-                        <div class="card-header">
-                            <h3>🩺 2. Santé & Traitements</h3>
-                            <span class="badge blue">3 à 6 mois avant</span>
-                        </div>
-                        <div class="card-body">
-                            <p class="warning-text">
-                                🩹 Anticiper les besoins médicaux évite de devoir payer de sa poche sur place de grosses consultations.
-                            </p>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-checkup-medical">
-                                <span>Faire un check-up complet (Dentiste, médecin traitant)</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-ordonnance-longue">
-                                <span>Obtenir une ordonnance d'un an pour les traitements réguliers</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-accord-secu">
-                                <span>Demander l'accord de la CPAM pour la délivrance des médicaments en 1 fois</span>
-                            </label>
-                        </div>
-                    </div> -->
-
-                    <!-- 3. RECHERCHE BANCAIRE -->
-                    <div class="checklist-card">
-                        <div class="card-header">
-                            <h3>🏦 3. Choix de la Banque</h3>
-                            <span class="badge blue">2 à 3 mois avant</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Comparatif des meilleures options pour pvtistes au Canada :</p>
-                            <ul class="info-list">
-                                <li><strong>Desjardins :</strong> Le réseau le plus grand au Québec, excellente offre nouveaux arrivants (compte gratuit 1 an).</li>
-                                <li><strong>Banque Nationale (BNC) :</strong> Très populaire, super offre pvtistes (gratuit jusqu'à 3 ans selon les offres).</li>
-                                <li><strong>RBC / TD :</strong> Très grosses banques canadiennes, parfait si tu bouges hors du Québec plus tard.</li>
-                            </ul>
-                            <hr>
-                            <p class="selection-title">Mon choix final (cocher l'élu) :</p>
-                            <label class="todo-item radio-like">
-                                <input type="checkbox" id="choice-bank-desjardins" class="bank-choice">
-                                <span>Desjardins</span>
-                            </label>
-                            <label class="todo-item radio-like">
-                                <input type="checkbox" id="choice-bank-bnc" class="bank-choice">
-                                <span>Banque Nationale</span>
-                            </label>
-                            <label class="todo-item radio-like">
-                                <input type="checkbox" id="choice-bank-autre" class="bank-choice">
-                                <span>Autre banque</span>
-                            </label>
-                        </div>
-                    </div>
-
-
-                    <!-- ========================================================
-                         ÉTAPE 2 : 1 À 2 MOIS AVANT LE DÉPART
-                         ======================================================== -->
-
-                    <!-- 4. ASSURANCE OBLIGATOIRE -->
-                    <div class="checklist-card priority">
-                        <div class="card-header">
-                            <h3>🛡️ 4. Assurance Maladie / Rapatriement</h3>
-                            <span class="badge red">1 à 2 mois avant</span>
-                        </div>
-                        <div class="card-body">
-                            <p class="warning-text">
-                                ⚠️ <strong>ATTENTION CRITIQUE :</strong> L'assurance doit impérativement être souscrite 
-                                <strong>AVANT</strong> le départ et couvrir <strong>toute la durée prévue du séjour</strong>. 
-                                À l'arrivée, l'agent de l'immigration calquera la durée de ton visa sur la durée exacte de ton attestation d'assurance.
-                            </p>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-assurance-souscrite">
-                                <span>Souscrire à l'assurance pour la durée totale du séjour</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-assurance-imprimee">
-                                <span>Imprimer l'attestation papier (à présenter à l'immigration)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- 5. LOGEMENT, BILLETS & LOGISTIQUE -->
-                    <div class="checklist-card">
-                        <div class="card-header">
-                            <h3>✈️ 5. Billets & Logistique du Départ</h3>
-                            <span class="badge red">1 à 2 mois avant</span>
-                        </div>
-                        <div class="card-body">
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-billets">
-                                <span>Acheter les billets d'avion</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-airbnb">
-                                <span>Réserver un Airbnb / auberge pour les 2 premières semaines à Québec</span>
-                            </label>
-                            <label class="todo-item">
-                                <input type="checkbox" id="todo-docs-pvt">
-                                <span>Imprimer la Lettre d'Introduction (LI) + Preuve de fonds bancaires</span>
-                            </label>
-                            <label class="todo-item">
                                 <input type="checkbox" id="todo-adaptateurs">
                                 <span>Acheter 2 ou 3 adaptateurs de prise Europe/France vers Canada (Type A/B)</span>
                             </label>
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-poste">
-                                <span>Mettre en place le transfert ou suivi de courrier postal</span>
+                                <input type="checkbox" id="todo-impots">
+                                <span>Signaler le changement de résidence aux impôts</span>
                             </label>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-resiliations">
-                                <span>Résilier mes abonnements actuels (Mobile, internet, gym, etc.)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- 6. TÉLÉPHONIE AVANT LE DÉPART -->
-                    <div class="checklist-card">
-                        <div class="card-header">
-                            <h3>📱 6. Carte SIM & Téléphonie</h3>
-                            <span class="badge red">1 mois avant</span>
-                        </div>
-                        <div class="card-body">
-                            <p class="warning-text">
-                                ❌ <strong>Note importante :</strong> Mon téléphone actuel <strong>ne prend pas en charge les eSIM</strong>. 
-                                Je dois obligatoirement obtenir une carte SIM physique et m'assurer que l'appareil est désimlocké.
-                            </p>
-                            <p>Plan d'action :</p>
-                            <label class="todo-item">
-                                <input type="checkbox" id="choice-sim-precommander">
-                                <span>Option A : Pré-commander une SIM physique livrée en France</span>
+                                <span>Résilier les abonnements actuels (Mobile, internet, sport, etc.)</span>
                             </label>
                             <label class="todo-item">
-                                <input type="checkbox" id="choice-sim-airport">
-                                <span>Option B : Acheter à l'arrivée en boutique (Fizz, Koodo, etc.)</span>
+                                <input type="checkbox" id="todo-transfert-courrier">
+                                <span>Organiser le suivi/transfert de courrier postal</span>
                             </label>
                         </div>
                     </div>
 
 
                     <!-- ========================================================
-                         ÉTAPE 3 : SUR PLACE
+                         ÉTAPE 3 : ARRIVÉE À QUÉBEC
                          ======================================================== -->
 
-                    <!-- 7. ARRIVÉE À QUÉBEC : LES PREMIÈRES 48 HEURES -->
-                    <div class="checklist-card priority-blue">
+                    <!-- 4. LES PREMIÈRES DÉMARCHES SUR PLACE -->
+                    <div class="checklist-card">
                         <div class="card-header">
-                            <h3>🚀 7. Les Premières 48h à Québec</h3>
-                            <span class="badge blue">À l'arrivée</span>
+                            <h3>🚀 4. Démarches à l'Arrivée à Québec</h3>
+                            <span class="badge blue">Sur place</span>
                         </div>
                         <div class="card-body">
-                            <p>Démarches vitales à effectuer directement en arrivant :</p>
                             <label class="todo-item">
                                 <input type="checkbox" id="todo-nas">
-                                <span>Demander le NAS (Numéro d'Assurance Sociale) chez Service Canada</span>
+                                <span>Obtenir le <strong>NAS</strong> (Numéro d'Assurance Sociale) auprès de Service Canada</span>
                             </label>
-                            <!-- <label class="todo-item">
-                                <input type="checkbox" id="todo-ramq">
-                                <span>S'inscrire à la RAMQ / Carte Soleil (Inscription entente France-Québec)</span>
-                            </label> -->
                             <label class="todo-item">
-                                <input type="checkbox" id="todo-ouvrir-compte">
-                                <span>Rendez-vous en agence pour finaliser le compte bancaire et récupérer la carte</span>
+                                <input type="checkbox" id="todo-sim-fizz">
+                                <span>Récupérer/Activer la <strong>carte SIM physique Fizz</strong></span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-finaliser-bnc">
+                                <span>Rendez-vous en agence <strong>BNC</strong> pour finaliser le compte et récupérer la carte de débit</span>
+                            </label>
+                            <label class="todo-item">
+                                <input type="checkbox" id="todo-rdv-saaq">
+                                <span>Prendre RDV à la <strong>SAAQ</strong> pour échanger le permis français contre un québécois (Délais : jusqu'à 4 mois)</span>
                             </label>
                         </div>
                     </div>
