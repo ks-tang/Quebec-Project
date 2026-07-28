@@ -268,6 +268,54 @@
     "description": "Laverie",
     "category": "shopping"
   },
+  {
+    "name": "Dollarama",
+    "lat": 46.79937373748868, 
+    "lng": -71.25583429181381,
+    "color": "#6F00FF",
+    "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
+  {
+    "name": "Dollarama",
+    "lat": 46.818589235062696,
+    "lng": -71.25382996714919,
+    "color": "#6F00FF",
+    "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
+  {
+    "name": "Dollarama",
+    "lat": 46.82091329090756,
+    "lng": -71.25271308540029,
+    "color": "#6F00FF",
+    "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
+  {
+    "name": "Dollarama",
+    "lat": 46.786756576584125, 
+    "lng": -71.28228858586789,
+    "color": "#6F00FF",
+    "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
+  {
+    "name": "Dollarama",
+    "lat": 46.77031670080731, 
+    "lng": -71.28551431879937,
+    "color": "#6F00FF",
+    "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
+  {
+    "name": "Dollarama",
+    "lat": 46.77196945735474, 
+    "lng": -71.28212596487865,
+    "color": "#6F00FF",
+    "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
 
 
 
@@ -349,6 +397,22 @@
     "lng": -71.21822672948056,
     "color": "#8A0000",
     "description": "Restaurant asiatique : pho",
+    "category": "restaurant"
+  },
+  {
+    "name": "Tim Hortons",
+    "lat": 46.81412285449897, 
+    "lng": -71.20678588978251 ,
+    "color": "#8A0000",
+    "description": "Café",
+    "category": "restaurant"
+  },
+  {
+    "name": "Tim Hortons",
+    "lat": 46.822097537824, 
+    "lng": -71.22628784147848,
+    "color": "#8A0000",
+    "description": "Café",
     "category": "restaurant"
   },
 
