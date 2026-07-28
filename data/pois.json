@@ -343,6 +343,14 @@
     "description": "Restaurant de desserts québécois",
     "category": "restaurant"
   },
+  {
+    "name": "Délicatesses Tonkinoises",
+    "lat": 46.81094134732812, 
+    "lng": -71.21822672948056,
+    "color": "#8A0000",
+    "description": "Restaurant asiatique : pho",
+    "category": "restaurant"
+  },
 
 
   {
