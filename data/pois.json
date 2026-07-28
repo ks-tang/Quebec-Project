@@ -74,6 +74,14 @@
     "description": "Piste de luge (à faire en hiver)",
     "category": "tourisme"
   },
+  {
+    "name": "Centre Vidéotron",
+    "lat": 46.82894999335749, 
+    "lng": -71.24833890434367,
+    "color": "#0099FF",
+    "description": "Complexe sportif",
+    "category": "tourisme"
+  },
 
 
   {
