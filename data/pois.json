@@ -32,14 +32,6 @@
     "category": "administration"
   },
   {
-    "name": "Aéroport international Jean-Lesage de Québec (YQB)",
-    "lat": 46.79087481189469, 
-    "lng": -71.38859382653179, 
-    "color": "#00007A",
-    "description": "Aéroport",
-    "category": "administration"
-  },
-  {
     "name": "Service d'Orientation et d'Intégration des Immigrants au Travail",
     "lat": 46.766826102327585,
     "lng": -71.29328455112321, 
@@ -80,6 +72,30 @@
     "lng": -71.24833890434367,
     "color": "#0099FF",
     "description": "Complexe sportif",
+    "category": "tourisme"
+  },
+  {
+    "name": "Monument de Samuel de Champlain",
+    "lat": 46.82894999335749, 
+    "lng": -71.24833890434367,
+    "color": "#0099FF",
+    "description": "Monument du fondateur de la ville de Québec",
+    "category": "tourisme"
+  },
+  {
+    "name": "Aéroport international Jean-Lesage de Québec (YQB)",
+    "lat": 46.79087481189469, 
+    "lng": -71.38859382653179, 
+    "color": "#0099FF",
+    "description": "Aéroport",
+    "category": "tourisme"
+  },
+  {
+    "name": "Gare du Palais",
+    "lat": 46.817455382657165, 
+    "lng": -71.213850512887, 
+    "color": "#0099FF",
+    "description": "Gare",
     "category": "tourisme"
   },
 
