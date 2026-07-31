@@ -13,7 +13,8 @@ var categoryGroups = {
     restaurant: L.layerGroup(),
     logement: L.layerGroup(),
     nature: L.layerGroup(),
-    sport: L.layerGroup()
+    sport: L.layerGroup(),
+    association: L.layerGroup()
 };
 
 // Groupe de calque pour les lignes de transport RTC

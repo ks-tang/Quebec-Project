@@ -524,6 +524,33 @@
     "color": "#e67e22",
     "description": "Plage",
     "category": "sport"
+  },
+
+
+  {
+    "name": "Fondation Saint-Roch De Québec",
+    "lat": 46.81288581611542, 
+    "lng": -71.22923373690928,
+    "color": "#FF00FF",
+    "description": "Banque alimentaire",
+    "category": "association"
+  },
+  {
+    "name": "Service d’entraide Basse-Ville",
+    "lat": 46.811035141535456, 
+    "lng": -71.24394465544847,
+    "color": "#FF00FF",
+    "description": "Association d'aide : nourriture et vêtements",
+    "category": "association"
+  }
+  ,
+  {
+    "name": "Comptoir alimentaire Notre-Dame-de-Foy",
+    "lat": 46.779485958356354, 
+    "lng": -71.3056989067612,
+    "color": "#FF00FF",
+    "description": "Banque alimentaire",
+    "category": "association"
   }
 
 ]
