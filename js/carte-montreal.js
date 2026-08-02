@@ -3,7 +3,7 @@
 // =========================================================================
 var map;
 var rtcData = null;
-var allPois = []; // <--- 1. Stockage global des données POI
+var allPois = []; // Stockage global des données POI
 
 // Groupes de calques pour les POIs
 var categoryGroups = {
@@ -17,7 +17,7 @@ var categoryGroups = {
     association: L.layerGroup()
 };
 
-// Groupe de calque pour les lignes de transport RTC
+// Groupe de calque pour les lignes de transport RTC/STM
 var rtcLinesGroup = L.featureGroup();
 
 
@@ -43,19 +43,40 @@ function createCustomMarker(color) {
     });
 }
 
+// Extrait le numéro de ligne pur (ex: "2_238" -> "2", "10_12" -> "10")
+function extraireNumeroLigne(props) {
+    if (!props) return '';
+    
+    // Test des propriétés classiques STM et GTFS
+    let raw = props.route_id || props.shape_id || props.route_short_name || props.Nom || props.NUM_LIGNE || '';
+    raw = String(raw).trim();
+
+    if (raw.includes('_')) {
+        return raw.split('_')[0];
+    }
+    return raw;
+}
+
 function obtenirCouleurLigne(properties) {
-    const route = String(properties.route_short_name || properties.Nom || '');
+    const route = extraireNumeroLigne(properties);
+    const nomLigne = String(properties.route_long_name || properties.Nom || '').toLowerCase();
 
-    // Couleurs officielles Métro STM
-    if (route === '1' || route.toLowerCase().includes('verte')) return '#008e4f';  // Ligne Verte
-    if (route === '2' || route.toLowerCase().includes('orange')) return '#f37021'; // Ligne Orange
-    if (route === '4' || route.toLowerCase().includes('jaune')) return '#ffd400';  // Ligne Jaune
-    if (route === '5' || route.toLowerCase().includes('bleue')) return '#00a0e3';  // Ligne Bleue
+    // 1. Couleurs des 4 lignes du Métro de Montréal
+    if (route === '1' || nomLigne.includes('verte')) return '#008e4f';  // Ligne Verte
+    if (route === '2' || nomLigne.includes('orange')) return '#f37021'; // Ligne Orange
+    if (route === '4' || nomLigne.includes('jaune')) return '#ffd400';  // Ligne Jaune
+    if (route === '5' || nomLigne.includes('bleue')) return '#00a0e3';  // Ligne Bleue
 
-    // Lignes Express ou réseau 10-minutes max
-    if (properties.type === 'express') return '#e74c3c';
+    const num = parseInt(route, 10);
 
-    return '#34495e'; // Bus réguliers
+    // 2. Réseau Bus Express STM (Lignes 400+)
+    if (!isNaN(num) && num >= 400 && num <= 499) return '#e74c3c'; // Rouge Express
+
+    // 3. Réseau Bus Fréquent / Chrono (Lignes 500+)
+    if (!isNaN(num) && num >= 500) return '#9b59b6'; 
+
+    // 4. Couleur par défaut pour les bus réguliers
+    return '#2980b9'; // Bleu bus standard
 }
 
 
@@ -78,7 +99,6 @@ function toggleAllCategories(isChecked) {
         }
     }
     
-    // Mettre à jour la liste texte sous la carte
     rafraichirPOIsVisibles();
 }
 
@@ -98,11 +118,9 @@ function toggleCategory(category) {
         chkToggleAll.checked = touteslesCases.every(chk => chk && chk.checked);
     }
 
-    // Mettre à jour la liste texte sous la carte
     rafraichirPOIsVisibles();
 }
 
-// <--- 2. Nouvelle fonction de filtrage pour la liste texte
 function rafraichirPOIsVisibles() {
     const poisFiltres = allPois.filter(poi => {
         const chk = document.getElementById('chk-' + poi.category);
@@ -142,12 +160,14 @@ function mettreAJourCarte(featuresFiltrees) {
             };
         },
         onEachFeature: function(feature, layer) {
-            const nom = feature.properties.Nom || feature.properties.Parcours;
-            const type = feature.properties.Type || 'Régulier';
+            const props = feature.properties || {};
+            const numLigne = extraireNumeroLigne(props);
+            const nom = props.route_long_name || props.Nom || `Ligne ${numLigne}`;
+            const type = props.Type || (['1','2','4','5'].includes(numLigne) ? 'Métro' : 'Bus');
             
             layer.bindPopup(`
                 <div style="font-family: sans-serif;">
-                    <strong>Ligne ${nom}</strong><br>
+                    <strong>Ligne ${numLigne} ${nom ? '- ' + nom : ''}</strong><br>
                     <span style="color: #666;">Type : ${type}</span>
                 </div>
             `);
@@ -175,7 +195,7 @@ function mettreAJourCarte(featuresFiltrees) {
 }
 
 function filtrerLesLignes(choix) {
-    if (!rtcData) return;
+    if (!rtcData || !rtcData.features) return;
 
     if (choix === 'tous') {
         mettreAJourCarte(rtcData.features);
@@ -183,12 +203,35 @@ function filtrerLesLignes(choix) {
     }
 
     const featuresFiltrees = rtcData.features.filter(feature => {
-        const parcours = String(feature.properties.Parcours);
-        const type = String(feature.properties.Type).toLowerCase();
+        const props = feature.properties || {};
+        const route = extraireNumeroLigne(props);
+        const typeStr = String(props.route_type || props.Type || '').toLowerCase();
+        const numLigne = parseInt(route, 10);
 
-        if (choix === 'metrobus') return parcours.startsWith('80');
-        if (choix === 'express') return parcours.startsWith('50') || type.includes('express');
-        if (choix === 'regulier') return !parcours.startsWith('80') && !parcours.startsWith('50') && !type.includes('express');
+        const estMetro = ['1', '2', '4', '5'].includes(route) || typeStr === '1';
+        const estExpress = (!isNaN(numLigne) && numLigne >= 400 && numLigne <= 499) || typeStr.includes('express');
+        const estFrequente = (!isNaN(numLigne) && numLigne >= 500) || typeStr.includes('max');
+
+        // --- FILTRE METRO ---
+        if (choix === 'metro') {
+            return estMetro;
+        }
+
+        // --- FILTRE EXPRESS ---
+        if (choix === 'express') {
+            return estExpress;
+        }
+
+        // --- FILTRE METROBUS / FREQUENT ---
+        if (choix === 'metrobus') {
+            return estFrequente;
+        }
+
+        // --- FILTRE REGULIER (Bus standard) ---
+        if (choix === 'regulier') {
+            return !estMetro && !estExpress && !estFrequente;
+        }
+
         return true;
     });
 
@@ -210,7 +253,7 @@ function initMap() {
     // 1. Quartiers
     fetch('data/montreal-quartier.geojson')
         .then(response => {
-            if (!response.ok) throw new Error("Erreur GeoJSON");
+            if (!response.ok) throw new Error("Erreur GeoJSON Quartiers");
             return response.json();
         })
         .then(geojsonData => {
@@ -231,10 +274,20 @@ function initMap() {
         })
         .catch(error => console.warn("Impossible d'afficher les quartiers :", error));
 
-    // 2. Transports RTC
+    // 2. Transports STM / RTC
     fetch('data/stm-lignes.geojson')
-        .then(response => response.json())
-        .then(data => { rtcData = data; })
+        .then(response => {
+            if (!response.ok) throw new Error("Erreur GeoJSON Lignes");
+            return response.json();
+        })
+        .then(data => { 
+            rtcData = data; 
+            // Si la case à cocher transport est déjà activée au chargement
+            const chkTransport = document.getElementById("chk-transport");
+            if (chkTransport && chkTransport.checked) {
+                toggleTransport();
+            }
+        })
         .catch(error => console.error("Erreur de chargement des lignes :", error));
 
     // 3. Points d'intérêt (POIs)
@@ -244,13 +297,12 @@ function initMap() {
             return response.json();
         })
         .then(poisData => {
-            allPois = poisData; // <--- Sauvegarde dans la variable globale
+            allPois = poisData;
 
             allPois.forEach(poi => {
                 var customIcon = createCustomMarker(poi.color);
                 var marker = L.marker([poi.lat, poi.lng], { icon: customIcon });
                 
-                // On attache l'instance du marker sur le POI pour l'ouvrir au clic depuis la liste texte
                 poi.marker = marker; 
 
                 marker.bindPopup(`
@@ -273,7 +325,6 @@ function initMap() {
                 categoryGroups[category].addTo(map);
             }
 
-            // Génération de la liste au premier chargement
             rafraichirPOIsVisibles();
         })
         .catch(error => console.error("Erreur POIs :", error));
@@ -286,6 +337,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const chkToggleAll = document.getElementById('chk-toggle-all');
     if (chkToggleAll) {
         chkToggleAll.addEventListener('change', (e) => toggleAllCategories(e.target.checked));
+    }
+
+    const chkTransport = document.getElementById('chk-transport');
+    if (chkTransport) {
+        chkTransport.addEventListener('change', toggleTransport);
     }
 
     const selectTransport = document.getElementById('select-type-transport');
@@ -307,7 +363,7 @@ function mettreAJourListePOI(pointsVisibles) {
     const listeElement = document.getElementById('poi-list');
     if (!listeElement) return;
 
-    listeElement.innerHTML = ''; // Réinitialise la liste
+    listeElement.innerHTML = '';
 
     if (pointsVisibles.length === 0) {
         listeElement.innerHTML = '<li class="poi-empty">Aucun point d\'intérêt ne correspond aux filtres sélectionnés.</li>';
@@ -318,14 +374,12 @@ function mettreAJourListePOI(pointsVisibles) {
         const li = document.createElement('li');
         li.className = 'poi-item';
         
-        // <--- 4. Adapté selon les clés de pois.json (name, category, description)
         li.innerHTML = `
             <span class="poi-categorie-tag" style="border-left: 3px solid ${point.color || '#3182ce'}">${point.category}</span>
             <strong class="poi-nom">${point.name}</strong>
             <span class="poi-adresse">${point.description || ''}</span>
         `;
 
-        // Un clic sur la puce recentre la carte et ouvre le popup
         li.addEventListener('click', () => {
             map.setView([point.lat, point.lng], 16, { animate: true, duration: 1.0 });
             if (point.marker) {
