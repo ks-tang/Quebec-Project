@@ -65,8 +65,8 @@
   },
   {
     "name": "CSAI - Centre Social d'Aide aux Immigrants",
-    "lat": 46.81584062423002, 
-    "lng": -71.22916289500264, 
+    "lat": 45.46608300135747, 
+    "lng": -73.56646179570643, 
     "color": "#00007A",
     "description": "Centre social",
     "category": "administration"
@@ -715,8 +715,8 @@
   },
   {
     "name": "Auberge Alt Hostel",
-    "lat": 46.78056638232142, 
-    "lng": -71.26720703318522 ,
+    "lat": 45.50926381669559, 
+    "lng": -73.55180243966007,
     "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
@@ -767,8 +767,8 @@
 
   {
     "name": "Piscine du Cégep du Vieux Montréal",
-    "lat": 46.801455247755506, 
-    "lng": -71.21077177503085,
+    "lat": 45.514670829144386, 
+    "lng": -73.56637897654196,
     "color": "#e67e22",
     "description": "Piscine municipale couverte gratuite",
     "category": "sport"
@@ -815,14 +815,5 @@
     "description": "Restaurant d'insertion professionnelle",
     "category": "association"
   }
-  ,
-  {
-    "name": "Comptoir alimentaire Notre-Dame-de-Foy",
-    "lat": 46.779485958356354, 
-    "lng": -71.3056989067612,
-    "color": "#FF00FF",
-    "description": "Banque alimentaire",
-    "category": "association"
-  }
-
+  
 ]
