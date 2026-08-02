@@ -208,9 +208,14 @@ function filtrerLesLignes(choix) {
         const typeStr = String(props.route_type || props.Type || '').toLowerCase();
         const numLigne = parseInt(route, 10);
 
+        // 1. Détection stricte du Métro (Lignes 1, 2, 4, 5 ou route_type 1)
         const estMetro = ['1', '2', '4', '5'].includes(route) || typeStr === '1';
-        const estExpress = (!isNaN(numLigne) && numLigne >= 400 && numLigne <= 499) || typeStr.includes('express');
-        const estFrequente = (!isNaN(numLigne) && numLigne >= 500) || typeStr.includes('max');
+
+        // 2. Détection des Bus Express (Lignes 400 à 499)
+        const estExpress = !estMetro && ((!isNaN(numLigne) && numLigne >= 400 && numLigne <= 499) || typeStr.includes('express'));
+
+        // 3. Détection des Bus Fréquents / Métrobus (Lignes 500+ ou mention max/chrono)
+        const estFrequente = !estMetro && ((!isNaN(numLigne) && numLigne >= 500) || typeStr.includes('max') || typeStr.includes('chrono'));
 
         // --- FILTRE METRO ---
         if (choix === 'metro') {
@@ -222,17 +227,19 @@ function filtrerLesLignes(choix) {
             return estExpress;
         }
 
-        // --- FILTRE METROBUS / FREQUENT ---
-        if (choix === 'metrobus') {
+        // --- FILTRE BUS FRÉQUENT / MÉTROBUS ---
+        // Accepte plusieurs valeurs possibles de votre <option> HTML
+        if (choix === 'metrobus' || choix === 'frequente' || choix === 'frequent' || choix === 'chrono') {
             return estFrequente;
         }
 
-        // --- FILTRE REGULIER (Bus standard) ---
-        if (choix === 'regulier') {
+        // --- FILTRE BUS RÉGULIER ---
+        if (choix === 'regulier' || choix === 'bus') {
             return !estMetro && !estExpress && !estFrequente;
         }
 
-        return true;
+        // Si aucun filtre ne correspond, par sécurité on n'affiche rien ou tout
+        return false; 
     });
 
     mettreAJourCarte(featuresFiltrees);

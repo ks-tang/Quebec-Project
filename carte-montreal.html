@@ -64,12 +64,13 @@
                     <span class="legend-color" style="background-color: #e67e22; border-radius: 2px; width: 15px; height: 3px;"></span> Transport (STM / Métro & Bus)
                 </label>
                 <div class="filter-item" style="margin-top: 8px;">
-                    <select id="select-type-transport" disabled style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
-                    <option value="tous">Toutes les lignes</option>
-                    <option value="metro">Lignes de Métro</option>
-                    <option value="frequent">Lignes de bus récurrente (Fréquentes)</option>
-                    <option value="express">Bus Express / Navettes</option>
-                </select>
+                    <select id="select-type-transport">
+                        <option value="tous">Toutes les lignes</option>
+                        <option value="metro">Métro uniquement</option>
+                        <option value="frequente">Bus fréquents / Chrono</option>
+                        <option value="express">Bus Express (400+)</option>
+                        <option value="regulier">Bus réguliers</option>
+                    </select>
                 </div>
             </div>
             
