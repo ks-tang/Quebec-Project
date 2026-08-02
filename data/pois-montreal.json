@@ -9,408 +9,688 @@
   },
   {
     "name": "Centre Service Canada",
-    "lat": 46.84176819324674, 
-    "lng": -71.21342903196759,
+    "lat": 45.527314473178734, 
+    "lng": -73.61950714613168,
     "color": "#00007A",
     "description": "Démarches administratives indispensables (NAS, permis, etc.).",
     "category": "administration"
   },
   {
     "name": "Centre Service Canada",
-    "lat": 46.76705579888662, 
-    "lng": -71.3100401575092,
+    "lat": 45.48378467985669, 
+    "lng": -73.63075827429901,
     "color": "#00007A",
     "description": "Démarches administratives indispensables (NAS, permis, etc.).",
     "category": "administration"
   },
   {
     "name": "Centre Service Canada",
-    "lat": 46.79357502275033, 
-    "lng": -71.17680791661226 ,
+    "lat": 45.46251718848216, 
+    "lng": -73.56689589437602 ,
     "color": "#00007A",
     "description": "Démarches administratives indispensables (NAS, permis, etc.).",
     "category": "administration"
   },
   {
-    "name": "Service d'Orientation et d'Intégration des Immigrants au Travail",
-    "lat": 46.766826102327585,
-    "lng": -71.29328455112321, 
+    "name": "Centre Service Canada",
+    "lat": 45.60022955518129, 
+    "lng": -73.61118579990425,
     "color": "#00007A",
-    "description": "Agence de recrutement",
+    "description": "Démarches administratives indispensables (NAS, permis, etc.).",
     "category": "administration"
   },
   {
-    "name": "Centre multiethnique de Québec",
+    "name": "Centre Service Canada",
+    "lat": 45.66039406170237, 
+    "lng": -73.50911048846201 ,
+    "color": "#00007A",
+    "description": "Démarches administratives indispensables (NAS, permis, etc.).",
+    "category": "administration"
+  },
+  {
+    "name": "Centre Service Canada",
+    "lat": 45.47145966650286, 
+    "lng": -73.79181559343402,
+    "color": "#00007A",
+    "description": "Démarches administratives indispensables (NAS, permis, etc.).",
+    "category": "administration"
+  },
+  {
+    "name": "CACI - Centre d'appui aux communautés immigrantes",
+    "lat": 45.526848449672265, 
+    "lng": -73.71658431340693, 
+    "color": "#00007A",
+    "description": "Organisme à but non lucratif",
+    "category": "administration"
+  },
+  {
+    "name": "CSAI - Centre Social d'Aide aux Immigrants",
     "lat": 46.81584062423002, 
     "lng": -71.22916289500264, 
     "color": "#00007A",
-    "description": "Centre social. Peut fournir un logement. Si besoin en cas d'urgence.",
+    "description": "Centre social",
+    "category": "administration"
+  },
+  {
+    "name": "CSAI - Centre Social d'Aide aux Immigrants Maison Marie-Gérin-Lajoie",
+    "lat": 45.46141537579566, 
+    "lng": -73.58821588224147, 
+    "color": "#00007A",
+    "description": "Centre social",
+    "category": "administration"
+  },
+  {
+    "name": "CSAI - Centre Social d'Aide aux Immigrants",
+    "lat": 45.456875287207, 
+    "lng": -73.58865506151152,
+    "color": "#00007A",
+    "description": "Centre social",
+    "category": "administration"
+  },
+  {
+    "name": "CSAI - Centre Social d'Aide aux Immigrants",
+    "lat": 45.43482255836486, 
+    "lng": -73.6704540937019, 
+    "color": "#00007A",
+    "description": "Centre social",
+    "category": "administration"
+  },
+  {
+    "name": "CSAI - Centre Social d'Aide aux Immigrants",
+    "lat": 45.46755527582752, 
+    "lng": -73.54118335330485, 
+    "color": "#00007A",
+    "description": "Centre social",
     "category": "administration"
   },
 
 
 
   {
-    "name": "Fairmont Le Château Frontenac",
-    "lat": 46.812013064736966, 
-    "lng": -71.20521840906478 ,
+    "name": "Basilique Notre-Dame de Montréal",
+    "lat": 45.504526105818755, 
+    "lng": -73.55612206685275,
     "color": "#0099FF",
-    "description": "Château de la ville",
+    "description": "Basilique de la ville",
     "category": "tourisme"
   },
   {
-    "name": "Glissade de la Terrasse Dufferin Terrace Toboggan Slide",
-    "lat": 46.80957049021764, 
-    "lng": -71.20425857595953,
+    "name": "Rue Sainte-Catherine",
+    "lat": 45.481845059018816, 
+    "lng": -73.59242448459027,
     "color": "#0099FF",
-    "description": "Piste de luge (à faire en hiver)",
+    "description": "Rue commerçante",
     "category": "tourisme"
   },
   {
-    "name": "Centre Vidéotron",
-    "lat": 46.82894999335749, 
-    "lng": -71.24833890434367,
+    "name": "Le Vieux Montréal",
+    "lat": 45.507499811820885, 
+    "lng": -73.55437673647221,
     "color": "#0099FF",
-    "description": "Complexe sportif",
+    "description": "Vieux quartier",
     "category": "tourisme"
   },
   {
-    "name": "Monument de Samuel de Champlain",
-    "lat": 46.82894999335749, 
-    "lng": -71.24833890434367,
+    "name": "La Grande Roue de Montréal",
+    "lat": 45.508745774684364, 
+    "lng": -73.5488439224217,
     "color": "#0099FF",
-    "description": "Monument du fondateur de la ville de Québec",
+    "description": "Grande roue",
     "category": "tourisme"
   },
   {
-    "name": "Aéroport international Jean-Lesage de Québec (YQB)",
-    "lat": 46.79087481189469, 
-    "lng": -71.38859382653179, 
+    "name": "Aéroport International Montréal-Trudeau",
+    "lat": 45.46580918264881, 
+    "lng": -73.74539854070987, 
     "color": "#0099FF",
     "description": "Aéroport",
     "category": "tourisme"
   },
   {
-    "name": "Gare du Palais",
-    "lat": 46.817455382657165, 
-    "lng": -71.213850512887, 
+    "name": "MET - Aéroport métropolitain de Montréal (Terminal YHU)",
+    "lat": 45.518971270019094, 
+    "lng": -73.41166424403286, 
+    "color": "#0099FF",
+    "description": "Aéroport",
+    "category": "tourisme"
+  },
+  {
+    "name": "Gare Centrale",
+    "lat": 45.50011395641329, 
+    "lng": -73.56652374492997, 
     "color": "#0099FF",
     "description": "Gare",
+    "category": "tourisme"
+  },
+  {
+    "name": "Quartier Chinois de Montréal",
+    "lat": 45.507710469489844, 
+    "lng": -73.56013378018316,  
+    "color": "#0099FF",
+    "description": "Quartier asiatique",
     "category": "tourisme"
   },
 
 
   {
-    "name": "Uniqlo Place Ste Foy",
-    "lat": 46.77296242201724, 
-    "lng": -71.28041386855493 ,
+    "name": "UNIQLO Centre Eaton de Montréal",
+    "lat": 45.50314382984945, 
+    "lng": -73.57036284921213 ,
     "color": "#6F00FF",
     "description": "Magasin de vêtements",
     "category": "shopping"
   },
   {
-    "name": "Uniqlo Galeries de la Capitale",
-    "lat": 46.83063469861718, 
-    "lng": -71.30079810942723, 
+    "name": "UNIQLO Royalmount",
+    "lat": 45.50068068612194, 
+    "lng": -73.66473760708831, 
     "color": "#6F00FF",
     "description": "Magasin de vêtements",
     "category": "shopping"
   },
   {
-    "name": "Decathlon PEPS Université Laval",
-    "lat": 46.78459320238817, 
-    "lng": -71.27694366855455,
+    "name": "UNIQLO CF Fairview Pointe Claire",
+    "lat": 45.46365703790153, 
+    "lng": -73.83142997878032, 
+    "color": "#6F00FF",
+    "description": "Magasin de vêtements",
+    "category": "shopping"
+  },
+  {
+    "name": "UNIQLO Galeries d'Anjou",
+    "lat": 45.601346593590556, 
+    "lng": -73.56477224776995, 
+    "color": "#6F00FF",
+    "description": "Magasin de vêtements",
+    "category": "shopping"
+  },
+  {
+    "name": "Décathlon Centre Eaton",
+    "lat": 45.5029512339022, 
+    "lng": -73.57024235266934,
     "color": "#6F00FF",
     "description": "Magasin de sports",
     "category": "shopping"
   },
   {
-    "name": "Decathlon Sainte-Foy",
-    "lat": 46.778857268537976, 
-    "lng": -71.3465662556826,
+    "name": "Décathlon Marché Central",
+    "lat": 45.53341975568384, 
+    "lng": -73.64844134269084,
+    "color": "#6F00FF",
+    "description": "Magasin de sports",
+    "category": "shopping"
+  },
+  {
+    "name": "Décathlon Pointe-Claire",
+    "lat": 45.46316043273319, 
+    "lng": -73.83007651285175,
     "color": "#6F00FF",
     "description": "Magasin de sports",
     "category": "shopping"
   },
   {
     "name": "Walmart",
-    "lat": 46.82430243004832, 
-    "lng": -71.25290708986672,
+    "lat": 45.452199866356445, 
+    "lng": -73.60991789920845,
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
   {
     "name": "Walmart",
-    "lat": 46.77068084686462, 
-    "lng": -71.28494486544038 ,
+    "lat": 45.491903130854574, 
+    "lng": -73.6532776363989,
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
   {
     "name": "Walmart",
-    "lat": 46.782226369891504, 
-    "lng": -71.34869079135008,
+    "lat": 45.49192620184063, 
+    "lng": -73.70803970308498,
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
   {
-    "name": "Walmart Lebourgneuf",
-    "lat": 46.83305907974895, 
-    "lng": -71.30477576161243, 
+    "name": "Walmart Dorval",
+    "lat": 45.44526825061963, 
+    "lng": -73.74283554444305, 
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
   {
-    "name": "Walmart Lévis",
-    "lat": 46.79640983838153, 
-    "lng": -71.17173969601734, 
+    "name": "Walmart Pointe-Claire",
+    "lat": 45.461261144834666, 
+    "lng": -73.82148833903074, 
+    "color": "#6F00FF",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart Marché Central",
+    "lat": 45.53429234473322, 
+    "lng":  -73.64751542310326,
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
   {
     "name": "Walmart",
-    "lat": 46.8724121697256, 
-    "lng": -71.20478690879169, 
+    "lat": 45.57508152104081, 
+    "lng": -73.59202016421874,
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
   },
   {
-    "name": "Supermarché Xinya",
-    "lat": 46.8119339667011, 
-    "lng": -71.29971190383677 ,
+    "name": "Walmart",
+    "lat": 45.59258061481301, 
+    "lng": -73.57172671966633,
+    "color": "#6F00FF",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Walmart",
+    "lat": 45.58073012604689, 
+    "lng": -73.54063593980386,
+    "color": "#6F00FF",
+    "description": "Hypermarché",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Fu Tai",
+    "lat": 45.50205632386098, 
+    "lng": -73.63710620836777 ,
     "color": "#6F00FF",
     "description": "Supermarché asiatique",
     "category": "shopping"
   },
   {
-    "name": "Chanhda épicerie asiatique",
-    "lat": 46.80911512417601, 
-    "lng": -71.2396754196452 ,
+    "name": "Kim Phat - Goyer",
+    "lat": 45.503242156574906, 
+    "lng": -73.63634511564106,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Newon",
+    "lat": 45.49743053964435, 
+    "lng": -73.64904634890038,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Duc Thanh",
+    "lat": 45.49528737766159, 
+    "lng": -73.64007217312012,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "T&T Supermarché",
+    "lat": 45.507908830867, 
+    "lng": -73.6673103259797,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Lian Tai",
+    "lat": 45.518670828013725, 
+    "lng": -73.7002283675668 ,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Kim Phat - Ville St-Laurent",
+    "lat": 45.52438687133876, 
+    "lng": -73.71344314086436,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché C & T",
+    "lat": 45.52730521919482, 
+    "lng": -73.71972524648649,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Ocean Plus",
+    "lat": 45.43448474365118, 
+    "lng": -73.64599369782646,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Newon (Downtown)",
+    "lat": 45.49423258604057, 
+    "lng": -73.5783531154171,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Kim Phat - Jarry",
+    "lat": 45.5692743356467, 
+    "lng": -73.60552312224083,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Kei Phat",
+    "lat": 45.57302780846372, 
+    "lng": -73.60150244972895 ,
+    "color": "#6F00FF",
+    "description": "Supermarché asiatique",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Newon (Downtown)",
+    "lat": 45.49423258604057, 
+    "lng": -73.5783531154171,
     "color": "#6F00FF",
     "description": "Supermarché asiatique",
     "category": "shopping"
   },
   {
     "name": "Village des Valeurs",
-    "lat": 46.764556612188194, 
-    "lng": -71.31557446563518 ,
+    "lat": 45.49684752245124, 
+    "lng": -73.64804962692223,
     "color": "#6F00FF",
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
   {
     "name": "Village des Valeurs",
-    "lat": 46.84176788263016, 
-    "lng": -71.27498392661275 ,
+    "lat": 45.49131469849146, 
+    "lng": -73.70651655055374 ,
     "color": "#6F00FF",
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
   {
-    "name": "Village des Valeurs Beauport",
-    "lat": 46.84268746618644, 
-    "lng": -71.21475272794967 ,
+    "name": "Village des Valeurs",
+    "lat": 45.48761551991535, 
+    "lng": -73.79824873211231,
     "color": "#6F00FF",
     "description": "Magasin de produits d'occasion",
     "category": "shopping"
   },
   {
-    "name": "IKEA",
-    "lat": 46.77655503339784, 
-    "lng": -71.3494925308816,
+    "name": "Village des Valeurs",
+    "lat": 45.53043633415291, 
+    "lng": -73.62379759489455,
+    "color": "#6F00FF",
+    "description": "Magasin de produits d'occasion",
+    "category": "shopping"
+  },
+  {
+    "name": "Village des Valeurs",
+    "lat": 45.59422875535814, 
+    "lng": -73.56956276899682,
+    "color": "#6F00FF",
+    "description": "Magasin de produits d'occasion",
+    "category": "shopping"
+  },
+  {
+    "name": "IKEA Montréal",
+    "lat": 45.49198694435013, 
+    "lng": -73.69135264150586,
     "color": "#6F00FF",
     "description": "Magasin de meubles",
     "category": "shopping"
   },
   {
-    "name": "Montagne Dorée",
-    "lat": 46.80880656711015, 
-    "lng": -71.24418689046487 ,
-    "color": "#6F00FF",
-    "description": "Supermarché asiatique",
-    "category": "shopping"
-  },
-  {
-    "name": "Maxi Québec Rene-Levesque",
-    "lat": 46.79648792423626, 
-    "lng": -71.23976251101462 ,
+    "name": "Maxi",
+    "lat": 45.45852901627852, 
+    "lng": -73.58821452075352 ,
     "color": "#6F00FF",
     "description": "Supermarché discount",
     "category": "shopping"
   },
   {
-    "name": "Maxi Québec Wilfrid-Hamel",
-    "lat": 46.82273286515269, 
-    "lng": -71.25437154066017,
+    "name": "Maxi Montréal Saint-Jacques",
+    "lat": 45.45994021195803, 
+    "lng": -73.6243129782473,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi Montreal Ottawa",
+    "lat": 45.49707900099185, 
+    "lng": -73.55682947482023,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi Montreal Ste-Catherine Es",
+    "lat": 45.523053529939425, 
+    "lng": -73.55212777157332,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi & Cie",
+    "lat": 45.50497706746132, 
+    "lng": -73.63767265038246,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi Montreal St-Hubert",
+    "lat": 45.535153551644065, 
+    "lng": -73.60137459816947,
     "color": "#6F00FF",
     "description": "Supermarché discount",
     "category": "shopping"
   },
   {
     "name": "Maxi",
-    "lat": 46.78895913471801, 
-    "lng": -71.2693224997782,
+    "lat": 45.54109131196645, 
+    "lng": -73.55951170595124,
     "color": "#6F00FF",
     "description": "Supermarché discount",
     "category": "shopping"
   },
   {
-    "name": "Lavoir Sainte-Ursule",
-    "lat": 46.81264594785544, 
-    "lng": -71.21164173274228,
+    "name": "Maxi Lachine Remembrance",
+    "lat": 45.43936090719406, 
+    "lng": -73.69140112135737,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Maxi Dorval",
+    "lat": 45.44420459965937, 
+    "lng": -73.74171996538068,
+    "color": "#6F00FF",
+    "description": "Supermarché discount",
+    "category": "shopping"
+  },
+  {
+    "name": "Lavoir St-Jacques",
+    "lat": 45.476860717296674, 
+    "lng": -73.58832124207422,
+    "color": "#6F00FF",
+    "description": "Laverie",
+    "category": "shopping"
+  },
+  {
+    "name": "Buanderie Mousse Tache",
+    "lat": 45.518172431950184, 
+    "lng": -73.55830038313815 ,
+    "color": "#6F00FF",
+    "description": "Laverie",
+    "category": "shopping"
+  },
+  {
+    "name": "Lavoir St André",
+    "lat": 45.52541273054623, 
+    "lng": -73.57816381842969,
     "color": "#6F00FF",
     "description": "Laverie",
     "category": "shopping"
   },
   {
     "name": "Dollarama",
-    "lat": 46.79937373748868, 
-    "lng": -71.25583429181381,
+    "lat": 45.50760862967395, 
+    "lng": -73.56444135651766,
     "color": "#6F00FF",
     "description": "Magasin tout à un euro",
     "category": "shopping"
   },
   {
     "name": "Dollarama",
-    "lat": 46.818589235062696,
-    "lng": -71.25382996714919,
+    "lat": 45.516653498669896, 
+    "lng": -73.55801575673804,
     "color": "#6F00FF",
     "description": "Magasin tout à un euro",
     "category": "shopping"
   },
   {
     "name": "Dollarama",
-    "lat": 46.82091329090756,
-    "lng": -71.25271308540029,
+    "lat": 45.51568730734177, 
+    "lng": -73.57620181284938,
     "color": "#6F00FF",
     "description": "Magasin tout à un euro",
     "category": "shopping"
   },
   {
     "name": "Dollarama",
-    "lat": 46.786756576584125, 
-    "lng": -71.28228858586789,
+    "lat": 45.524484898877894,
+    "lng":  -73.58438753344532,
     "color": "#6F00FF",
     "description": "Magasin tout à un euro",
     "category": "shopping"
   },
   {
     "name": "Dollarama",
-    "lat": 46.77031670080731, 
-    "lng": -71.28551431879937,
+    "lat": 45.478674641150505,
+    "lng":  -73.58292287448413,
     "color": "#6F00FF",
     "description": "Magasin tout à un euro",
     "category": "shopping"
   },
   {
     "name": "Dollarama",
-    "lat": 46.77196945735474, 
-    "lng": -71.28212596487865,
+    "lat": 45.5325443289664, 
+    "lng": -73.57514194115437,
     "color": "#6F00FF",
     "description": "Magasin tout à un euro",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Jean-Talon",
+    "lat": 45.53611456741879, 
+    "lng": -73.6148895581541,
+    "color": "#6F00FF",
+    "description": "Marché fermier",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Atwater",
+    "lat": 45.479524171542224, 
+    "lng": -73.57696353486932,
+    "color": "#6F00FF",
+    "description": "Marché fermier",
     "category": "shopping"
   },
 
 
 
   {
-    "name": "Poutineville Vieux Québec",
-    "lat": 46.811728177265984, 
-    "lng": -71.21570702596709,
+    "name": "Poutine Bergeron Cantine",
+    "lat": 45.507589022406044, 
+    "lng": -73.55291065776548,
     "color": "#8A0000",
     "description": "Restaurants de poutine",
     "category": "restaurant"
   },
   {
-    "name": "Poutineville Saint-Roch",
-    "lat": 46.8156264179888, 
-    "lng": -71.21985823078998,
+    "name": "Montréal poutine",
+    "lat": 45.50736590884229, 
+    "lng": -73.55270723232624,
+    "color": "#8A0000",
+    "description": "Restaurants de poutine",
+    "category": "restaurant"
+  },
+  {
+    "name": "Poutineville Bishop",
+    "lat": 45.49596607003627, 
+    "lng": -73.57543954342178,
+    "color": "#8A0000",
+    "description": "Restaurants de poutine",
+    "category": "restaurant"
+  },
+  {
+    "name": "Poutine Boss",
+    "lat": 45.533085033080894, 
+    "lng": -73.64657456381835 ,
+    "color": "#8A0000",
+    "description": "Restaurants de poutine",
+    "category": "restaurant"
+  },
+  {
+    "name": "Paul Patates",
+    "lat": 45.47529107050195, 
+    "lng": -73.5638794411371,
     "color": "#8A0000",
     "description": "Restaurants de poutine",
     "category": "restaurant"
   },
   {
     "name": "Burger King",
-    "lat": 46.83400525045876, 
-    "lng": -71.27595865680775,
+    "lat": 45.50589904011912, 
+    "lng": -73.55965842146931,
     "color": "#8A0000",
     "description": "Fast food burgers",
     "category": "restaurant"
   },
   {
     "name": "Burger King",
-    "lat": 46.79094359003542, 
-    "lng": -71.1709346650614,
+    "lat": 45.494918009242824, 
+    "lng": -73.57832402935237,
     "color": "#8A0000",
     "description": "Fast food burgers",
     "category": "restaurant"
   },
   {
     "name": "McDonald's",
-    "lat": 46.81415692763484, 
-    "lng": -71.20987638916698,
+    "lat": 45.50611742782074, 
+    "lng": -73.55592205333954,
     "color": "#8A0000",
     "description": "Fast food burgers",
     "category": "restaurant"
   },
   {
-    "name": "La Buche",
-    "lat": 46.81127134948248, 
-    "lng": -71.20802191860898,
-    "color": "#8A0000",
-    "description": "Restaurant québécois",
-    "category": "restaurant"
-  },
-  {
-    "name": "Cochon Dingue Champlain",
-    "lat": 46.81154412326094, 
-    "lng": -71.20337541428624,
-    "color": "#8A0000",
-    "description": "Restaurant québécois",
-    "category": "restaurant"
-  },
-  {
-    "name": "Queues de Castor Vieux Québec Rue St-Jean",
-    "lat": 46.8132442053222, 
-    "lng": -71.21181651700168,
-    "color": "#8A0000",
-    "description": "Restaurant de desserts québécois",
-    "category": "restaurant"
-  },
-  {
-    "name": "Queues de Castor- BeaverTails (Vieux Québec Petit Champlain)",
-    "lat": 46.81199159642891,
-    "lng": -71.203391306859,
-    "color": "#8A0000",
-    "description": "Restaurant de desserts québécois",
-    "category": "restaurant"
-  },
-  {
-    "name": "Délicatesses Tonkinoises",
-    "lat": 46.81094134732812, 
-    "lng": -71.21822672948056,
-    "color": "#8A0000",
-    "description": "Restaurant asiatique : pho",
-    "category": "restaurant"
-  },
-  {
     "name": "Tim Hortons",
-    "lat": 46.81412285449897, 
-    "lng": -71.20678588978251 ,
+    "lat": 45.50568997706075, 
+    "lng": -73.55979176756671 ,
     "color": "#8A0000",
     "description": "Café",
     "category": "restaurant"
   },
   {
     "name": "Tim Hortons",
-    "lat": 46.822097537824, 
-    "lng": -71.22628784147848,
+    "lat": 45.49604705645936, 
+    "lng": -73.57968460136483,
     "color": "#8A0000",
     "description": "Café",
     "category": "restaurant"
@@ -418,41 +698,41 @@
 
 
   {
-    "name": "Auberge Internationale de Québec",
-    "lat": 46.81235403915732, 
-    "lng": -71.21134670168269,
+    "name": "Capsule residence",
+    "lat": 45.49736837024424,
+    "lng":  -73.5773920603798,
     "color": "#D4AC0D",
-    "description": "Auberge de jeunesse",
+    "description": "Hotel capsule",
     "category": "logement"
   },
   {
-    "name": "Auberge Jeunesse québec central",
-    "lat": 46.81562773073626, 
-    "lng": -71.22105020068939 ,
+    "name": "Capsule Hotel",
+    "lat": 45.51170656197223, 
+    "lng": -73.56799627458328 ,
     "color": "#D4AC0D",
-    "description": "Auberge de jeunesse",
+    "description": "Hotel capsule (le plus proche du quartier chinois)",
     "category": "logement"
   },
   {
-    "name": "Résidences - Université Laval",
+    "name": "Auberge Alt Hostel",
     "lat": 46.78056638232142, 
     "lng": -71.26720703318522 ,
     "color": "#D4AC0D",
-    "description": "Résidence universitaire",
+    "description": "Auberge de jeunesse",
     "category": "logement"
   },
   {
-    "name": "Auberge Jeunesse QBEDS Hostel",
-    "lat": 46.806044457796055, 
-    "lng": -71.21636441065984 ,
+    "name": "M Montréal",
+    "lat": 45.516020796653684, 
+    "lng": -73.55711254279731, 
     "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
   {
-    "name": "Auberge de la Paix",
-    "lat": 46.81505005563687, 
-    "lng": -71.2086843478889 ,
+    "name": "Auberge Saintlo Montréal",
+    "lat": 45.493982668979235, 
+    "lng": -73.57287715280869,
     "color": "#D4AC0D",
     "description": "Auberge de jeunesse",
     "category": "logement"
@@ -460,67 +740,59 @@
 
 
   {
-    "name": "Chute Montmorency",
-    "lat": 46.89029796525226, 
-    "lng": -71.14793418373061,
+    "name": "Mount Royal Park",
+    "lat": 45.50376183952304, 
+    "lng": -73.58750557577247,
     "color": "#148000",
-    "description": "Chute d'eau",
+    "description": "Parc avec vue",
     "category": "nature"
   },
   {
-    "name": "Parc de la Pointe-aux-Lièvres",
-    "lat": 46.82215779706341, 
-    "lng": -71.23529734210761 ,
+    "name": "Jardin botanique de Montréal",
+    "lat": 45.55920772138421, 
+    "lng": -73.55769241166145,
     "color": "#148000",
-    "description": "Parc, devient une patinoire naturelle en hiver.",
+    "description": "Jardin botanique",
     "category": "nature"
   },
   {
-    "name": "Plaines d'Abraham",
-    "lat": 46.80041173965673, 
-    "lng": -71.22028954714034,
+    "name": "Parc de Dieppe",
+    "lat": 45.5044028777836, 
+    "lng": -73.54334151725166,
     "color": "#148000",
-    "description": "Grand parc",
+    "description": "Parc avec vue sur le port",
     "category": "nature"
   },
 
 
   {
-    "name": "Piscine Notre-Dame-de-la-Garde",
+    "name": "Piscine du Cégep du Vieux Montréal",
     "lat": 46.801455247755506, 
     "lng": -71.21077177503085,
     "color": "#e67e22",
-    "description": "Piscine municipale extérieure chauffée",
+    "description": "Piscine municipale couverte gratuite",
     "category": "sport"
   },
   {
-    "name": "Piscine Lucien Borne",
-    "lat": 46.8067138085779, 
-    "lng": -71.22862753271917,
+    "name": "Piscine du Mémorial",
+    "lat": 45.50987416195365, 
+    "lng": -73.57939161409357,
     "color": "#e67e22",
     "description": "Piscine couverte",
     "category": "sport"
   },
   {
-    "name": "Marina Saint-Roch",
-    "lat": 46.81829551811935, 
-    "lng": -71.22628904113712,
+    "name": "Plage de l'Horloge",
+    "lat": 45.51246380992911, 
+    "lng": -73.54602731704325,
     "color": "#e67e22",
-    "description": "Piscine municipale extérieure chauffée en bord de rivière",
+    "description": "Plage juste pour bronzer, pas pour se baigner, c'est gratuit.",
     "category": "sport"
   },
   {
-    "name": "Piscine de la promenade Samuel-De Champlain",
-    "lat": 46.776678183876584, 
-    "lng": -71.24242795371308 ,
-    "color": "#e67e22",
-    "description": "Piscine extérieure gratuite en bord de plage",
-    "category": "sport"
-  },
-  {
-    "name": "Plage Samuel de Champlain",
-    "lat": 46.77797229430867, 
-    "lng": -71.24240001931109,
+    "name": "Plage urbaine de Verdun",
+    "lat": 45.462291952672196, 
+    "lng": -73.56031307872844,
     "color": "#e67e22",
     "description": "Plage",
     "category": "sport"
@@ -528,19 +800,19 @@
 
 
   {
-    "name": "Fondation Saint-Roch De Québec",
-    "lat": 46.81288581611542, 
-    "lng": -71.22923373690928,
+    "name": "Moisson Montréal",
+    "lat": 45.481765533211295, 
+    "lng": -73.69595567701859,
     "color": "#FF00FF",
     "description": "Banque alimentaire",
     "category": "association"
   },
   {
-    "name": "Service d’entraide Basse-Ville",
-    "lat": 46.811035141535456, 
-    "lng": -71.24394465544847,
+    "name": "Resto Plateau",
+    "lat": 45.52500937680777, 
+    "lng": -73.58025127376678,
     "color": "#FF00FF",
-    "description": "Association d'aide : nourriture et vêtements",
+    "description": "Restaurant d'insertion professionnelle",
     "category": "association"
   }
   ,
