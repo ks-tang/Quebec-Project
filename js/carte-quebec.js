@@ -240,7 +240,7 @@ function initMap() {
         .catch(error => console.error("Erreur de chargement des lignes :", error));
 
     // 3. Points d'intérêt (POIs)
-    fetch('data/pois.json')
+    fetch('data/pois-quebec.json')
         .then(response => {
             if (!response.ok) throw new Error("Erreur de chargement des POIs");
             return response.json();
