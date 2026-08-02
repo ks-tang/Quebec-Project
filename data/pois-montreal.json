@@ -1,8 +1,8 @@
 [
   {
-    "name": "Consulat Général de France",
-    "lat": 46.80523007714469, 
-    "lng": -71.21929141440904,
+    "name": "Consulat Général de France à Montréal",
+    "lat": 45.5024179056398, 
+    "lng": -73.57162881378598,
     "color": "#00007A",
     "description": "Pour refaire le passeport français",
     "category": "administration"
