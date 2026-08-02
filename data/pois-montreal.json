@@ -103,6 +103,14 @@
     "description": "Centre social",
     "category": "administration"
   },
+  {
+    "name": "CITIM",
+    "lat": 45.51438894551419, 
+    "lng": -73.55896869019121, 
+    "color": "#00007A",
+    "description": "Organisme des services sociaux (spécial pvtistes), sessions d’aide à l’emploi 1 fois/mois",
+    "category": "administration"
+  },
 
 
 
@@ -693,6 +701,14 @@
     "lng": -73.57968460136483,
     "color": "#8A0000",
     "description": "Café",
+    "category": "restaurant"
+  },
+  {
+    "name": "La Banquise",
+    "lat": 45.5253196121474, 
+    "lng": -73.57479134698809,
+    "color": "#8A0000",
+    "description": "Restaurants de poutine",
     "category": "restaurant"
   },
 
