@@ -390,3 +390,5 @@ function mettreAJourListePOI(pointsVisibles) {
         listeElement.appendChild(li);
     });
 }
+
+// TEST
