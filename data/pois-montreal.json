@@ -198,14 +198,6 @@
   },
   {
     "name": "Walmart",
-    "lat": 45.59258061481301, 
-    "lng": -73.57172671966633,
-    "color": "#6F00FF",
-    "description": "Hypermarché",
-    "category": "shopping"
-  },
-  {
-    "name": "Walmart",
     "lat": 45.58073012604689, 
     "lng": -73.54063593980386,
     "color": "#6F00FF",
@@ -442,14 +434,6 @@
     "lng": -73.57816381842969,
     "color": "#6F00FF",
     "description": "Laverie",
-    "category": "shopping"
-  },
-  {
-    "name": "Dollarama",
-    "lat": 45.50760862967395, 
-    "lng": -73.56444135651766,
-    "color": "#6F00FF",
-    "description": "Magasin tout à un euro",
     "category": "shopping"
   },
   {
