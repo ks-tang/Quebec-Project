@@ -98,6 +98,14 @@
     "description": "Gare",
     "category": "tourisme"
   },
+  {
+    "name": "La Fresque des Québécois",
+    "lat": 46.813363703198306, 
+    "lng": -71.20307132506892, 
+    "color": "#0099FF",
+    "description": "Fresque",
+    "category": "tourisme"
+  },
 
 
   {
