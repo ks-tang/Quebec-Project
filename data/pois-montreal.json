@@ -620,6 +620,110 @@
     "description": "Marché fermier",
     "category": "shopping"
   },
+  {
+    "name": "Complexe Angrignon",
+    "lat": 45.448213781652434, 
+    "lng": -73.61418736361277 ,
+    "color": "#6F00FF",
+    "description": "Centre commercial : Walmart, Carrefour, Maxi, Dollarama",
+    "category": "shopping"
+  },
+  {
+    "name": "Centre commercial Côte St-Luc",
+    "lat": 45.465842143332424, 
+    "lng": -73.65496243293259,
+    "color": "#6F00FF",
+    "description": "Centre commercial : Dollarama, Mcdonald's",
+    "category": "shopping"
+  },
+  {
+    "name": "Quartier Cavendish Mall",
+    "lat": 45.47621601399851, 
+    "lng": -73.6667853577222 ,
+    "color": "#6F00FF",
+    "description": "Centre commercial",
+    "category": "shopping"
+  },
+  {
+    "name": "Centre Eaton de Montréal",
+    "lat": 45.50274658467665,
+    "lng":  -73.57094875523508 ,
+    "color": "#6F00FF",
+    "description": "Centre commercial",
+    "category": "shopping"
+  },
+  {
+    "name": "Complexe Desjardins",
+    "lat": 45.50752403769486, 
+    "lng":  -73.56433541234985,
+    "color": "#6F00FF",
+    "description": "Centre commercial",
+    "category": "shopping"
+  },
+  {
+    "name": "Marché Central",
+    "lat": 45.534606498256316, 
+    "lng":  -73.65425911672283,
+    "color": "#6F00FF",
+    "description": "Centre commercial: Walmart, Decathlon",
+    "category": "shopping"
+  },
+  {
+    "name": "Place Vertu",
+    "lat": 45.49777843399346, 
+    "lng":  -73.70555669419971,
+    "color": "#6F00FF",
+    "description": "Centre commercial: Walmart (proche), Tim Hortons",
+    "category": "shopping"
+  },
+  {
+    "name": "CF Fairview Pointe-Claire",
+    "lat": 45.464045014004675, 
+    "lng":  -73.83136225920002,
+    "color": "#6F00FF",
+    "description": "Centre commercial",
+    "category": "shopping"
+  },
+  {
+    "name": "Centre Le Boulevard",
+    "lat": 45.56723331263669, 
+    "lng":  -73.58833517728162,
+    "color": "#6F00FF",
+    "description": "Centre commercial : Maxi",
+    "category": "shopping"
+  },
+  {
+    "name": "Carrefour Langelier",
+    "lat": 45.59218714841293, 
+    "lng":  -73.57145112338863,
+    "color": "#6F00FF",
+    "description": "Centre commercial : Walmart, Maxi, Dollarama, Village des Valeurs",
+    "category": "shopping"
+  },
+  {
+    "name": "Galeries d'Anjou",
+    "lat": 45.60059740960817, 
+    "lng":  -73.56427104158689,
+    "color": "#6F00FF",
+    "description": "Centre commercial",
+    "category": "shopping"
+  },
+  {
+    "name": "Place Versailles",
+    "lat": 45.59223886024975, 
+    "lng":  -73.54183515941163,
+    "color": "#6F00FF",
+    "description": "Centre commercial: Maxi, Dollarama",
+    "category": "shopping"
+  },
+  {
+    "name": "SmartCentres Montréal",
+    "lat": 45.607033554725184, 
+    "lng":  -73.61381667532548,
+    "color": "#6F00FF",
+    "description": "Centre commercial: Walmart, Dollarama",
+    "category": "shopping"
+  },
 
 
 
