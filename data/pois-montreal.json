@@ -181,105 +181,9 @@
 
 
   {
-    "name": "UNIQLO Centre Eaton de Montréal",
-    "lat": 45.50314382984945, 
-    "lng": -73.57036284921213 ,
-    "color": "#6F00FF",
-    "description": "Magasin de vêtements",
-    "category": "shopping"
-  },
-  {
-    "name": "UNIQLO Royalmount",
-    "lat": 45.50068068612194, 
-    "lng": -73.66473760708831, 
-    "color": "#6F00FF",
-    "description": "Magasin de vêtements",
-    "category": "shopping"
-  },
-  {
-    "name": "UNIQLO CF Fairview Pointe Claire",
-    "lat": 45.46365703790153, 
-    "lng": -73.83142997878032, 
-    "color": "#6F00FF",
-    "description": "Magasin de vêtements",
-    "category": "shopping"
-  },
-  {
-    "name": "UNIQLO Galeries d'Anjou",
-    "lat": 45.601346593590556, 
-    "lng": -73.56477224776995, 
-    "color": "#6F00FF",
-    "description": "Magasin de vêtements",
-    "category": "shopping"
-  },
-  {
-    "name": "Décathlon Centre Eaton",
-    "lat": 45.5029512339022, 
-    "lng": -73.57024235266934,
-    "color": "#6F00FF",
-    "description": "Magasin de sports",
-    "category": "shopping"
-  },
-  {
-    "name": "Décathlon Marché Central",
-    "lat": 45.53341975568384, 
-    "lng": -73.64844134269084,
-    "color": "#6F00FF",
-    "description": "Magasin de sports",
-    "category": "shopping"
-  },
-  {
-    "name": "Décathlon Pointe-Claire",
-    "lat": 45.46316043273319, 
-    "lng": -73.83007651285175,
-    "color": "#6F00FF",
-    "description": "Magasin de sports",
-    "category": "shopping"
-  },
-  {
-    "name": "Walmart",
-    "lat": 45.452199866356445, 
-    "lng": -73.60991789920845,
-    "color": "#6F00FF",
-    "description": "Hypermarché",
-    "category": "shopping"
-  },
-  {
     "name": "Walmart",
     "lat": 45.491903130854574, 
     "lng": -73.6532776363989,
-    "color": "#6F00FF",
-    "description": "Hypermarché",
-    "category": "shopping"
-  },
-  {
-    "name": "Walmart",
-    "lat": 45.49192620184063, 
-    "lng": -73.70803970308498,
-    "color": "#6F00FF",
-    "description": "Hypermarché",
-    "category": "shopping"
-  },
-  {
-    "name": "Walmart Dorval",
-    "lat": 45.44526825061963, 
-    "lng": -73.74283554444305, 
-    "color": "#6F00FF",
-    "description": "Hypermarché",
-    "category": "shopping"
-  },
-  {
-    "name": "Walmart Pointe-Claire",
-    "lat": 45.461261144834666, 
-    "lng": -73.82148833903074, 
-    "color": "#6F00FF",
-    "description": "Hypermarché",
-    "category": "shopping"
-  },
-  {
-    "name": "Walmart Marché Central",
-    "lat": 45.53429234473322, 
-    "lng":  -73.64751542310326,
     "color": "#6F00FF",
     "description": "Hypermarché",
     "category": "shopping"
@@ -422,14 +326,6 @@
   },
   {
     "name": "Village des Valeurs",
-    "lat": 45.49131469849146, 
-    "lng": -73.70651655055374 ,
-    "color": "#6F00FF",
-    "description": "Magasin de produits d'occasion",
-    "category": "shopping"
-  },
-  {
-    "name": "Village des Valeurs",
     "lat": 45.48761551991535, 
     "lng": -73.79824873211231,
     "color": "#6F00FF",
@@ -520,14 +416,6 @@
     "name": "Maxi Lachine Remembrance",
     "lat": 45.43936090719406, 
     "lng": -73.69140112135737,
-    "color": "#6F00FF",
-    "description": "Supermarché discount",
-    "category": "shopping"
-  },
-  {
-    "name": "Maxi Dorval",
-    "lat": 45.44420459965937, 
-    "lng": -73.74171996538068,
     "color": "#6F00FF",
     "description": "Supermarché discount",
     "category": "shopping"
@@ -649,7 +537,7 @@
     "lat": 45.50274658467665,
     "lng":  -73.57094875523508 ,
     "color": "#6F00FF",
-    "description": "Centre commercial",
+    "description": "Centre commercial : Uniqlo, Decathlon",
     "category": "shopping"
   },
   {
@@ -673,7 +561,7 @@
     "lat": 45.49777843399346, 
     "lng":  -73.70555669419971,
     "color": "#6F00FF",
-    "description": "Centre commercial: Walmart (proche), Tim Hortons",
+    "description": "Centre commercial: Walmart (proche), Village des Valeurs (proche), Tim Hortons",
     "category": "shopping"
   },
   {
@@ -681,7 +569,7 @@
     "lat": 45.464045014004675, 
     "lng":  -73.83136225920002,
     "color": "#6F00FF",
-    "description": "Centre commercial",
+    "description": "Centre commercial: Walmart, Uniqlo, Decathlon",
     "category": "shopping"
   },
   {
@@ -705,7 +593,7 @@
     "lat": 45.60059740960817, 
     "lng":  -73.56427104158689,
     "color": "#6F00FF",
-    "description": "Centre commercial",
+    "description": "Centre commercial : Uniqlo",
     "category": "shopping"
   },
   {
@@ -722,6 +610,22 @@
     "lng":  -73.61381667532548,
     "color": "#6F00FF",
     "description": "Centre commercial: Walmart, Dollarama",
+    "category": "shopping"
+  },
+  {
+    "name": "Les Jardins Dorval",
+    "lat": 45.444423481274875,
+    "lng":   -73.74295619600045,
+    "color": "#6F00FF",
+    "description": "Centre commercial: Walmart, Maxi, Dollarama",
+    "category": "shopping"
+  },
+  {
+    "name": "Royalmount",
+    "lat": 45.50140926150393, 
+    "lng": -73.66519516427799,
+    "color": "#6F00FF",
+    "description": "Centre commercial: Uniqlo",
     "category": "shopping"
   },
 
