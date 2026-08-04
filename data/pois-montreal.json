@@ -703,6 +703,14 @@
     "description": "Restaurants de poutine",
     "category": "restaurant"
   },
+  {
+    "name": "Dunya",
+    "lat": 45.51254103302694, 
+    "lng": -73.56920545646393,
+    "color": "#8A0000",
+    "description": "Restaurants de shawarma",
+    "category": "restaurant"
+  },
 
 
   {
@@ -769,6 +777,14 @@
     "lng": -73.54334151725166,
     "color": "#148000",
     "description": "Parc avec vue sur le port",
+    "category": "nature"
+  },
+  {
+    "name": "Jardins des Floralies",
+    "lat": 45.50450791331228, 
+    "lng": -73.52941358355531,
+    "color": "#148000",
+    "description": "Parc avec sculptures géantes",
     "category": "nature"
   },
 
