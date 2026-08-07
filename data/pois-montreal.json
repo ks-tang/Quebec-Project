@@ -753,6 +753,14 @@
     "description": "Auberge de jeunesse",
     "category": "logement"
   },
+  {
+    "name": "Logement Jasmine",
+    "lat": 45.46441469044964, 
+    "lng": -73.58187428459365,
+    "color": "#D4AC0D",
+    "description": "1407 rue de Roberval, Montréal, QC H4E 1E5, Canada",
+    "category": "logement"
+  },
 
 
   {
