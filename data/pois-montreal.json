@@ -711,6 +711,14 @@
     "description": "Restaurants de shawarma",
     "category": "restaurant"
   },
+  {
+    "name": "Grenade",
+    "lat": 45.52501059473796, 
+    "lng": -73.56014430230893,
+    "color": "#8A0000",
+    "description": "Bar de rencontres pour pvtistes, toutes les 2 semaines le mardi soir de 18h à 21h",
+    "category": "restaurant"
+  },
 
 
   {
